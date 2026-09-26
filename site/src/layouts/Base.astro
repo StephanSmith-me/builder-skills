@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import PostHog from "../components/PostHog.astro";
+import SubscribePanel from "../components/SubscribePanel.astro";
 
 interface Props {
   title: string;
@@ -14,26 +18,36 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script is:inline>
+      (function () {
+        try {
+          var key = "lccto-color-scheme";
+          var stored = localStorage.getItem(key);
+          var dark =
+            stored === "dark" ||
+            (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", dark);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (_) {}
+      })();
+    </script>
   </head>
-  <body>
-    <div class="wrap">
-      <header class="site-header">
-        <a class="wordmark" href="/">Builder skills</a>
-        <nav class="nav">
-          <a href="https://github.com/StephanSmith-me/builder-skills">GitHub</a>
-          <a href="https://stephansmith.me">Stephan Smith</a>
-        </nav>
-      </header>
-      <slot />
-      <footer class="site-footer">
-        <span>Installs into the project you are already building.</span>
-        <a href="https://agentskills.io">Agent Skills</a>
-      </footer>
+  <body
+    class="min-h-screen bg-white font-sans text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white dark:bg-neutral-950 dark:text-neutral-100 dark:selection:bg-neutral-100 dark:selection:text-neutral-900"
+  >
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
+      <SiteHeader />
+      <main class="pt-10 pb-12 sm:pt-12">
+        <slot />
+      </main>
+      <SubscribePanel />
     </div>
+    <SiteFooter />
+    <PostHog />
   </body>
 </html>

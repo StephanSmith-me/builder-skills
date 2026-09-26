@@ -1,0 +1,63 @@
+---
+---
+
+<button
+  type="button"
+  class="theme-toggle inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
+  data-theme-toggle
+  aria-label="Switch to dark mode"
+  title="Switch to dark mode"
+>
+  <svg
+    class="hidden h-5 w-5 dark:block"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="4"></circle>
+    <path
+      stroke-linecap="round"
+      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+    ></path>
+  </svg>
+  <svg
+    class="h-5 w-5 dark:hidden"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  import { syncThemeToggleLabels, toggleTheme } from "../lib/theme";
+
+  function bindThemeToggles() {
+    document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]").forEach((btn) => {
+      if (btn.dataset.themeBound === "1") return;
+      btn.dataset.themeBound = "1";
+      btn.addEventListener("click", () => {
+        if (btn.disabled) return;
+        btn.disabled = true;
+        toggleTheme();
+        syncThemeToggleLabels();
+        window.setTimeout(() => {
+          btn.disabled = false;
+        }, 620);
+      });
+    });
+    syncThemeToggleLabels();
+  }
+
+  bindThemeToggles();
+  document.addEventListener("astro:page-load", bindThemeToggles);
+</script>

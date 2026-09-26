@@ -1,0 +1,167 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { HEADSHOT_URL, REPO_URL, primaryNav } from "../lib/brand";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="site-header border-b border-neutral-200 pt-3 pb-2 dark:border-neutral-800 sm:pt-3.5 sm:pb-2"
+  data-nav-open="false"
+>
+  <div class="flex flex-row flex-wrap items-center justify-between gap-3 sm:flex-nowrap sm:items-center sm:justify-between">
+    <a
+      href="/"
+      class="group inline-flex min-w-0 max-w-[calc(100%-6.5rem)] items-center gap-2.5 py-0.5 transition-opacity hover:opacity-90 sm:max-w-none sm:gap-3"
+      aria-label="Stephan Smith — Fractional CTO, home"
+    >
+      <img
+        src={HEADSHOT_URL}
+        alt=""
+        width="40"
+        height="40"
+        class="h-9 w-9 shrink-0 rounded-full object-cover ring-1 ring-neutral-200 dark:ring-neutral-700 sm:h-10 sm:w-10"
+        decoding="async"
+      />
+      <span class="min-w-0 flex flex-col leading-tight">
+        <span class="text-[0.9375rem] font-semibold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-base">
+          Stephan Smith
+        </span>
+        <span class="text-[0.625rem] font-medium tracking-tight text-neutral-500 dark:text-neutral-400 sm:text-[0.6875rem]">
+          low code cto
+        </span>
+      </span>
+    </a>
+
+    <nav
+      id="site-primary-nav"
+      class="site-header__nav max-sm:order-last max-sm:basis-full max-sm:hidden max-sm:w-full max-sm:flex-col max-sm:items-stretch max-sm:gap-1 max-sm:border-t max-sm:border-neutral-200 max-sm:pt-2 dark:max-sm:border-neutral-800 text-sm text-neutral-700 dark:text-neutral-300 sm:ml-auto sm:mr-1 sm:flex sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-5 sm:gap-y-1 sm:border-0 sm:pt-0"
+      aria-label="Primary"
+    >
+      {
+        primaryNav.map((item) => {
+          const current =
+            item.href === "/"
+              ? currentPath === "/" || currentPath.startsWith("/skills")
+              : item.href.startsWith("/") &&
+                (currentPath === item.href || currentPath.startsWith(`${item.href}/`));
+          return (
+            <a
+              href={item.href}
+              aria-current={current ? "page" : undefined}
+              class:list={[
+                "max-sm:min-h-[44px] max-sm:flex max-sm:items-center max-sm:rounded-md max-sm:px-2 max-sm:hover:bg-neutral-50 dark:max-sm:hover:bg-neutral-900 whitespace-nowrap underline-offset-4 hover:underline sm:py-0",
+                current
+                  ? "text-neutral-900 dark:text-neutral-50"
+                  : "hover:text-neutral-900 dark:hover:text-neutral-50",
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+      <a
+        href="/mcp"
+        aria-current={currentPath === "/mcp" || currentPath.startsWith("/mcp/") ? "page" : undefined}
+        class:list={[
+          "min-h-[44px] items-center rounded-md px-2 hover:bg-neutral-50 hover:underline sm:hidden dark:hover:bg-neutral-900",
+          currentPath === "/mcp" || currentPath.startsWith("/mcp/")
+            ? "flex text-neutral-900 dark:text-neutral-50"
+            : "flex text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-50",
+        ]}
+      >
+        MCP
+      </a>
+      <a
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex min-h-[44px] items-center rounded-md px-2 text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 hover:underline sm:hidden dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-neutral-50"
+      >
+        View the Repo
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-1 sm:gap-4">
+      <a
+        href="/mcp"
+        aria-current={currentPath === "/mcp" || currentPath.startsWith("/mcp/") ? "page" : undefined}
+        class:list={[
+          "hidden whitespace-nowrap px-1 text-sm underline-offset-4 hover:underline sm:inline",
+          currentPath === "/mcp" || currentPath.startsWith("/mcp/")
+            ? "text-neutral-900 dark:text-neutral-50"
+            : "text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-50",
+        ]}
+      >
+        MCP
+      </a>
+      <ThemeToggle />
+      <button
+        type="button"
+        class="site-header__menu-btn inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 sm:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-primary-nav"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <a
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden items-center gap-1.5 whitespace-nowrap rounded-full bg-emerald-500 px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-emerald-500/35 sm:inline-flex"
+      >
+        View the Repo
+        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  @media (max-width: 639px) {
+    .site-header[data-nav-open="true"] .site-header__nav {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const btn = document.querySelector<HTMLButtonElement>(".site-header__menu-btn");
+  const nav = document.querySelector<HTMLElement>("#site-primary-nav");
+  if (header && btn && nav) {
+    const mq = window.matchMedia("(min-width: 640px)");
+
+    const setOpen = (open: boolean) => {
+      if (mq.matches) {
+        header.dataset.navOpen = "false";
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+        return;
+      }
+      header.dataset.navOpen = open ? "true" : "false";
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+
+    btn.addEventListener("click", () => {
+      setOpen(header.dataset.navOpen !== "true");
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    mq.addEventListener("change", () => setOpen(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+  }
+</script>

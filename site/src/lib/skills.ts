@@ -13,7 +13,7 @@ export type Skill = {
   html: string;
 };
 
-const SKIP = new Set(["skill-template"]);
+const SKIP = new Set(["skill-template", "product-context", "implementation-review"]);
 
 function skillsRoot(): string {
   return path.resolve(process.cwd(), "..", "skills");

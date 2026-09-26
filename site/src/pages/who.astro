@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import { REPO_URL } from "../lib/brand";
+
+const description =
+  "Skills I built for myself and my teams, opened up for vibe-coding founders, AI natives, and contributors.";
+
+const audiences = [
+  {
+    name: "100% vibe coding founders",
+    detail:
+      "No code experience. Use this to help your AI keep you out of potholes. Find the next set of questions you need to ask to drive your thinking, and therefore your app.",
+  },
+  {
+    name: "New AI natives",
+    detail:
+      "We have spent years working in code silos, using the tools our teams decided to use. Use these tools to evaluate your current codebases and find patterns that can enhance what you have already built.",
+  },
+  {
+    name: "Contributors",
+    detail:
+      "I welcome skill patches and additions. If this tool helps you, please help me. I have the same blind spots everyone else has.",
+  },
+];
+---
+
+<Base title="Who is this for — Stephan Smith" description={description}>
+  <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+    Who is this for
+  </h1>
+  <p class="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+    It is for me. I use these tools every day. I took the skills I built for myself and my teams
+    and made them open source.
+  </p>
+  <ul class="mt-10 grid max-w-2xl gap-3">
+    {
+      audiences.map((audience) => (
+        <li class="rounded-lg border border-neutral-200 px-4 py-4 dark:border-neutral-800">
+          <h2 class="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+            {audience.name}
+          </h2>
+          <p class="mt-1 text-neutral-600 dark:text-neutral-400">{audience.detail}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="mt-6 max-w-2xl text-sm text-neutral-500 dark:text-neutral-400">
+    <a
+      href={REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline-offset-4 hover:text-neutral-900 hover:underline dark:hover:text-neutral-50"
+    >
+      Patches go in the repo.
+    </a>
+  </p>
+</Base>

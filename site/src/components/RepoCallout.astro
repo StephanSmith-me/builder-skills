@@ -1,0 +1,25 @@
+---
+import { REPO_URL } from "../lib/brand";
+import Install from "./Install.astro";
+---
+
+<section class="mx-auto mt-8 w-full max-w-2xl" aria-label="Install the skills">
+  <p class="text-lg text-neutral-600 dark:text-neutral-400">
+    Here is how you get started. Copy this and drop it into your CLI.
+  </p>
+  <div class="mt-8 [&_.install-command]:mt-0">
+    <Install />
+  </div>
+  <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
+    Or go to
+    <a
+      href={REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-medium text-neutral-900 underline underline-offset-4 dark:text-neutral-50"
+    >
+      the repo
+    </a>
+    to get more instructions.
+  </p>
+</section>

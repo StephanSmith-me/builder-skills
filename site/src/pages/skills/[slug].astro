@@ -15,25 +15,32 @@ const skill = loadSkill(slug ?? "");
 if (!skill) {
   throw new Error(`Unknown skill: ${slug}`);
 }
-
-const title = skill.name;
 ---
 
-<Base title={`${title} — Builder skills`} description={skill.description}>
-  <p class="kicker"><a href="/">All skills</a></p>
-  <h1>{skill.name}</h1>
-  <p class="meta">
-    {skill.stub && <span class="pill stub">Stub</span>}
-    {skill.version && <span class="pill">v{skill.version}</span>}
+<Base title={`${skill.name} — Stephan Smith`} description={skill.description}>
+  <p class="mb-4">
+    <a
+      href="/"
+      class="text-sm text-neutral-500 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-50"
+    >
+      All skills
+    </a>
+  </p>
+  <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+    {skill.name}
+  </h1>
+  <p class="mt-3 flex flex-wrap gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+    {skill.stub && <span class="rounded-full border border-neutral-200 px-2 py-0.5 dark:border-neutral-700">Stub</span>}
+    {skill.version && <span class="rounded-full border border-neutral-200 px-2 py-0.5 dark:border-neutral-700">v{skill.version}</span>}
     {
       skill.referenceCount > 0 && (
-        <span class="pill">
+        <span class="rounded-full border border-neutral-200 px-2 py-0.5 dark:border-neutral-700">
           {skill.referenceCount} reference{skill.referenceCount === 1 ? "" : "s"}
         </span>
       )
     }
   </p>
-  <p class="lede">{skill.description}</p>
+  <p class="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">{skill.description}</p>
   <Install />
-  <article class="prose" set:html={skill.html} />
+  <article class="skill-body mt-10 max-w-2xl text-neutral-800 dark:text-neutral-200" set:html={skill.html} />
 </Base>
