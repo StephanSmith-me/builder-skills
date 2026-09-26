@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import RepoCallout from "../components/RepoCallout.astro";
 import { HEADSHOT_URL, MAIN_SITE } from "../lib/brand";
+import { formatDaysAgo, publicRule } from "../lib/ruleMeta";
 
 const description =
   "You are good enough. Don't listen to AI haters. You can build it!";
@@ -9,37 +10,50 @@ const description =
 const skills = [
   {
     name: "/observability",
+    href: "/observability",
     aside: "How do I know my app does what we set out to do?",
     shadow: true,
   },
   {
     name: "/security",
+    href: "/security",
     aside: "How do I know my app is secure and ready for active customers?",
     shadow: true,
   },
   {
     name: "/scalability",
+    href: "/scalability",
     aside: "How do I know my app will work in the wild when customers start to use it?",
     shadow: true,
   },
   {
     name: "/day-to-day",
+    href: "/day-to-day",
     aside: "How do I handle CI/CD so my AI work is visible?",
     shadow: true,
   },
   {
-    name: "/what's next",
+    name: "/blindspots",
+    href: "/blindspots",
+    aside: "A stack review for the patterns most apps need at some point.",
+    shadow: true,
+  },
+  {
+    name: "/gallery",
+    href: "/gallery",
     aside:
-      "This rule runs your codebase against my collection of low-code / high-impact solutions.",
-    linkHref: `${MAIN_SITE}/tools-i-use`,
-    linkLabel: "Tools I use",
-    shadow: false,
+      "Coming soon. Vendor-specific rules that go deep on the tooling: Infisical, Cloudflare, Sentry, ImprovMX, and GitHub.",
+    shadow: true,
+    soon: true,
   },
 ];
 ---
 
 <Base title="You are good enough — Stephan Smith" description={description}>
   <div class="mx-auto max-w-3xl text-center">
+  <p class="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">
+    AI Builder Rules
+  </p>
   <h1 class="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-50">
     <span class="block">You are good enough.</span>
     <span class="block">Don't listen to AI haters.</span>
@@ -55,18 +69,57 @@ const skills = [
       skills.map((skill) =>
         skill.aside ? (
           <li class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-            <div
-              class:list={[
-                "shrink-0 rounded-lg border border-neutral-200 px-4 py-4 sm:w-48 dark:border-neutral-800",
-                skill.shadow && "shadow-md shadow-neutral-900/10 dark:shadow-black/40",
-              ]}
-            >
-              <h2 class="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-                {skill.name}
-              </h2>
-            </div>
+            {
+              skill.href ? (
+                <a
+                  href={skill.href}
+                  class:list={[
+                    "relative shrink-0 cursor-pointer rounded-lg border border-neutral-200 px-4 py-4 pr-20 transition-colors hover:border-neutral-400 sm:w-72 dark:border-neutral-800 dark:hover:border-neutral-600",
+                    skill.shadow && "shadow-md shadow-neutral-900/10 dark:shadow-black/40",
+                  ]}
+                >
+                  <p class="absolute top-3 right-3 text-right text-[0.65rem] leading-tight text-neutral-500 dark:text-neutral-400">
+                    {
+                      skill.soon ? (
+                        <span class="block">Soon</span>
+                      ) : (
+                        <>
+                          <span class="block">v{publicRule(skill.href.slice(1)).version}</span>
+                          <span class="block">{formatDaysAgo(publicRule(skill.href.slice(1)).updated)}</span>
+                        </>
+                      )
+                    }
+                  </p>
+                  <h2 class="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                    {skill.name}
+                  </h2>
+                </a>
+              ) : (
+                <div
+                  class:list={[
+                    "relative shrink-0 rounded-lg border border-neutral-200 px-4 py-4 pr-20 sm:w-72 dark:border-neutral-800",
+                    skill.shadow && "shadow-md shadow-neutral-900/10 dark:shadow-black/40",
+                  ]}
+                >
+                  <p class="absolute top-3 right-3 text-right text-[0.65rem] leading-tight text-neutral-500 dark:text-neutral-400">
+                    <span class="block">v{publicRule(skill.name.slice(1)).version}</span>
+                    <span class="block">{formatDaysAgo(publicRule(skill.name.slice(1)).updated)}</span>
+                  </p>
+                  <h2 class="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                    {skill.name}
+                  </h2>
+                </div>
+              )
+            }
             <p class="text-neutral-600 dark:text-neutral-400">
-              {skill.aside}{" "}
+              {skill.soon ? (
+                <>
+                  <strong class="font-semibold text-neutral-900 dark:text-neutral-50">Coming soon.</strong>{" "}
+                  {skill.aside.replace(/^Coming soon\.\s*/, "")}
+                </>
+              ) : (
+                skill.aside
+              )}{" "}
               {skill.linkHref ? (
                 <a
                   href={skill.linkHref}

@@ -1,0 +1,28 @@
+---
+import RulePage from "../components/RulePage.astro";
+---
+
+<RulePage
+  slug="security"
+  description="Security is a big topic. Start with public and private routes, and keys and tokens kept out of the code."
+  prompt="Review this app for /security. Are public routes public, and are private routes or features protected? Are keys and tokens out of the code? Find the issues, then give me a plan for what to handle first, second, and third."
+  subtitle="How do I know my app is secure and ready for active customers?"
+  lead="Security is a big topic. These are the simple things to check. This skill finds the issues and builds a plan for what to handle first, second, and third."
+  parts={[
+    {
+      name: "Public and private",
+      detail: "Are public routes public, and are private routes or features protected?",
+    },
+    {
+      name: "Keys and tokens",
+      detail: "Are you keeping keys and tokens out of the code?",
+    },
+  ]}
+  issues={[
+    "A route that should be public is locked, or a route that should be private is open.",
+    "A feature only some people should use can be reached by anyone who knows the address.",
+    "A key, token, or secret is sitting in the code, or in a file that gets committed.",
+    "You can see the issues, and you do not yet have an order for first, second, and third.",
+    "Active customers are close, and the private parts are still unprotected.",
+  ]}
+/>

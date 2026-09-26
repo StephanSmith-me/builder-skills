@@ -1,0 +1,18 @@
+---
+import RulePage from "../components/RulePage.astro";
+---
+
+<RulePage
+  slug="blindspots"
+  description="A stack review that looks for the overall patterns most apps need at some point."
+  prompt="Review this app for /blindspots. Do a stack review. Look for the overall patterns most apps need at some point, and tell me which ones this build is missing."
+  subtitle="What patterns does this app still need?"
+  lead="This skill does a stack review. It looks for the overall patterns most apps need at some point."
+  issues={[
+    "You cannot say what the stack is, or which pieces are doing the work.",
+    "A pattern most apps need by this stage is missing.",
+    "The build has grown, and the early choices no longer match how it runs.",
+    "You can see a local problem, and you cannot see the pattern across the app.",
+    "There is no order for which pattern to take on next.",
+  ]}
+/>

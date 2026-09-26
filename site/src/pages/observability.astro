@@ -1,0 +1,31 @@
+---
+import RulePage from "../components/RulePage.astro";
+---
+
+<RulePage
+  slug="observability"
+  description="Observability is two parts: catch the errors anywhere in the app, and know that while it runs it is doing what you expected."
+  prompt="Review this app for /observability. First, can I catch errors anywhere in the app? Second, while it is running, can I tell it is doing what I expected? Both parts together. Tell me what is missing."
+  subtitle="How do I know my app does what we set out to do?"
+  lead="Observability is both of these together."
+  parts={[
+    {
+      name: "Catch the errors",
+      detail: "Anywhere in the app.",
+      linkHref: "https://sentry.io",
+      linkLabel: "Sentry.io",
+      afterLink: " is my go-to.",
+    },
+    {
+      name: "Know it is doing what you expected",
+      detail: "While it is running, not only when it crashes.",
+    },
+  ]}
+  issues={[
+    "An error happens somewhere in the app, and you only hear about it when a person reports it.",
+    "A failure in a background job, a webhook, or an AI step never shows up in the place you watch.",
+    "The app is up, and you still cannot tell it is doing what you expected.",
+    "A step finished without throwing, and you cannot tell it did the work.",
+    "Later, you still cannot tell the running app kept doing what you set out to do.",
+  ]}
+/>
