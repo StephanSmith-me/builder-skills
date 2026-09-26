@@ -1,0 +1,16 @@
+{
+  "skill_name": "product-context",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write the product context for a small app that lets a founder book intro calls. We already have a scheduling site.",
+      "expected_output": "Says the skill is a stub. Checks for .agents/product-context.md. Asks only for missing outline items (what, who, done, out of scope, constraints). Does not invent a long discovery workshop.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Checks for an existing product-context file",
+        "Covers what, who, done, out of scope, and constraints"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Catalog site
+site/dist/
+site/.astro/
+
+# Skill install artifacts
+.agents/
+.claude/
+skills-lock.json
+
+# Local pattern clone of coreyhaines31/marketingskills — read only, never commit
+references/marketingskills/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+**/.DS_Store

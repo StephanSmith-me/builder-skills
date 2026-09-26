@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+import Install from "../../components/Install.astro";
+import { loadSkill, loadSkills } from "../../lib/skills";
+
+export function getStaticPaths() {
+  return loadSkills().map((skill) => ({
+    params: { slug: skill.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const skill = loadSkill(slug ?? "");
+
+if (!skill) {
+  throw new Error(`Unknown skill: ${slug}`);
+}
+
+const title = skill.name;
+---
+
+<Base title={`${title} — Builder skills`} description={skill.description}>
+  <p class="kicker"><a href="/">All skills</a></p>
+  <h1>{skill.name}</h1>
+  <p class="meta">
+    {skill.stub && <span class="pill stub">Stub</span>}
+    {skill.version && <span class="pill">v{skill.version}</span>}
+    {
+      skill.referenceCount > 0 && (
+        <span class="pill">
+          {skill.referenceCount} reference{skill.referenceCount === 1 ? "" : "s"}
+        </span>
+      )
+    }
+  </p>
+  <p class="lede">{skill.description}</p>
+  <Install />
+  <article class="prose" set:html={skill.html} />
+</Base>

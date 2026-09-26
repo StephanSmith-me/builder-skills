@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Agent Skills Specification
+    url: https://agentskills.io/specification.md
+    about: Skill file format
+  - name: Contributing guide
+    url: https://github.com/StephanSmith-me/builder-skills/blob/main/CONTRIBUTING.md
+    about: How to add a skill

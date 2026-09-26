@@ -1,0 +1,36 @@
+name: Skill Request
+description: Request a new builder skill
+title: "Skill Request: [skill-name]"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest a skill. Names are lowercase with hyphens.
+
+  - type: input
+    id: skill-name
+    attributes:
+      label: Suggested skill name
+      description: Lowercase, hyphens only (e.g. "code-review")
+      placeholder: "my-skill-name"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What should this skill do?
+      placeholder: "This skill should help with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: triggers
+    attributes:
+      label: When should it be used?
+      description: Phrases or moments that should activate it
+      placeholder: |
+        - When the user says "..."
+    validations:
+      required: true

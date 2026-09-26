@@ -1,0 +1,12 @@
+{
+  "name": "builder-skills",
+  "description": "Builder skills for AI agents — tools that drive a build into production",
+  "version": "0.2.0",
+  "author": {
+    "name": "Stephan Smith"
+  },
+  "homepage": "https://github.com/StephanSmith-me/builder-skills",
+  "repository": "https://github.com/StephanSmith-me/builder-skills",
+  "license": "MIT",
+  "skills": "./skills"
+}

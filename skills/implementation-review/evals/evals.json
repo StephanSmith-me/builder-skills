@@ -1,0 +1,28 @@
+{
+  "skill_name": "implementation-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review how Sentry is implemented in this repo.",
+      "expected_output": "Says the skill is a stub. Opens the sentry reference. Says the checklist is empty because the playbook page is still coming soon. Does not invent SDK, source map, or alert checks. Does not score the repo.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Uses the sentry reference",
+        "Says the checklist is empty",
+        "Does not invent implementation checks"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Is GitHub wired the way you would wire it in this project?",
+      "expected_output": "Names one tool. Points at the GitHub playbook page. Says the checklist is not written yet, so it does not score the project from memory of the page.",
+      "assertions": [
+        "Scores one tool",
+        "Points at the GitHub playbook page",
+        "Does not invent a pass/fail checklist"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "builder-skills",
+  "owner": {
+    "name": "Stephan Smith",
+    "url": "https://stephansmith.me"
+  },
+  "metadata": {
+    "description": "Builder skills for AI agents — tools that drive a build into production",
+    "version": "0.2.0",
+    "repository": "https://github.com/StephanSmith-me/builder-skills"
+  },
+  "plugins": [
+    {
+      "name": "builder-skills",
+      "description": "Skills that help an AI agent take a software build from intent through production. Scaffold only — skill bodies are stubs.",
+      "source": "./"
+    }
+  ]
+}

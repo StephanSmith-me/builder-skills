@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import Install from "../components/Install.astro";
+import { loadSkills } from "../lib/skills";
+
+const skills = loadSkills();
+const description =
+  "Agent skills for taking a software build into production. Install them into Claude Code, Cursor, or Codex.";
+---
+
+<Base title="Builder skills" description={description}>
+  <p class="kicker">skills.stephansmith.me</p>
+  <h1>Methods for the agent driving the build.</h1>
+  <p class="lede">
+    Skills for scope, architecture, implementation, review, and ship. The command installs the
+    <code>skills/</code> folder. This site is only the catalog.
+  </p>
+  <Install />
+  <ul class="skill-list">
+    {
+      skills.map((skill) => (
+        <li>
+          <a class="skill-card" href={`/skills/${skill.slug}`}>
+            <h2>{skill.name}</h2>
+            <p>{skill.description}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

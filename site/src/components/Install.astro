@@ -1,0 +1,22 @@
+---
+const command = "npx skills add StephanSmith-me/builder-skills";
+---
+
+<div class="install">
+  <code>{command}</code>
+  <button type="button" data-copy={command}>Copy</button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const value = button.dataset.copy ?? "";
+      await navigator.clipboard.writeText(value);
+      const previous = button.textContent;
+      button.textContent = "Copied";
+      window.setTimeout(() => {
+        button.textContent = previous;
+      }, 1400);
+    });
+  });
+</script>
