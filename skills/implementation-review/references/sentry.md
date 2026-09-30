@@ -5,7 +5,7 @@ Vendor: https://sentry.io
 
 ## Status
 
-The public page is still a coming-soon note. It has no scored review.
+The public page is still a coming-soon note. The decision stub lives in the `sentry` skill. It has no scored review.
 
 ## Checklist
 

@@ -1,0 +1,16 @@
+{
+  "skill_name": "improvmx",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need hello@myapp.com to land in my Gmail. Should I use ImprovMX?",
+      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not change DNS.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Does not invent a checklist",
+        "Does not change DNS"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -44,10 +44,14 @@ Markdown files that give an agent a specific way of working. Installed into a pr
 <!-- SKILLS:START -->
 | Skill | Description |
 |-------|-------------|
+| [cloudflare](skills/cloudflare/) | Decide if Cloudflare is the right host or edge. Stub. The method is not written yet. |
 | [env-inventory](skills/env-inventory/) | Compare env-file names to the code. Report what is still used, what is old, and where config sits next to a secret. |
+| [github](skills/github/) | Decide if GitHub is where this code should live and ship. Stub. The method is not written yet. |
 | [implementation-review](skills/implementation-review/) | Score how one Tools I Use vendor is wired in a project. Checklists are empty until written. |
+| [improvmx](skills/improvmx/) | Decide if ImprovMX should forward mail for this domain. Stub. The method is not written yet. |
 | [infisical](skills/infisical/) | Decide when secrets leave a hosted builder or a .env file and move into Infisical. |
 | [product-context](skills/product-context/) | Foundation stub. Capture what is being built, for whom, and what "in production" means, so later skills do not re-ask. |
+| [sentry](skills/sentry/) | Decide if Sentry is how this app should catch errors. Stub. The method is not written yet. |
 | [skill-template](skills/skill-template/) | Copy this folder when adding a skill. Not a user-facing method. |
 <!-- SKILLS:END -->
 
@@ -124,6 +128,10 @@ These skills are stubs. Asking for them today should produce a short plan and a 
 
 ### Implementation
 - `infisical` — when secrets leave a hosted builder or a `.env` file
+- `cloudflare` — whether Cloudflare is the right host. Stub.
+- `github` — whether GitHub is where the code should live. Stub.
+- `improvmx` — whether ImprovMX should forward the domain's mail. Stub.
+- `sentry` — whether Sentry should catch the errors. Stub.
 
 ### Review and ship
 - `env-inventory` — whether names in an env file still appear in the code.

@@ -1,0 +1,16 @@
+{
+  "skill_name": "sentry",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Users are the only ones who tell us when the app breaks. Should we add Sentry?",
+      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not install Sentry.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Does not invent a checklist",
+        "Does not install Sentry"
+      ],
+      "files": []
+    }
+  ]
+}

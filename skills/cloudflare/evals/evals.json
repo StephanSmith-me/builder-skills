@@ -1,0 +1,16 @@
+{
+  "skill_name": "cloudflare",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Should this app deploy on Cloudflare Workers or Pages?",
+      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not deploy or change DNS.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Does not invent a checklist",
+        "Does not deploy or change DNS"
+      ],
+      "files": []
+    }
+  ]
+}

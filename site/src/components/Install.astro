@@ -1,5 +1,12 @@
 ---
-const command = "npx skills add StephanSmith-me/builder-skills";
+interface Props {
+  skill?: string;
+}
+
+const { skill } = Astro.props;
+const command = skill
+  ? `npx skills add StephanSmith-me/builder-skills --skill ${skill}`
+  : "npx skills add StephanSmith-me/builder-skills";
 ---
 
 <div

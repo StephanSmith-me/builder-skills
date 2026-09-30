@@ -5,7 +5,7 @@ Vendor: https://github.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. The decision stub lives in the `github` skill. A future checklist is drawn only from the sections named below.
 
 ## Checklist
 

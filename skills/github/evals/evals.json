@@ -1,0 +1,16 @@
+{
+  "skill_name": "github",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Should this project live on GitHub, with pull requests and Actions?",
+      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not create a repo or a workflow.",
+      "assertions": [
+        "States that the skill is a stub",
+        "Does not invent a checklist",
+        "Does not create a repo or a workflow"
+      ],
+      "files": []
+    }
+  ]
+}
