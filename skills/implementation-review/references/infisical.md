@@ -5,7 +5,7 @@ Vendor: https://infisical.com
 
 ## Status
 
-The public page has a real write-up. Which path to use lives in the `infisical` skill. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. Which path to use, and the review of projects, environments, folders, syncs, and connections, live in the `infisical` skill. This checklist stays empty.
 
 ## Checklist
 

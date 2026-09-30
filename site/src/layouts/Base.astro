@@ -3,14 +3,17 @@ import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import PostHog from "../components/PostHog.astro";
+import GoogleTagManager from "../components/GoogleTagManager.astro";
+import GoogleTagManagerNoScript from "../components/GoogleTagManagerNoScript.astro";
 import SubscribePanel from "../components/SubscribePanel.astro";
 
 interface Props {
   title: string;
   description: string;
+  wide?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, wide = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -36,11 +39,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         } catch (_) {}
       })();
     </script>
+    <GoogleTagManager />
   </head>
   <body
     class="min-h-screen bg-white font-sans text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white dark:bg-neutral-950 dark:text-neutral-100 dark:selection:bg-neutral-100 dark:selection:text-neutral-900"
   >
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
+    <GoogleTagManagerNoScript />
+    <div class:list={["mx-auto px-4 sm:px-6 md:px-8", wide ? "max-w-7xl" : "max-w-5xl"]}>
       <SiteHeader />
       <main class="pt-10 pb-12 sm:pt-12">
         <slot />

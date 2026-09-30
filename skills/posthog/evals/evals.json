@@ -1,0 +1,66 @@
+{
+  "skill_name": "posthog",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This is a proof of concept. I have never used analytics. I do not see any PostHog variables in the env. What should I do?",
+      "expected_output": "Says PostHog is not set. Explains in plain language that the site can run and still tell them nothing about visitors. Does not recommend a proxy, a conversion point, or the API. Does not install PostHog. Does not print a value.",
+      "assertions": [
+        "Says PostHog is not set",
+        "Explains that in plain language",
+        "Does not recommend a proxy, a conversion point, or the API",
+        "Does not install PostHog",
+        "Does not print a value"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The env has a PostHog key. The public site does not capture sessions. We have no accounts yet. We are showing this to the first public users.",
+      "expected_output": "Says the next step is session capture on the public site, including anonymous traffic. Does not recommend a conversion point. Does not print the key.",
+      "assertions": [
+        "Says the next step is public session capture",
+        "Includes anonymous traffic",
+        "Does not recommend a conversion point",
+        "Does not print the key"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We capture public sessions. I do not see a PostHog proxy. People are using the product, and we still feel like we are guessing.",
+      "expected_output": "Says the capture can run and still give weaker data. Names the proxy as the next step. Does not jump to the deeper API.",
+      "assertions": [
+        "Says the capture can run and still give weaker data",
+        "Names the proxy as the next step",
+        "Does not jump to the deeper API"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We have anonymous visitors and logged-in users. Sessions and a proxy are in place. I cannot find a place in the code where an anonymous user becomes a known user. The env only has the public PostHog settings.",
+      "expected_output": "Says the next step is a conversion point from anonymous to a known user. Says the env does not show a deeper API integration. Does not print a value. Does not add the conversion point.",
+      "assertions": [
+        "Says the next step is a conversion point from anonymous to a known user",
+        "Says the env does not show a deeper API integration",
+        "Does not print a value",
+        "Does not add the conversion point"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json names a posthog server. I cannot see anything calling it. Can we go deeper on posthog?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

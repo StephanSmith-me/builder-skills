@@ -44,15 +44,41 @@ Markdown files that give an agent a specific way of working. Installed into a pr
 <!-- SKILLS:START -->
 | Skill | Description |
 |-------|-------------|
-| [cloudflare](skills/cloudflare/) | Decide if Cloudflare is the right host or edge. Stub. The method is not written yet. |
+| [ai-status](skills/ai-status/) | See which model and vector store the product uses, and how far embeddings go. |
+| [algolia](skills/algolia/) | See if search is Supabase full text or Algolia, and whether the key is admin or read-only. |
+| [astro](skills/astro/) | See how far an Astro site is: pages, front matter, then content types. |
+| [blindspots](skills/blindspots/) | Read an existing stack inventory, then recommend one unused feature that is low effort and high impact. Cloudflare, Postmark, and Resend have written assessments. |
+| [cloudflare](skills/cloudflare/) | Review tunnels, Pages, and Workers, plus a staging preview and the deploy Action. |
+| [cursor-setup](skills/cursor-setup/) | See how mature Cursor or Claude is: a .cursor folder, mcp.json, and whose skills. |
+| [day-to-day](skills/day-to-day/) | Follow the Cloudflare or Render preview and deploy check, and bring that result back. |
+| [email-delivery](skills/email-delivery/) | Check Cloudflare domains for ImprovMX and a missing DMARC record. |
 | [env-inventory](skills/env-inventory/) | Compare env-file names to the code. Report what is still used, what is old, and where config sits next to a secret. |
-| [github](skills/github/) | Decide if GitHub is where this code should live and ship. Stub. The method is not written yet. |
+| [env-leak](skills/env-leak/) | See a sensitive env setting the code never uses, or that sits in the wrong place. |
+| [fly](skills/fly/) | Use Fly instead of AWS. Review the Dockerfile, deploy values, and a hosted database. |
+| [github](skills/github/) | Read GitHub for signals: a sourcemap Action, a schedule, and which branches run. |
+| [hosting](skills/hosting/) | Match the host to the project: GitHub for an HTML site, Cloudflare Pages when the ecosystem will matter. |
 | [implementation-review](skills/implementation-review/) | Score how one Tools I Use vendor is wired in a project. Checklists are empty until written. |
-| [improvmx](skills/improvmx/) | Decide if ImprovMX should forward mail for this domain. Stub. The method is not written yet. |
-| [infisical](skills/infisical/) | Decide when secrets leave a hosted builder or a .env file and move into Infisical. |
+| [improvmx](skills/improvmx/) | Forward an off-brand domain into the Gmail you already use, instead of a paid mailbox per domain. |
+| [infisical](skills/infisical/) | Decide when secrets leave a .env file, and review projects, shared variables, and deploy flags once Infisical is authenticated. |
+| [inngest](skills/inngest/) | See when signup should move to Inngest, and whether jobs have a timeout, dedup, an id, and Sentry. |
+| [marketing-site](skills/marketing-site/) | See if marketing is a Surge, Astro, or Jekyll site, or still inside the React app. |
+| [more-context](skills/more-context/) | Hidden from the public site. When a free skill cannot remember the business or a past conversation, say how Stephan helps and give the paid account link. |
+| [observability](skills/observability/) | Follow the Sentry review and bring that result back. |
+| [posthog](skills/posthog/) | See how far tracking goes, from a public session to a known user. |
+| [postmark](skills/postmark/) | See if product email is Postmark, where the send key lives, or mixed with Supabase. |
 | [product-context](skills/product-context/) | Foundation stub. Capture what is being built, for whom, and what "in production" means, so later skills do not re-ask. |
-| [sentry](skills/sentry/) | Decide if Sentry is how this app should catch errors. Stub. The method is not written yet. |
+| [render](skills/render/) | Review what Render runs, and how it ships: a preview or only the primary branch, and whether a GitHub Action deploys it. |
+| [report](skills/report/) | Hidden from the public site. When a skill writes a report, score each recommendation for effort and impact, then rank low effort and high impact first. |
+| [resend](skills/resend/) | See if product email is Resend, where the API key and templates live, and whether that signals a vibe coder. |
+| [scalability](skills/scalability/) | Follow hosting, Fly, and Inngest, and bring those results back. |
+| [secret-reuse](skills/secret-reuse/) | See when the same secret value is reused or leaking. Say nothing when it is not. |
+| [security](skills/security/) | Scan how people sign in: a password column, Supabase Auth, or a platform provider. |
+| [sentry](skills/sentry/) | Match observability to the project: error checking, logging, sourcemaps, then milestones and dashboards. |
 | [skill-template](skills/skill-template/) | Copy this folder when adding a skill. Not a user-facing method. |
+| [stack-maturity](skills/stack-maturity/) | See where maturity is lumpy across the stack, and where the time went. |
+| [supabase](skills/supabase/) | See how the app uses Supabase: auth, functions, secrets, migrations, and providers. |
+| [testing](skills/testing/) | Match tests and coverage to the business: libraries, files, unit tests, then end to end. |
+| [whats-next](skills/whats-next/) | From the assessments already in hand, name the one task that fits the current state: lowest tech, smallest amount of code, least work, highest impact. |
 <!-- SKILLS:END -->
 
 ## Installation
@@ -127,15 +153,37 @@ These skills are stubs. Asking for them today should produce a short plan and a 
 - Stub. No skills yet.
 
 ### Implementation
-- `infisical` — when secrets leave a hosted builder or a `.env` file
-- `cloudflare` — whether Cloudflare is the right host. Stub.
-- `github` — whether GitHub is where the code should live. Stub.
-- `improvmx` — whether ImprovMX should forward the domain's mail. Stub.
-- `sentry` — whether Sentry should catch the errors. Stub.
+- `infisical` — when secrets leave a `.env` file, and how an authenticated account is laid out, including shared variables and deploy flags
+- `cloudflare` — tunnels, Pages, and Workers, including a staging preview and the deploy Action
+- `fly` — an alternative to AWS; deploy values and a hosted database, reviewed from the repo
+- `blindspots` — which Cloudflare features are in use, and which can wait
+- `github` — signals for the other assessments: a sourcemap Action, a schedule, and which branches run
+- `cursor-setup` — a `.cursor` or `.claude` folder, `mcp.json`, and whether skills are theirs or imported
+- `hosting` — GitHub for an HTML site, Cloudflare Pages when the ecosystem will matter
+- `marketing-site` — Surge for a low-end marketing site, or Astro, Jekyll, or pages still inside the React app
+- `astro` — pages, then front matter, then content types
+- `improvmx` — off-brand domains alias into the Gmail that is already the center
+- `email-delivery` — DMARC and ImprovMX on domains whose DNS is on Cloudflare
+- `postmark` — product email, where the send key lives, or a mix with Supabase
+- `resend` — product email through Resend, the key, the templates, and the vibe-coder signal
+- `inngest` — signup that will not scale; timeouts, dedup, ids, and Sentry inside the job
+- `posthog` — public sessions, a proxy, then the step from anonymous to a known user
+- `security` — username and password, Supabase Auth or a hand-built password schema, then platform providers
+- `supabase` — auth, functions, secrets versus an Infisical sync, migrations, and provider count
+- `algolia` — Supabase full text, or Algolia when search is the high-end customer value
+- `secret-reuse` — the same secret value reused across Infisical, or leaking outside it
+- `sentry` — observability matched to the project, from uncaught errors through milestones
+- `testing` — test libraries, test files, unit tests, end to end, and coverage, matched to the business
+- `ai-status` — model providers, where vectors live, and how far embeddings go
 
 ### Review and ship
+- `observability` — follows `sentry` and brings that result back
+- `scalability` — follows `hosting`, `fly`, and `inngest`
+- `day-to-day` — follows the Cloudflare preview and deploy check
 - `env-inventory` — whether names in an env file still appear in the code.
+- `env-leak` — a sensitive name the code never uses, or a secret in the wrong place.
 - `implementation-review` — one vendor at a time, against its playbook page. Checklists are empty.
+- `stack-maturity` — where maturity is lumpy across the stack, and where time went
 
 ### Operations
 - Stub. No skills yet.

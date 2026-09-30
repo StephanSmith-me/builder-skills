@@ -1,8 +1,8 @@
 ---
 name: env-inventory
-description: When the user wants to know whether an env file still matches the code. Use when they say bloated .env, unused env vars, old secrets in .env, which variables the code actually uses, or clean up the env file. For how those secrets should be read, use infisical.
+description: When the user wants to know whether an env file still matches the code. Use when they say bloated .env, unused env vars, old secrets in .env, which variables the code actually uses, or clean up the env file. For a sensitive name the code never uses, or a secret in the wrong place, use env-leak. For how those secrets should be read, use infisical.
 metadata:
-  version: 0.2.0
+  version: 0.2.2
 ---
 
 # Env inventory
@@ -13,7 +13,7 @@ You compare names in an env file with names the code references. You do not dele
 
 If `.agents/product-context.md` exists, read it.
 
-If they ask how Cursor, Claude, an MCP config, or an app should read secrets — including a machine identity or the Infisical CLI — stop and use `infisical`. Do not compare env names to the code.
+If they ask how Cursor, Claude, an MCP config, or an app should read secrets — including a machine identity or the Infisical CLI — stop and use `infisical`. Do not compare env names to the code. If they ask whether a sensitive name is unused or sitting in the wrong place, use `env-leak`.
 
 Read [references/what-to-compare.md](references/what-to-compare.md) before listing names.
 
@@ -30,7 +30,12 @@ A name is a secret when it contains `SECRET`, `KEY`, `TOKEN`, `PASSWORD`, or `CR
 
 Do not guess. A name you did not search for stays off both lists.
 
+## Report
+
+When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+
 ## Related skills
 
 - `product-context` — read first when the file exists
+- `env-leak` — a sensitive name unused in the code, or in the wrong place
 - `infisical` — how a person, an app, or an MCP config is allowed to read the secrets

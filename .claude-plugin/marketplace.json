@@ -2,11 +2,11 @@
   "name": "builder-skills",
   "owner": {
     "name": "Stephan Smith",
-    "url": "https://stephansmith.me"
+    "url": "https://skills.stephansmith.me"
   },
   "metadata": {
     "description": "Builder skills for AI agents — tools that drive a build into production",
-    "version": "0.5.0",
+    "version": "0.24.0",
     "repository": "https://github.com/StephanSmith-me/builder-skills"
   },
   "plugins": [

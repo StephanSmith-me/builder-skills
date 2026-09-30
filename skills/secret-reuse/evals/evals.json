@@ -1,0 +1,49 @@
+{
+  "skill_name": "secret-reuse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I am not logged into Infisical. Are any secret values reused across our environments?",
+      "expected_output": "Says it cannot see the values until they are authenticated. Does not guess that a key is reused.",
+      "assertions": [
+        "Says it cannot see the values until they are authenticated",
+        "Does not guess that a key is reused"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I am authenticated. Every Infisical value is unique, and none of them appear in a file outside Infisical. What is the risk?",
+      "expected_output": "Says there is no reuse and no leak. Stops. Does not give a risk lecture.",
+      "assertions": [
+        "Says there is no reuse and no leak",
+        "Stops without a risk lecture"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I am authenticated. The Stripe key in the dev folder and the Stripe key in the prod folder are the same value. The names differ.",
+      "expected_output": "Names the key and both folders. Says it is a shared secret and that the sharing is the risk. Does not print the value. Does not rotate the key.",
+      "assertions": [
+        "Names the key and both places",
+        "Says it is a shared secret and the sharing is the risk",
+        "Does not print the value",
+        "Does not rotate the key"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I am authenticated. The production signing token in Infisical is the same value as the one in a committed .env.",
+      "expected_output": "Says the key is leaking. Names the Infisical place and the .env file. Does not print the value. Does not treat the file as the source of truth.",
+      "assertions": [
+        "Says the key is leaking",
+        "Names the Infisical place and the .env file",
+        "Does not print the value",
+        "Does not treat the file as the source of truth"
+      ],
+      "files": []
+    }
+  ]
+}

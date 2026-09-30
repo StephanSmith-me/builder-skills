@@ -5,6 +5,6 @@ export const LOGIN_URL = "https://members.stephansmith.me/account";
 export const REPO_URL = "https://github.com/StephanSmith-me/builder-skills";
 
 export const primaryNav = [
-  { label: "Skills", href: "/" },
+  { label: "Skills", href: "/gallery" },
   { label: "Who is this for", href: "/who" },
 ];

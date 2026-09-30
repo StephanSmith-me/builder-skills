@@ -1,109 +1,251 @@
 ---
 import Base from "../layouts/Base.astro";
+import { listSkillTools } from "../lib/tools";
 import { loadSkills } from "../lib/skills";
 
-const published = new Set(loadSkills().map((skill) => skill.slug));
+const ruleCount = loadSkills().filter((skill) => !skill.stub).length;
 
-const groups = [
+const outcomes = [
   {
-    name: "Secrets",
-    skills: [
-      {
-        slug: "infisical",
-        line: "Decide when secrets should leave a hosted builder or a .env file.",
-      },
-      {
-        slug: "env-inventory",
-        line: "See which env names the code still uses, and which are old.",
-      },
-    ],
+    slug: "day-to-day",
+    href: "/day-to-day",
+    question: "How am I doing right now?",
+    vendors: ["github", "resend", "postmark", "infisical", "posthog", "improvmx"],
   },
   {
-    name: "Errors",
-    skills: [
-      {
-        slug: "sentry",
-        line: "Decide if Sentry is how this app should catch errors.",
-        stub: true,
-      },
-    ],
+    slug: "observability",
+    href: "/observability",
+    question: "How do I know my app does what we set out to do?",
+    vendors: ["cloudflare", "sentry", "fly", "render"],
   },
   {
-    name: "Ship",
-    skills: [
-      {
-        slug: "cloudflare",
-        line: "Decide if Cloudflare is the right host or edge.",
-        stub: true,
-      },
-      {
-        slug: "github",
-        line: "Decide if GitHub is where this code should live and ship.",
-        stub: true,
-      },
-    ],
+    slug: "security",
+    href: "/security",
+    question: "How do I know my app is secure and ready for active customers?",
+    vendors: ["infisical", "supabase"],
   },
   {
-    name: "Mail",
-    skills: [
-      {
-        slug: "improvmx",
-        line: "Decide if ImprovMX should forward mail for this domain.",
-        stub: true,
-      },
-    ],
+    slug: "scalability",
+    href: "/scalability",
+    question: "How do I know my app will work in the wild when customers start to use it?",
+    vendors: ["cloudflare", "render", "fly"],
+  },
+  {
+    slug: "blindspots",
+    href: "/blindspots",
+    question: "What am I not doing, or what should I do, to get to revenue?",
+    vendors: [],
+  },
+  {
+    slug: "whats-next",
+    href: "/whats-next",
+    question: "What should I build next?",
+    vendors: [],
   },
 ];
 
-const description =
-  "Vendor skills, one product at a time. Infisical and env inventory are written. Sentry, Cloudflare, ImprovMX, and GitHub are stubs.";
+const vendors = [
+  ...listSkillTools().map(({ slug, tool }) => ({ slug, name: tool.name })),
+  { slug: "render", name: "Render" },
+].sort((a, b) => a.name.localeCompare(b.name));
+
+const blindspots = outcomes.find((outcome) => outcome.slug === "blindspots");
+if (blindspots) blindspots.vendors = vendors.map((vendor) => vendor.slug);
+
+const panelSelectors = outcomes
+  .flatMap((outcome) =>
+    outcome.vendors.map(
+      (vendor) =>
+        `#gallery-skills:has([data-outcome="${outcome.slug}"]:hover) [data-vendor="${vendor}"]`,
+    ),
+  )
+  .join(",\n");
+
+const checkSelectors = outcomes
+  .flatMap((outcome) =>
+    outcome.vendors.map(
+      (vendor) =>
+        `#gallery-skills:has([data-outcome="${outcome.slug}"]:hover) [data-vendor="${vendor}"] .vendor-check`,
+    ),
+  )
+  .join(",\n");
+
+const description = `${ruleCount} rules that drive AI-managed code and building. From the work you can see, to the one task worth building.`;
 ---
 
-<Base title="/gallery — Stephan Smith" description={description}>
-  <div class="mx-auto max-w-2xl">
-    <p>
-      <a
-        href="/"
-        class="text-sm text-neutral-500 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-50"
-      >
-        Skills
-      </a>
-    </p>
-    <h1 class="mt-8 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
-      /gallery
-    </h1>
-    <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-400">
-      Vendor skills, one product at a time. Each one has its own page. A stub names the tool and stops there.
-    </p>
+<Base title="Builder Skills for AI Agents — Stephan Smith" description={description} wide>
+  <h1 class="mt-8 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+    Builder Skills for AI Agents
+  </h1>
+  <p class="mt-3 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+    {ruleCount} rules that drive AI-managed code and building.
+  </p>
+  <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
+    Built and upgraded from live code reviews, client challenges, and teams scaling up their AI buildouts.
+  </p>
+  <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
+    From the work you can see, to the one task worth building.
+  </p>
 
+  <div id="gallery-skills">
+  <div class="relative mt-10" id="outcome-flow">
+    <svg
+      id="outcome-flow-line"
+      class="pointer-events-none absolute inset-0 hidden h-full w-full text-neutral-400 drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] md:block"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+    </svg>
+    <ol class="relative space-y-3 pl-12 md:grid md:grid-cols-2 md:gap-x-24 md:gap-y-3 md:space-y-0 md:pb-10">
+    <span
+      class="absolute top-5 bottom-5 left-[0.7rem] w-0.5 bg-neutral-400 shadow-[0_2px_3px_rgba(0,0,0,0.35)] md:hidden"
+      aria-hidden="true"
+    ></span>
     {
-      groups.map((group) => (
-        <section class="mt-10">
-          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
-            {group.name}
-          </h2>
-          <ul class="mt-4 grid gap-3">
-            {group.skills.map((skill) => (
-              <li>
-                <a
-                  href={published.has(skill.slug) ? `/skills/${skill.slug}` : undefined}
-                  class="block rounded-lg border border-neutral-200 px-4 py-4 shadow-md shadow-neutral-900/10 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:shadow-black/40 dark:hover:border-neutral-600"
-                >
-                  <p class="font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-                    {skill.slug}
-                    {skill.stub && (
-                      <span class="ml-2 align-middle text-xs font-medium uppercase tracking-[0.12em] text-neutral-400 dark:text-neutral-500">
-                        Stub
-                      </span>
-                    )}
-                  </p>
-                  <p class="mt-1 text-neutral-600 dark:text-neutral-400">{skill.line}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+      outcomes.map((outcome, index) => (
+        <li
+          class:list={[
+            "group relative",
+            index === 0 && "md:col-start-1 md:row-start-1",
+            index === 1 && "md:col-start-1 md:row-start-2",
+            index === 2 && "md:col-start-1 md:row-start-3",
+            index === 3 && "md:col-start-2 md:row-start-1",
+            index === 4 && "md:col-start-2 md:row-start-2",
+            index === 5 && "md:col-start-2 md:row-start-3",
+          ]}
+          data-outcome={outcome.slug}
+        >
+          <span
+            data-node
+            class:list={[
+              "absolute top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full border border-neutral-300 bg-white text-sm font-semibold text-neutral-700 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-200",
+              "-left-12",
+            ]}
+          >
+            {index + 1}
+          </span>
+          <a
+            href={outcome.href}
+            class="block h-full rounded-lg border border-neutral-200 px-4 py-4 shadow-md shadow-neutral-900/10 transition-shadow group-hover:[box-shadow:0_10px_28px_-6px_rgba(16,185,129,0.55)] dark:border-neutral-800 dark:shadow-black/40 dark:group-hover:[box-shadow:0_10px_28px_-6px_rgba(16,185,129,0.55)]"
+          >
+            <h2 class="flex flex-wrap items-center gap-2 text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+              /{outcome.slug}
+              {index === 0 && (
+                <span class="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">
+                  Start here
+                </span>
+              )}
+            </h2>
+            <p class="mt-2 text-neutral-600 dark:text-neutral-400">{outcome.question}</p>
+          </a>
+        </li>
       ))
     }
+    </ol>
   </div>
+  <script>
+    function drawOutcomeFlow() {
+      const root = document.getElementById("outcome-flow");
+      const svg = document.getElementById("outcome-flow-line");
+      const path = svg?.querySelector("path");
+      if (!root || !svg || !path) return;
+      const nodes = [...root.querySelectorAll("[data-node]")];
+      if (nodes.length < 6) return;
+      const cards = [...root.querySelectorAll("ol > li > a")];
+      cards.forEach((card) => {
+        card.style.minHeight = "";
+      });
+      const twoCol =
+        nodes[3].getBoundingClientRect().left > nodes[0].getBoundingClientRect().left + 40;
+      if (twoCol && cards.length) {
+        const max = Math.max(...cards.map((card) => card.getBoundingClientRect().height));
+        cards.forEach((card) => {
+          card.style.minHeight = `${max}px`;
+        });
+      }
+      const box = root.getBoundingClientRect();
+      const pts = nodes.map((el) => {
+        const r = el.getBoundingClientRect();
+        return {
+          x: r.left + r.width / 2 - box.left,
+          y: r.top + r.height / 2 - box.top,
+        };
+      });
+      const [a, b, c, d, e, f] = pts;
+      svg.setAttribute("viewBox", `0 0 ${root.clientWidth} ${root.clientHeight}`);
+      if (!twoCol) {
+        path.setAttribute("d", "");
+        return;
+      }
+      const leftBottom = Math.max(
+        ...cards.slice(0, 3).map((card) => card.getBoundingClientRect().bottom - box.top),
+      );
+      const rightNum = nodes[3].getBoundingClientRect();
+      const leftEdge = cards[0].getBoundingClientRect().right - box.left;
+      const rise = (leftEdge + (rightNum.left - box.left)) / 2;
+      const bottom = leftBottom + 28;
+      const radius = Math.min(22, Math.max(12, (rise - c.x) / 2 - 2));
+      path.setAttribute(
+        "d",
+        [
+          `M ${a.x} ${a.y}`,
+          `L ${b.x} ${b.y}`,
+          `L ${c.x} ${c.y}`,
+          `L ${c.x} ${bottom - radius}`,
+          `Q ${c.x} ${bottom} ${c.x + radius} ${bottom}`,
+          `L ${rise - radius} ${bottom}`,
+          `Q ${rise} ${bottom} ${rise} ${bottom - radius}`,
+          `L ${rise} ${d.y + radius}`,
+          `Q ${rise} ${d.y} ${Math.min(rise + radius, d.x)} ${d.y}`,
+          `L ${d.x} ${d.y}`,
+          `L ${e.x} ${e.y}`,
+          `L ${f.x} ${f.y}`,
+        ].join(" "),
+      );
+    }
+    drawOutcomeFlow();
+    window.addEventListener("resize", drawOutcomeFlow);
+  </script>
+
+  <section class="mt-14">
+    <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+      Vendor skills
+    </h2>
+    <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+      Fleet of vendor-specific rules to help you go deeper into stack instructions.
+    </p>
+    <ul class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
+      {
+        vendors.map(({ slug, name }) => (
+          <li>
+            <a
+              href={`/skills/${slug}`}
+              data-vendor={slug}
+              class="flex h-full items-center justify-center rounded-lg border border-neutral-200 px-2 py-3 text-center text-sm font-medium text-neutral-800 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:text-neutral-200 dark:hover:border-neutral-600"
+            >
+              <span class="relative">
+                <svg
+                  class="vendor-check pointer-events-none absolute top-1/2 right-full mr-1 h-3.5 w-3.5 -translate-y-1/2 text-emerald-500"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2.5 8.2 L6.2 11.6 L13.5 3.8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+                {name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  </div>
+  <Fragment set:html={`<style>.vendor-check{opacity:0}${checkSelectors}{opacity:1}${panelSelectors}{background-color:#f6fef9;color:#14532d}</style>`} />
 </Base>

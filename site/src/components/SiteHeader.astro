@@ -41,8 +41,10 @@ const currentPath = Astro.url.pathname;
       {
         primaryNav.map((item) => {
           const current =
-            item.href === "/"
-              ? currentPath === "/" || currentPath.startsWith("/skills")
+            item.href === "/gallery"
+              ? currentPath === "/gallery" ||
+                currentPath.startsWith("/gallery/") ||
+                currentPath.startsWith("/skills")
               : item.href.startsWith("/") &&
                 (currentPath === item.href || currentPath.startsWith(`${item.href}/`));
           return (

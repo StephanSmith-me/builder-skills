@@ -5,7 +5,7 @@ Vendor: https://fly.io
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. Whether Fly is the host, and how much of it is in code, lives in the `fly` skill. This checklist stays empty.
 
 ## Checklist
 

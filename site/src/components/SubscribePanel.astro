@@ -5,6 +5,7 @@ const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? "";
 const anonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? "";
 const formId = "skills-subscribe-form";
 const source = "skills_site";
+const automationAliases = ["builder-skills"];
 ---
 
 <section
@@ -65,7 +66,7 @@ const source = "skills_site";
   </form>
 </section>
 
-<script define:vars={{ supabaseUrl, anonKey, formId, source }}>
+<script define:vars={{ supabaseUrl, anonKey, formId, source, automationAliases }}>
   const form = document.getElementById(formId);
   const emailInput = document.getElementById(`${formId}-email`);
   const errorEl = document.getElementById(`${formId}-error`);
@@ -99,7 +100,7 @@ const source = "skills_site";
             Authorization: `Bearer ${anonKey}`,
             apikey: anonKey,
           },
-          body: JSON.stringify({ email, source }),
+          body: JSON.stringify({ email, source, automation_aliases: automationAliases }),
         });
 
         if (!res.ok) {

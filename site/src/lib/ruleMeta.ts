@@ -2,8 +2,9 @@ export const publicRules: Record<string, { version: string; updated: string }> =
   observability: { version: "0.4", updated: "2026-09-19" },
   security: { version: "0.2", updated: "2026-09-22" },
   scalability: { version: "0.3", updated: "2026-09-17" },
-  "day-to-day": { version: "0.5", updated: "2026-09-24" },
-  blindspots: { version: "0.2", updated: "2026-09-15" },
+  "day-to-day": { version: "0.6", updated: "2026-09-30" },
+  blindspots: { version: "0.4", updated: "2026-09-30" },
+  "whats-next": { version: "0.1", updated: "2026-09-30" },
 };
 
 export function publicRule(slug: string) {

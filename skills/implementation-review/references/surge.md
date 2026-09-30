@@ -5,7 +5,7 @@ Vendor: https://surge.sh
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. Whether the marketing site is Surge, Astro, Jekyll, or inside the React app lives in the `marketing-site` skill. This checklist stays empty.
 
 ## Checklist
 

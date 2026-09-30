@@ -1,0 +1,51 @@
+{
+  "skill_name": "stack-maturity",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Assess the stack. Infisical has many folders, syncs, and shared variables for one early app. Supabase has tables and no migrations.",
+      "expected_output": "Says maturity is lumpy. Secrets are ahead and the schema is thin. Says time went into secrets. Names the signal as different developers or overbuilding one area, and does not pick one as fact. Does not create migrations.",
+      "assertions": [
+        "Says maturity is lumpy",
+        "Says secrets are ahead",
+        "Says the schema is thin",
+        "Says time went into secrets",
+        "Does not pick different developers or overbuilding as a fact",
+        "Does not create migrations"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We only reviewed Infisical. Is the maturity lumpy?",
+      "expected_output": "Says one area is not a lump. Asks for a second area. Does not guess the rest of the stack.",
+      "assertions": [
+        "Says one area is not a lump",
+        "Asks for a second area",
+        "Does not guess the rest of the stack"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This is a proof of concept. Infisical is one project and one environment. Supabase migrations cover the schema they have.",
+      "expected_output": "Says the stack is even. Does not call either area a blind alley.",
+      "assertions": [
+        "Says the stack is even",
+        "Does not call either area a blind alley"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "There is no Supabase in this project. Secrets look overbuilt. Are we missing migrations?",
+      "expected_output": "Says there is no Supabase, so missing migrations are not the thin area. Does not invent migrations.",
+      "assertions": [
+        "Says there is no Supabase",
+        "Says missing migrations are not the thin area",
+        "Does not invent migrations"
+      ],
+      "files": []
+    }
+  ]
+}

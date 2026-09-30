@@ -3,12 +3,107 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Should this app deploy on Cloudflare Workers or Pages?",
-      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not deploy or change DNS.",
+      "prompt": "Review Cloudflare in this repo. The Fly Dockerfile runs cloudflared. .env sets TUNNEL_TOKEN. There is no Pages project and no Worker config.",
+      "expected_output": "Reports the tunnel as set up: cloudflared in the Fly Dockerfile and the tunnel token in env. Does not print the token value. Reports Pages absent and Workers absent. Does not deploy.",
       "assertions": [
-        "States that the skill is a stub",
-        "Does not invent a checklist",
-        "Does not deploy or change DNS"
+        "Reports cloudflared in the Fly Dockerfile",
+        "Reports the tunnel token set in env",
+        "Does not print the token value",
+        "Reports Pages absent and Workers absent",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The Fly Dockerfile runs cloudflared. I do not see a tunnel token in any env file. Is the tunnel set up?",
+      "expected_output": "Says the tunnel is incomplete. cloudflared is present and the env token is missing. Does not write the env line.",
+      "assertions": [
+        "Says the tunnel is incomplete",
+        "Says cloudflared is present",
+        "Says the env token is missing",
+        "Does not write the env line"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We have a Workers config and a Pages project. No Fly Dockerfile. What is the Cloudflare setup?",
+      "expected_output": "Reports Workers and Pages present and names the files. Reports the tunnel absent. Does not treat either config as cloudflared.",
+      "assertions": [
+        "Reports Workers present",
+        "Reports Pages present",
+        "Reports the tunnel absent",
+        "Does not treat Pages or Workers as cloudflared"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "The tunnel token is in .env. Where should that secret live?",
+      "expected_output": "Stops and uses the infisical skill. Does not print the token. Does not move the token from this skill.",
+      "assertions": [
+        "Uses the infisical skill",
+        "Does not print the token",
+        "Does not move the token from this skill"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Pages deploys from main only. I do not see a staging branch, a preview config, or a GitHub Action. I have not opened the Cloudflare dashboard.",
+      "expected_output": "Says deploy is the primary branch only. Says the deploy Action is absent. Says Cloudflare build settings are unseen. Does not add a staging preview.",
+      "assertions": [
+        "Says deploy is the primary branch only",
+        "Says the deploy Action is absent",
+        "Says Cloudflare build settings are unseen",
+        "Does not add a staging preview"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "A GitHub Action deploys the Worker from main, and the same workflow deploys the staging branch as a Cloudflare preview.",
+      "expected_output": "Names the deploy Action. Names main as the primary branch and staging as the preview. Says branch handling is in GitHub. Does not deploy.",
+      "assertions": [
+        "Names the deploy Action",
+        "Names main as the primary branch",
+        "Names staging as the preview",
+        "Says branch handling is in GitHub",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Does a GitHub Action send the Sentry sourcemap?",
+      "expected_output": "Uses the github skill. Does not score Cloudflare preview branches.",
+      "assertions": [
+        "Uses the github skill",
+        "Does not score Cloudflare preview branches"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "mcp.json names a cloudflare server. I cannot see anything calling it. Can we go deeper on cloudflare?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "How does Render ship this app?",
+      "expected_output": "Uses the render skill. Does not answer it as a Cloudflare review.",
+      "assertions": [
+        "Uses the render skill",
+        "Does not answer it as a Cloudflare review"
       ],
       "files": []
     }

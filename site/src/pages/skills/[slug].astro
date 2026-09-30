@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Install from "../../components/Install.astro";
 import { loadSkill, loadSkills } from "../../lib/skills";
+import { toolForSkill } from "../../lib/tools";
 
 export function getStaticPaths() {
   return loadSkills().map((skill) => ({
@@ -11,24 +12,51 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 const skill = loadSkill(slug ?? "");
+const tool = toolForSkill(slug ?? "");
 
 if (!skill) {
   throw new Error(`Unknown skill: ${slug}`);
 }
+
+const displayName = tool?.name ?? skill.name;
 ---
 
-<Base title={`${skill.name} — Stephan Smith`} description={skill.description}>
-  <p class="mb-4">
-    <a
-      href="/gallery"
-      class="text-sm text-neutral-500 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-50"
+<Base title={`${displayName} — Stephan Smith`} description={skill.description}>
+  <div class="relative">
+    {
+      tool && (
+        <a
+          href={tool.href}
+          aria-label={`${tool.name} on Tools I Use`}
+          class="absolute top-0 right-0"
+        >
+          <img
+            src={tool.logo}
+            alt=""
+            width="112"
+            height="112"
+            class="h-24 w-24 rounded-xl border border-neutral-200 bg-white object-contain p-2 sm:h-28 sm:w-28 dark:border-neutral-800"
+          />
+        </a>
+      )
+    }
+    <p class:list={["mb-4", tool && "pr-28 sm:pr-32"]}>
+      <a
+        href="/gallery"
+        class="text-sm text-neutral-500 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-50"
+      >
+        Gallery
+      </a>
+    </p>
+    <h1
+      class:list={[
+        "text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50",
+        tool && "pr-28 sm:pr-32",
+      ]}
     >
-      Gallery
-    </a>
-  </p>
-  <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
-    {skill.name}
-  </h1>
+      {displayName}
+    </h1>
+  </div>
   <p class="mt-3 flex flex-wrap gap-2 text-xs text-neutral-500 dark:text-neutral-400">
     {skill.stub && <span class="rounded-full border border-neutral-200 px-2 py-0.5 dark:border-neutral-700">Stub</span>}
     {skill.version && <span class="rounded-full border border-neutral-200 px-2 py-0.5 dark:border-neutral-700">v{skill.version}</span>}
@@ -40,7 +68,27 @@ if (!skill) {
       )
     }
   </p>
-  <p class="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">{skill.description}</p>
-  <Install skill={skill.slug} />
-  <article class="skill-body mt-10 max-w-2xl text-neutral-800 dark:text-neutral-200" set:html={skill.html} />
+  {
+    tool ? (
+      <>
+        <h2 class="mt-8 text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+          Where it sits
+        </h2>
+        <p class="mt-3 max-w-2xl text-lg text-neutral-800 dark:text-neutral-200">{tool.stack}</p>
+        <h2 class="mt-8 text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+          Prompt
+        </h2>
+        <blockquote class="mt-3 max-w-2xl border-l-[3px] border-neutral-300 pl-4 text-lg text-neutral-600 italic dark:border-neutral-600 dark:text-neutral-300">
+          {tool.prompt}
+        </blockquote>
+        <Install skill={skill.slug} />
+      </>
+    ) : (
+      <>
+        <p class="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">{skill.description}</p>
+        <Install skill={skill.slug} />
+        <article class="skill-body mt-10 max-w-2xl text-neutral-800 dark:text-neutral-200" set:html={skill.html} />
+      </>
+    )
+  }
 </Base>

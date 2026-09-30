@@ -1,0 +1,103 @@
+{
+  "skill_name": "blindspots",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The stack inventory is Cloudflare Pages for a simple early site. I do not see R2, DNS, Workers, a tunnel, or DNS routing rules. What am I not using?",
+      "expected_output": "Reads the inventory as Cloudflare Pages. Reports Pages in use and the other Cloudflare features not in use. Says the unused features can wait at this stage. Does not recommend them. Does not turn any of them on.",
+      "assertions": [
+        "Reads the inventory as Cloudflare Pages",
+        "Reports Pages in use",
+        "Reports R2, DNS, Workers, tunnels, and DNS routing rules not in use",
+        "Says the unused features can wait",
+        "Does not recommend them as work",
+        "Does not turn a feature on"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The inventory is Cloudflare. Pages is set up. The business needs a place to store files. I do not see R2.",
+      "expected_output": "Names R2 as the one unused feature that solves the file need, and as low effort and high impact for that need. Does not also assign Workers, tunnels, and DNS rules as work. Does not enable R2.",
+      "assertions": [
+        "Names R2 as the unused feature that matches the need",
+        "Treats it as the one recommendation",
+        "Does not assign the rest of the unused list as work",
+        "Does not enable R2"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Is cloudflared in the Fly Dockerfile, and is the tunnel token set in env?",
+      "expected_output": "Uses the cloudflare skill for the wiring. Does not answer it as a feature assessment.",
+      "assertions": [
+        "Uses the cloudflare skill",
+        "Does not answer it as a feature assessment"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "This repo has no Cloudflare. What features are we not using?",
+      "expected_output": "Says Cloudflare is not in the inventory it can see. Does not invent an unused R2, DNS, Pages, Workers, tunnel, or DNS routing list.",
+      "assertions": [
+        "Says Cloudflare is not in the inventory it can see",
+        "Does not invent an unused Cloudflare feature list"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "The inventory is Resend. We send mail. What am I not using? Where are the easy wins?",
+      "expected_output": "Assesses Resend for link tracking, templates, and layouts. No send file was opened, so each is unseen. Does not call them off. Does not recommend one. Does not add a product. Does not send mail.",
+      "assertions": [
+        "Assesses link tracking, templates, and layouts",
+        "Says each is unseen",
+        "Does not call an unseen feature off",
+        "Does not recommend a feature",
+        "Does not add a product"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "What is this repo made of? Inventory the stack, then tell me the easy wins.",
+      "expected_output": "Stops. Does not build the inventory. Does not recommend a feature before an inventory exists.",
+      "assertions": [
+        "Stops before a feature assessment",
+        "Does not build the inventory",
+        "Does not recommend a feature"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "The inventory is Postmark. The send file names a template id. It does not track links, and it does not name a layout. We cannot tell if people click the mail.",
+      "expected_output": "Templates are in use. Link tracking is not in use. Layouts are not in use. Recommends link tracking only, because they need to know who clicked. Does not turn it on. Does not send mail. Does not treat layouts as work.",
+      "assertions": [
+        "Reports templates in use",
+        "Reports link tracking not in use",
+        "Reports layouts not in use",
+        "Recommends link tracking only",
+        "Does not enable link tracking",
+        "Does not send mail"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "The inventory is Resend. The only mail is an HTML body in the send function. We have one email. What should we do to get to revenue?",
+      "expected_output": "Templates, layouts, and link tracking are not in use. Says they can wait. Does not turn the three into a backlog. Does not create a template. Does not send mail.",
+      "assertions": [
+        "Reports templates not in use",
+        "Reports layouts not in use",
+        "Reports link tracking not in use",
+        "Says they can wait",
+        "Does not recommend a backlog",
+        "Does not create a template"
+      ],
+      "files": []
+    }
+  ]
+}

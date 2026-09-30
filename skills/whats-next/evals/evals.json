@@ -1,0 +1,55 @@
+{
+  "skill_name": "whats-next",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What's next? No assessments have been run. I have not said the stage.",
+      "expected_output": "Says the assessment status is missing. Does not invent a status. Does not name a task. Asks which status they have.",
+      "assertions": [
+        "Says the assessment status is missing",
+        "Does not invent a status",
+        "Does not name a task",
+        "Asks which status they have"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "What's next? The app is early. Observability says they cannot tell the app is doing the work, and Sentry is not installed. Day-to-day says Render deploys main only. Blindspots says Postmark already sends and link tracking is off, and they have not asked who clicks. Security and scalability were not assessed.",
+      "expected_output": "Uses the statuses in hand. Names one task from observability, because they cannot tell the app is doing the work. Does not also assign a Render preview or link tracking. Says security and scalability are missing. Does not re-walk Sentry, Render, or Postmark. Does not start the work.",
+      "assertions": [
+        "Names one task",
+        "The task comes from observability",
+        "Does not assign the Render preview as work",
+        "Does not assign link tracking as work",
+        "Says security and scalability are missing",
+        "Does not re-walk Sentry, Render, or Postmark",
+        "Does not start the work"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What's next? They already send with Postmark. Link tracking is off. They cannot tell if people click. Observability is in place.",
+      "expected_output": "Names link tracking as the one task, from blindspots. Does not add a new product. Does not re-walk Postmark. Does not start the work.",
+      "assertions": [
+        "Names link tracking as the one task",
+        "Says it comes from blindspots",
+        "Does not add a new product",
+        "Does not re-walk Postmark",
+        "Does not start the work"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Review the Sentry ladder for this project.",
+      "expected_output": "Uses the sentry skill directly. Does not run the what's-next choice.",
+      "assertions": [
+        "Uses the sentry skill",
+        "Does not run the what's-next choice"
+      ],
+      "files": []
+    }
+  ]
+}

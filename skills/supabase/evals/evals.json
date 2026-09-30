@@ -1,0 +1,65 @@
+{
+  "skill_name": "supabase",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We use Supabase Auth and a Supabase function. The function file contains a service-role secret. I am not logged into Infisical, so you cannot see a sync.",
+      "expected_output": "Reports Auth and functions in use. Says the secret is handled in the code and the Infisical sync is unseen. Does not guess the sync is missing. Does not print the secret. Does not create a sync.",
+      "assertions": [
+        "Reports Auth and functions in use",
+        "Says the secret is handled in the code",
+        "Says the Infisical sync is unseen",
+        "Does not guess the sync is missing",
+        "Does not print the secret"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Schema changes are SQL files in supabase/migrations. I can see files dated March, June, and September. Nothing is edited only in the dashboard.",
+      "expected_output": "Says the schema is changed by migrations. Reports the dates it can see. Does not invent a pace. Does not call it manual.",
+      "assertions": [
+        "Says the schema is changed by migrations",
+        "Reports the dates it can see",
+        "Does not invent a pace",
+        "Does not call it manual"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Supabase Auth is configured with Google and Auth0. How mature is that?",
+      "expected_output": "Says there are two providers, Google and Auth0. Says Auth0, and more than one provider, is complexity and maturity. Does not add a provider.",
+      "assertions": [
+        "Says there are two providers",
+        "Names Google and Auth0",
+        "Says that is complexity and maturity",
+        "Does not add a provider"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our users table has a password column in clear text. Is that Supabase Auth?",
+      "expected_output": "Uses the security skill. Does not treat the column as a utilization signal for functions or migrations.",
+      "assertions": [
+        "Uses the security skill",
+        "Does not treat the column as a functions or migrations signal"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json names a supabase server. I cannot see anything calling it. Can we go deeper on supabase?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

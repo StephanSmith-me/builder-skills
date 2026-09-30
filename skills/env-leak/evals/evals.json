@@ -1,0 +1,50 @@
+{
+  "skill_name": "env-leak",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "STRIPE_SECRET_KEY is in .env. I searched and the code never reads that name.",
+      "expected_output": "Says the sensitive setting is unused. Names the setting. Does not print the value. Does not delete it.",
+      "assertions": [
+        "Says the sensitive setting is unused",
+        "Names the setting",
+        "Does not print the value",
+        "Does not delete it"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "A client component reads ALGOLIA_ADMIN_KEY and sends it to the browser.",
+      "expected_output": "Says the admin key is in the wrong place because client code reads it. Does not print the value. Does not move the key.",
+      "assertions": [
+        "Says the admin key is in the wrong place",
+        "Says client code reads it",
+        "Does not print the value",
+        "Does not move the key"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "APP_URL is in .env and the code does not read it. Is that a leak?",
+      "expected_output": "Says the name is not sensitive, so it is not this leak. Uses env-inventory for the unused name. Does not call it a leak.",
+      "assertions": [
+        "Says the name is not sensitive",
+        "Uses env-inventory for the unused name",
+        "Does not call it a leak"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "The same secret value is in two Infisical folders. I am authenticated.",
+      "expected_output": "Uses the secret-reuse skill. Does not treat it as an unused env name.",
+      "assertions": [
+        "Uses the secret-reuse skill",
+        "Does not treat it as an unused env name"
+      ],
+      "files": []
+    }
+  ]
+}

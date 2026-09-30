@@ -1,0 +1,75 @@
+{
+  "skill_name": "render",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "render.yaml lists one web service on main. I do not see a preview, and I do not see a GitHub Action. I have not opened the Render dashboard.",
+      "expected_output": "Names the web service from the file. Says the primary branch is the only branch in view. Says the deploy Action is absent. Says Render dashboard settings are unseen. Does not add a preview. Does not deploy.",
+      "assertions": [
+        "Names the web service from the file",
+        "Says the primary branch is the only branch in view",
+        "Says the deploy Action is absent",
+        "Says Render dashboard settings are unseen",
+        "Does not add a preview",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "render.yaml names a preview environment. A GitHub Action deploys the production branch and the preview to Render.",
+      "expected_output": "Names the blueprint and the deploy Action. Names the preview and the production branch. Says branch handling is in both places it found. Does not deploy.",
+      "assertions": [
+        "Names the blueprint",
+        "Names the deploy Action",
+        "Names the preview",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review Cloudflare Pages and Workers.",
+      "expected_output": "Uses the cloudflare skill. Does not answer it as a Render review.",
+      "assertions": [
+        "Uses the cloudflare skill",
+        "Does not answer it as a Render review"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "There is no render.yaml and no workflow that deploys to Render. What does Render run here?",
+      "expected_output": "Says Render is absent. Does not invent a service. Does not add Render.",
+      "assertions": [
+        "Says Render is absent",
+        "Does not invent a service",
+        "Does not add Render"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Does a GitHub Action send the Sentry sourcemap?",
+      "expected_output": "Uses the github skill. Does not score Render previews.",
+      "assertions": [
+        "Uses the github skill",
+        "Does not score Render previews"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "mcp.json names a render server. I cannot see anything calling it. Can we go deeper on Render?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "skill_name": "day-to-day",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this app for /day-to-day. How does code get to staging and then production? The files do not name Cloudflare or Render.",
+      "expected_output": "Says the ship path is unseen. Does not assume Cloudflare. Does not deploy.",
+      "assertions": [
+        "Says the ship path is unseen",
+        "Does not assume Cloudflare",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review tunnels, Pages, and Workers.",
+      "expected_output": "Uses the cloudflare skill directly. Does not limit the review to preview and deploy.",
+      "assertions": [
+        "Uses the cloudflare skill directly",
+        "Does not limit the review to preview and deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review this app for /day-to-day. render.yaml ships the app. How does code get to a preview and then production?",
+      "expected_output": "Follows the render skill for the preview and the deploy Action. Does not re-walk every Render service. Does not deploy.",
+      "assertions": [
+        "Follows the render skill",
+        "Brings back the preview and the deploy Action",
+        "Does not re-walk every Render service",
+        "Does not deploy"
+      ],
+      "files": []
+    }
+  ]
+}

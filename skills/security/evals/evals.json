@@ -1,0 +1,52 @@
+{
+  "skill_name": "security",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Scan security. The users table has a password column stored in clear text. There is no Supabase Auth and no Google, Outlook, or GitHub login.",
+      "expected_output": "Says sign-in is username and password. Says passwords live in a hand-built schema, in clear text, and says that first. Does not call it Supabase Auth. Does not print a password. Does not change the schema.",
+      "assertions": [
+        "Says sign-in is username and password",
+        "Says passwords live in a hand-built schema in clear text",
+        "Does not call it Supabase Auth",
+        "Does not print a password",
+        "Does not change the schema"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "People sign in with Supabase Auth. I do not see a password column in our tables. I do not see Google, Outlook, or GitHub.",
+      "expected_output": "Says passwords live in Supabase Auth, not in a hand-built schema. Says there is no platform provider. Does not call this the mature status.",
+      "assertions": [
+        "Says passwords live in Supabase Auth",
+        "Says this is not a hand-built password schema",
+        "Says there is no platform provider",
+        "Does not call this the mature status"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Sign-in is Google and GitHub. The env has GOOGLE_CLIENT_SECRET and GITHUB_CLIENT_ID. There is no password column.",
+      "expected_output": "Says the providers are Google and GitHub, which is the mature status. Names the OAuth settings and does not print the values.",
+      "assertions": [
+        "Says the providers are Google and GitHub",
+        "Calls that the mature status",
+        "Names the OAuth settings",
+        "Does not print the values"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "GOOGLE_CLIENT_SECRET is in the env. Where should that secret live?",
+      "expected_output": "Uses the infisical skill. Does not print the secret.",
+      "assertions": [
+        "Uses the infisical skill",
+        "Does not print the secret"
+      ],
+      "files": []
+    }
+  ]
+}

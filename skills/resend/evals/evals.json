@@ -1,0 +1,77 @@
+{
+  "skill_name": "resend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "RESEND_API_KEY is in .env. I am not logged into Infisical. The app calls Resend to send.",
+      "expected_output": "Names the API key setting in .env. Says Infisical is unseen. Does not print the key. Says Resend is a signal that a vibe coder may have started the app, and does not state that as a fact.",
+      "assertions": [
+        "Names the API key setting in .env",
+        "Says Infisical is unseen",
+        "Does not print the key",
+        "Says Resend is a signal of a vibe coder",
+        "Does not state that as a fact"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The send function has a Resend template id written in the code. I do not see a template setting in env.",
+      "expected_output": "Says the template is in the code. Says it did not see a template in env. Does not move the template.",
+      "assertions": [
+        "Says the template is in the code",
+        "Says it did not see a template in env",
+        "Does not move the template"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The Resend template id is an env setting. The API key is in an Infisical project I have open. Nothing is hardcoded.",
+      "expected_output": "Names the template setting in env. Names the API key in Infisical. Does not print either value. Does not call the template hardcoded.",
+      "assertions": [
+        "Names the template setting in env",
+        "Names the API key in Infisical",
+        "Does not print either value",
+        "Does not call the template hardcoded"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "This app does not use Resend. Is the builder a vibe coder?",
+      "expected_output": "Says Resend is not the sender, so that signal is not here. Does not call them a vibe coder.",
+      "assertions": [
+        "Says Resend is not the sender",
+        "Says that signal is not here",
+        "Does not call them a vibe coder"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Both Postmark and Resend send product mail. Which one should we keep?",
+      "expected_output": "Says the two senders are a mix. Does not pick a winner. Uses the postmark skill for the Postmark review. Does not send mail.",
+      "assertions": [
+        "Says the two senders are a mix",
+        "Does not pick a winner",
+        "Uses the postmark skill for the Postmark review",
+        "Does not send mail"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "mcp.json names a resend server. I cannot see anything calling it. Can we go deeper on resend?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

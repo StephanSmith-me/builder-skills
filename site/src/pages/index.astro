@@ -5,44 +5,49 @@ import { HEADSHOT_URL, MAIN_SITE } from "../lib/brand";
 import { formatDaysAgo, publicRule } from "../lib/ruleMeta";
 
 const description =
-  "You are good enough. Don't listen to AI haters. You can build it!";
+  "You are good enough. Built for founders and builders. You can build it!";
 
 const skills = [
   {
+    step: 1,
+    name: "/day-to-day",
+    href: "/day-to-day",
+    aside: "How am I doing right now?",
+    shadow: true,
+  },
+  {
+    step: 2,
     name: "/observability",
     href: "/observability",
     aside: "How do I know my app does what we set out to do?",
     shadow: true,
   },
   {
+    step: 3,
     name: "/security",
     href: "/security",
     aside: "How do I know my app is secure and ready for active customers?",
     shadow: true,
   },
   {
+    step: 4,
     name: "/scalability",
     href: "/scalability",
     aside: "How do I know my app will work in the wild when customers start to use it?",
     shadow: true,
   },
   {
-    name: "/day-to-day",
-    href: "/day-to-day",
-    aside: "How do I handle CI/CD so my AI work is visible?",
-    shadow: true,
-  },
-  {
+    step: 5,
     name: "/blindspots",
     href: "/blindspots",
-    aside: "A stack review for the patterns most apps need at some point.",
+    aside: "What am I not doing, or what should I do, to get to revenue?",
     shadow: true,
   },
   {
-    name: "/gallery",
-    href: "/gallery",
-    aside:
-      "Vendor skills, one product at a time. Infisical is written. Sentry, Cloudflare, ImprovMX, and GitHub are stubs.",
+    step: 6,
+    name: "/whats-next",
+    href: "/whats-next",
+    aside: "What should I build next?",
     shadow: true,
   },
 ];
@@ -55,7 +60,7 @@ const skills = [
   </p>
   <h1 class="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-50">
     <span class="block">You are good enough.</span>
-    <span class="block">Don't listen to AI haters.</span>
+    <span class="block">Built for founders and builders.</span>
     <span class="block">You can build it!</span>
   </h1>
   <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
@@ -90,8 +95,16 @@ const skills = [
                     }
                   </p>
                   <h2 class="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                    {skill.step && (
+                      <span class="mr-2 text-neutral-400 dark:text-neutral-500">{skill.step}</span>
+                    )}
                     {skill.name}
                   </h2>
+                  {skill.step === 1 && (
+                    <span class="mt-2 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">
+                      Start here
+                    </span>
+                  )}
                 </a>
               ) : (
                 <div

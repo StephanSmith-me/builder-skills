@@ -4,15 +4,15 @@ import RulePage from "../components/RulePage.astro";
 
 <RulePage
   slug="blindspots"
-  description="A stack review that looks for the overall patterns most apps need at some point."
-  prompt="Review this app for /blindspots. Do a stack review. Look for the overall patterns most apps need at some point, and tell me which ones this build is missing."
-  subtitle="What patterns does this app still need?"
-  lead="This skill does a stack review. It looks for the overall patterns most apps need at some point."
+  description="What am I not doing, or what should I do, to get to revenue?"
+  prompt="Review this app for /blindspots. What am I not doing, or what should I do, to get to revenue? Tell me which of those this build is missing."
+  subtitle="What am I not doing, or what should I do, to get to revenue?"
+  lead="This review reads the stack you already have, then names one unused feature that is low effort and high impact."
   issues={[
-    "You cannot say what the stack is, or which pieces are doing the work.",
-    "A pattern most apps need by this stage is missing.",
-    "The build has grown, and the early choices no longer match how it runs.",
-    "You can see a local problem, and you cannot see the pattern across the app.",
-    "There is no order for which pattern to take on next.",
+    "You cannot say which products are already in the stack.",
+    "A product is in the stack, and you cannot say which of its features are in use.",
+    "An unused feature would solve a problem you already have, and it is sitting off.",
+    "The unused list got treated as a backlog.",
+    "The recommendation would be a project, not a low-effort change.",
   ]}
 />

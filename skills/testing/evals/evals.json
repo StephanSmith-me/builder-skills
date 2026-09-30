@@ -1,0 +1,62 @@
+{
+  "skill_name": "testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This is a proof of concept with no customers. package.json has no test library, and I do not see test files.",
+      "expected_output": "Says testing is not set up. Names the missing library and the missing files. Does not recommend end-to-end tests. Does not invent a coverage percent.",
+      "assertions": [
+        "Says testing is not set up",
+        "Names the missing library and the missing files",
+        "Does not recommend end-to-end tests",
+        "Does not invent a coverage percent"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "package.json lists vitest. There are no test files in the repo.",
+      "expected_output": "Names vitest as the test library. Says the suite is declared, not written. Does not call it a test suite.",
+      "assertions": [
+        "Names vitest as the test library",
+        "Says the suite is declared, not written",
+        "Does not call it a test suite"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We have paying customers. There are unit tests for helpers. Nothing tests the checkout path, and there is no end-to-end test.",
+      "expected_output": "Says unit tests exist and names that they are not on checkout. Says the gap is the path that takes payment, with impact on revenue and support. Does not invent a coverage percent.",
+      "assertions": [
+        "Says unit tests exist",
+        "Says they are not on the checkout path",
+        "Says the impact is on revenue and support",
+        "Does not invent a coverage percent"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We have revenue. Unit tests and an end-to-end test cover signup. I do not see a coverage script or config, and there is no coverage report.",
+      "expected_output": "Says unit and end-to-end tests are present. Says coverage is the next step. Says the percent is unseen. Does not invent a target.",
+      "assertions": [
+        "Says unit and end-to-end tests are present",
+        "Says coverage is the next step",
+        "Says the percent is unseen",
+        "Does not invent a target"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Are production errors caught in Sentry?",
+      "expected_output": "Uses the sentry skill. Does not score the test suite.",
+      "assertions": [
+        "Uses the sentry skill",
+        "Does not score the test suite"
+      ],
+      "files": []
+    }
+  ]
+}

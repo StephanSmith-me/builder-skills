@@ -1,0 +1,18 @@
+---
+import RulePage from "../components/RulePage.astro";
+---
+
+<RulePage
+  slug="whats-next"
+  description="What should I build next, given the assessments and the state of the stack?"
+  prompt="Review this app for /whats-next. From the assessments already in hand, what is the one thing I should build next? Match the current state. Lowest tech. Smallest amount of code, least work, highest impact. Do not give me a backlog."
+  subtitle="What should I build next?"
+  lead="This review reads the assessments you already have, then names one task. It fits the current state, uses the lowest tech that does the job, and is the smallest amount of code for the least work and the highest impact."
+  issues={[
+    "A next task got picked before any assessment status was in hand.",
+    "Several gaps are in view, and they became a backlog.",
+    "The next task adds a product the stack does not have, when a feature they already run would do the job.",
+    "The next task is more tech, or more code, than this stage needs.",
+    "The work started before you said to.",
+  ]}
+/>

@@ -5,7 +5,7 @@ Vendor: https://www.inngest.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. When an API and a local cron mean Inngest fits, that lives in the `inngest` skill. This checklist stays empty.
 
 ## Checklist
 

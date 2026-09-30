@@ -45,6 +45,102 @@
         "Does not reuse the personal CLI login across clients"
       ],
       "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Infisical is set up and I am authenticated. I have one project, one environment, no folders, no syncs, and no connections. It is one app. Is this too thin for SOC?",
+      "expected_output": "Says one project, one environment, and no sync is enough for one app. Does not add folders, syncs, or connections. Does not start a rotation.",
+      "assertions": [
+        "Says one project and one environment is enough for one app",
+        "Does not add folders, syncs, or connections",
+        "Does not start a rotation"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "We are authenticated in Infisical. Production and a second host should get the same secrets. I do not see a sync. I do see a connection to that host.",
+      "expected_output": "Says the connection is not a sync. Names the missing sync as the gap. Does not create the sync. Does not add another project.",
+      "assertions": [
+        "Says the connection is not a sync",
+        "Names the missing sync as the gap",
+        "Does not create the sync",
+        "Does not add another project"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "There is a .infisical.json in the repo, but I am not logged in. How many Infisical projects do we have, and are folders set up?",
+      "expected_output": "Says it cannot see projects, folders, syncs, or connections until they are authenticated. Does not guess a count.",
+      "assertions": [
+        "Says it cannot see the account until they are authenticated",
+        "Does not guess a project count",
+        "Does not guess that folders exist"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "We are authenticated. Revenue is scaling. The GitHub org is acme, the repo is app, and there is a production environment. I do not see a sync from Infisical to GitHub.",
+      "expected_output": "Says there is no sync from Infisical to GitHub, so the stack is less mature. Names the org, the repo, and the environment. Says that complexity grows as revenue scales. Does not create the sync.",
+      "assertions": [
+        "Says there is no sync from Infisical to GitHub",
+        "Says the stack is less mature",
+        "Names the org, the repo, and the environment",
+        "Says the complexity grows as revenue scales",
+        "Does not create the sync"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "We are authenticated. Two Infisical projects share one variable. I have not asked you to compare the values.",
+      "expected_output": "Says a variable is shared between the two projects. Does not print the value. Does not decide the values match. Does not create another share.",
+      "assertions": [
+        "Says a variable is shared between the two projects",
+        "Does not print the value",
+        "Does not decide the values match",
+        "Does not create another share"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "We are authenticated. A sync exists. Secrets auto-deploy when edited. The flag that deletes settings when secrets are deployed is off.",
+      "expected_output": "Says auto-deploy on edit is on. Says the delete-on-deploy flag is off, so leftover settings can remain. Calls it a small maturity signal. Does not flip the flag.",
+      "assertions": [
+        "Says auto-deploy on edit is on",
+        "Says the delete-on-deploy flag is off",
+        "Says leftover settings can remain",
+        "Calls it a small maturity signal",
+        "Does not flip the flag"
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "I am not logged into Infisical. Do projects share variables, and is auto-deploy on edit turned on?",
+      "expected_output": "Says shared variables and the deploy flags are unseen. Does not guess they are off. Does not guess a share exists.",
+      "assertions": [
+        "Says shared variables and the deploy flags are unseen",
+        "Does not guess they are off",
+        "Does not guess a share exists"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "mcp.json names a infisical server. I cannot see anything calling it. Can we go deeper on infisical?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
     }
   ]
 }

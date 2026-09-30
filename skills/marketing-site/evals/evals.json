@@ -1,0 +1,51 @@
+{
+  "skill_name": "marketing-site",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The React app has the logged-in product and also /pricing and /about. I do not see a second site.",
+      "expected_output": "Says the marketing lives inside the React SPA and is not a separate site. Does not extract it. Does not recommend Surge.",
+      "assertions": [
+        "Says the marketing lives inside the React SPA",
+        "Says it is not a separate site",
+        "Does not extract it",
+        "Does not recommend Surge"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Marketing is a separate folder of HTML files. The deploy config names surge.sh. The product is a different app.",
+      "expected_output": "Says it is a separate static HTML site on Surge, the low-end host. Says that is enough for this stage. Does not send it to Cloudflare.",
+      "assertions": [
+        "Says it is a separate static HTML site",
+        "Says Surge is the low-end host",
+        "Says that is enough for this stage",
+        "Does not send it to Cloudflare"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The marketing site is a separate Astro project. I do not see surge.sh. The product is a React app.",
+      "expected_output": "Says the marketing site is separate and is Astro. Says Surge is not the host. Does not invent a host.",
+      "assertions": [
+        "Says the marketing site is separate",
+        "Says it is Astro",
+        "Says Surge is not the host",
+        "Does not invent a host"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "This product app will grow. Where should the app be hosted?",
+      "expected_output": "Uses the hosting skill. Does not evaluate the marketing site.",
+      "assertions": [
+        "Uses the hosting skill",
+        "Does not evaluate the marketing site"
+      ],
+      "files": []
+    }
+  ]
+}

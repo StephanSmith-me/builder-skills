@@ -1,0 +1,40 @@
+{
+  "skill_name": "hosting",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a static HTML page for a talk. I do not need an app, and I am not planning a platform. Where should I host it?",
+      "expected_output": "Recommends GitHub hosting for the HTML site. Says the free tier is enough for this stage. Does not recommend Cloudflare. Does not create a repo.",
+      "assertions": [
+        "Recommends GitHub for the HTML site",
+        "Says the free tier is enough for this stage",
+        "Does not recommend Cloudflare",
+        "Does not create a repo"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "This product will grow. I want hosting now, and later I will want the rest of what Cloudflare offers. Where do I start?",
+      "expected_output": "Recommends Cloudflare Pages. Says it is free to start and the ecosystem becomes valuable as they grow. Points the setup review at the cloudflare skill. Does not deploy.",
+      "assertions": [
+        "Recommends Cloudflare Pages",
+        "Says it is free to start",
+        "Says the ecosystem becomes valuable as they grow",
+        "Points the setup review at the cloudflare skill",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Is cloudflared in the Fly Dockerfile, and is the tunnel token in env?",
+      "expected_output": "Uses the cloudflare skill. Does not pick a host.",
+      "assertions": [
+        "Uses the cloudflare skill",
+        "Does not pick a host"
+      ],
+      "files": []
+    }
+  ]
+}

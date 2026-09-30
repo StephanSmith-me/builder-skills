@@ -1,0 +1,61 @@
+{
+  "skill_name": "cursor-setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I do not see a .cursor folder or a .claude folder in this repo. How mature is the editor setup?",
+      "expected_output": "Says the editor setup is not in the project. Does not create a folder.",
+      "assertions": [
+        "Says the editor setup is not in the project",
+        "Does not create a folder"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "There is a .cursor folder. I do not see mcp.json. I do not see any SKILL.md files.",
+      "expected_output": "Says the .cursor folder is present, MCP is not connected, and there are no skills. Does not create mcp.json.",
+      "assertions": [
+        "Says the .cursor folder is present",
+        "Says MCP is not connected",
+        "Says there are no skills",
+        "Does not create mcp.json"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": ".cursor/mcp.json exists. .cursor/skills/billing/SKILL.md is ours. .agents/skills/infisical/SKILL.md was installed from a library. Do not show me the MCP tokens.",
+      "expected_output": "Says MCP is connected. Says billing is a skill they defined and infisical is imported. Does not print a token. Says their own skills are the more mature setup.",
+      "assertions": [
+        "Says MCP is connected",
+        "Says billing is a skill they defined",
+        "Says infisical is imported",
+        "Does not print a token",
+        "Says their own skills are the more mature setup"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "There is a .claude folder and a .cursor folder. The only SKILL.md files are under .agents/skills/.",
+      "expected_output": "Says both Cursor and Claude folders are present. Says the skills are imported and none are defined in this project.",
+      "assertions": [
+        "Says both Cursor and Claude folders are present",
+        "Says the skills are imported",
+        "Says none are defined in this project"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json has a sentry server. Is that MCP used, and can we go deeper?",
+      "expected_output": "Uses the sentry skill. Does not list servers, URLs, or tokens.",
+      "assertions": [
+        "Uses the sentry skill",
+        "Does not list servers, URLs, or tokens"
+      ],
+      "files": []
+    }
+  ]
+}

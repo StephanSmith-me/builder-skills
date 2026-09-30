@@ -1,0 +1,29 @@
+{
+  "skill_name": "scalability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this app for /scalability. How will it handle more traffic, meaning more business?",
+      "expected_output": "Follows hosting, fly, and inngest. Brings back each result. Does not choose a host itself. Does not deploy.",
+      "assertions": [
+        "Follows hosting",
+        "Follows fly",
+        "Follows inngest",
+        "Brings back each result",
+        "Does not choose a host itself",
+        "Does not deploy"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Where should this HTML site be hosted?",
+      "expected_output": "Uses the hosting skill directly. Does not also run fly and inngest.",
+      "assertions": [
+        "Uses the hosting skill directly",
+        "Does not also run fly and inngest"
+      ],
+      "files": []
+    }
+  ]
+}

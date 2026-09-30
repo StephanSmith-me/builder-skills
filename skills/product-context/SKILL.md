@@ -2,7 +2,7 @@
 name: product-context
 description: When the user wants a shared context file for a software build — what is being built, for whom, and what in production means — before other builder skills run. Use when the user says "product context," "build context," "what are we building," or "write the context file." Stub. The method is not written yet.
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 ---
 
 # Product context
@@ -24,6 +24,10 @@ Ask only for what is missing:
 5. **Constraints** — stack, deadline, and anything that must not change.
 
 Write the answers to `.agents/product-context.md`. Keep each answer short enough that another skill can read the file without a summary.
+
+## Report
+
+When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

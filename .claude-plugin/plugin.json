@@ -1,7 +1,7 @@
 {
   "name": "builder-skills",
   "description": "Builder skills for AI agents — tools that drive a build into production",
-  "version": "0.5.0",
+  "version": "0.24.0",
   "author": {
     "name": "Stephan Smith"
   },

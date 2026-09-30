@@ -5,7 +5,7 @@ Vendor: https://improvmx.com
 
 ## Status
 
-The public page has a real write-up. The decision stub lives in the `improvmx` skill. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. The decision lives in the `improvmx` skill. This is not a code test, so the checklist stays empty.
 
 ## Checklist
 

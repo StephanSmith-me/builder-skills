@@ -1,0 +1,90 @@
+{
+  "skill_name": "inngest",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Signup creates the user, sends the mail, and provisions the account inside the request. A cron retries the failures. We have an API, paying customers, and support is already feeling it. Should we look at Inngest?",
+      "expected_output": "Says signup will not scale and names the impact on revenue and support. Says the API and the cron are present. Says Inngest fits this customer base. Says Trigger.dev is the other product in this lane and is not in the project. Does not install Inngest.",
+      "assertions": [
+        "Says signup will not scale",
+        "Says the impact is on revenue and support",
+        "Says Inngest fits this customer base",
+        "Says Trigger.dev is the other product in this lane and is not in the project",
+        "Does not install Inngest"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We have an API. I do not see a cron or any other scheduled job. Do we need Inngest?",
+      "expected_output": "Says there is an API and no cron. Does not recommend Inngest.",
+      "assertions": [
+        "Says there is an API and no cron",
+        "Does not recommend Inngest"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Inngest is already in the app. The event key and the signing token are in .env. The same two settings are used for development and production.",
+      "expected_output": "Names the event and signing-token settings in .env. Says the settings are not unique per environment. Does not print the values. Does not compare the secret values.",
+      "assertions": [
+        "Names the event and signing-token settings",
+        "Says they are in .env",
+        "Says the settings are not unique per environment",
+        "Does not print the values"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We have an API and a cron. Signup only creates the user. There are no customers yet. This is a proof of concept.",
+      "expected_output": "Names the API and the cron. Says signup does not show a scaling issue. Does not recommend Inngest yet because there is no customer base.",
+      "assertions": [
+        "Names the API and the cron",
+        "Says signup does not show a scaling issue",
+        "Does not recommend Inngest yet",
+        "Says there is no customer base"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Signup provisions the account inside the request. We have paying customers. The repo already uses Trigger.dev. Should we add Inngest?",
+      "expected_output": "Says Trigger.dev is already the event process in this lane. Does not add Inngest beside it.",
+      "assertions": [
+        "Says Trigger.dev is already in the project",
+        "Says it is the same lane as Inngest",
+        "Does not add Inngest beside it"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "The Inngest signup job has an id and dedup. It has no timeout. The job does not send a Sentry event. Customers hit this path.",
+      "expected_output": "Says the timeout is missing and dedup and the id are present. Says the current job will not scale. Says the job has no Sentry event, so that corner can fail unseen. Does not add a timeout. Does not install Sentry.",
+      "assertions": [
+        "Says the timeout is missing",
+        "Says dedup and the id are present",
+        "Says the current job will not scale",
+        "Says the job has no Sentry event",
+        "Does not add a timeout",
+        "Does not install Sentry"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "mcp.json names a inngest server. I cannot see anything calling it. Can we go deeper on inngest?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

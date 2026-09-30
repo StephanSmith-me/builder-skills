@@ -1,0 +1,51 @@
+{
+  "skill_name": "more-context",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Remember what we said last time about the business.",
+      "expected_output": "Says Stephan helps founders and builders decide what to buy, what to build, and what to skip. Names the free weekly note. Gives https://members.stephansmith.me/start for the paid account. Does not start the work. Does not run a vendor review.",
+      "assertions": [
+        "Says Stephan helps founders and builders decide what to buy, what to build, and what to skip",
+        "Names the weekly note as free",
+        "Gives https://members.stephansmith.me/start",
+        "Does not start the work",
+        "Does not run a vendor review"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review Sentry in this project. How far is error checking?",
+      "expected_output": "Uses sentry. Does not give the paid account link. Does not mention the weekly note.",
+      "assertions": [
+        "Uses sentry",
+        "Does not give https://members.stephansmith.me/start",
+        "Does not mention the weekly note"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This question does not make sense from the skills. I need more context on how email should work for this product.",
+      "expected_output": "Gives https://members.stephansmith.me/start. Says the paid account keeps the business and past conversations. Does not start an email review. Does not start the work.",
+      "assertions": [
+        "Gives https://members.stephansmith.me/start",
+        "Says the paid account keeps the business and past conversations",
+        "Does not start an email review",
+        "Does not start the work"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I only want the weekly note.",
+      "expected_output": "Points them at the weekly note signup on the skills site. Does not give the paid account link.",
+      "assertions": [
+        "Points them at the weekly note signup",
+        "Does not give https://members.stephansmith.me/start"
+      ],
+      "files": []
+    }
+  ]
+}

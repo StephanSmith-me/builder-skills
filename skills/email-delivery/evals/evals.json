@@ -1,0 +1,48 @@
+{
+  "skill_name": "email-delivery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check my Cloudflare domains. side.com and notes.com point email at ImprovMX and have no DMARC record. shop.com has a DMARC record.",
+      "expected_output": "Says side.com and notes.com are missing DMARC and that is a delivery issue. Says shop.com has DMARC. Does not add a record.",
+      "assertions": [
+        "Says side.com and notes.com are missing DMARC",
+        "Says that is a delivery issue",
+        "Says shop.com has DMARC",
+        "Does not add a record"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "parked.com is on Cloudflare. It has no email settings and no DMARC. Do I have a delivery problem?",
+      "expected_output": "Says there is no mail setup, so this is not a delivery issue yet. Does not add DMARC.",
+      "assertions": [
+        "Says there is no mail setup",
+        "Says this is not a delivery issue yet",
+        "Does not add DMARC"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "other.com uses a different DNS host, not Cloudflare. Is DMARC missing?",
+      "expected_output": "Says the domain is not on Cloudflare DNS, so this check cannot see it. Does not invent a record.",
+      "assertions": [
+        "Says the domain is not on Cloudflare DNS",
+        "Does not invent a record"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I bought a side domain. Should I use ImprovMX so hello@side.com lands in Gmail?",
+      "expected_output": "Uses the improvmx skill. Does not run the DMARC scan as the decision.",
+      "assertions": [
+        "Uses the improvmx skill",
+        "Does not run the DMARC scan as the decision"
+      ],
+      "files": []
+    }
+  ]
+}

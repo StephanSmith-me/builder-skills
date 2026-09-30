@@ -2,7 +2,7 @@
 name: skill-template
 description: Internal template. Copy this folder when adding a builder skill. Use when the user says "add a skill," "new skill," or "scaffold a skill." Not a method for building software.
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 ---
 
 # Skill template
@@ -29,3 +29,4 @@ skills/your-skill-name/
 Write the method here, under 500 lines. Second person. Name the trigger phrases in `description`, and name the neighboring skill when the work could be confused with it.
 
 State that `product-context` must be read first, once that skill has a real body.
+When the skill writes a report or names what to do, it follows `report`.

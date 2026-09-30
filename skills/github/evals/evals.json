@@ -3,12 +3,74 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Should this project live on GitHub, with pull requests and Actions?",
-      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not create a repo or a workflow.",
+      "prompt": "Look at this repo. There is .github/workflows/deploy.yml and it runs on main. There is also app.code-workspace. Nothing in the workflow mentions Sentry. There is no schedule.",
+      "expected_output": "Reports the .github folder and the workspace file. Says the workspace is not an observability or scalability signal. Names main as the branch. Says there is no sourcemap signal and no schedule. Does not call the setup mature. Does not create a workflow.",
       "assertions": [
-        "States that the skill is a stub",
-        "Does not invent a checklist",
-        "Does not create a repo or a workflow"
+        "Reports the .github folder and the workspace file",
+        "Says the workspace is not an observability or scalability signal",
+        "Names main as the branch",
+        "Says there is no sourcemap signal and no schedule",
+        "Does not call the setup mature",
+        "Does not create a workflow"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I don't see a .github folder, and there is no .code-workspace file. What does that mean?",
+      "expected_output": "Says both are absent. Says the GitHub signals are absent. Does not score maturity. Does not create a folder or a workspace.",
+      "assertions": [
+        "Says the .github folder is absent",
+        "Says the workspace file is absent",
+        "Says the GitHub signals are absent",
+        "Does not score maturity",
+        "Does not create a folder or a workspace"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": ".github/workflows/release.yml runs on main and has a step that uploads sourcemaps to Sentry. Is the sourcemap sent?",
+      "expected_output": "Says the observability signal is present and names release.yml. Does not decide whether Sentry is mature.",
+      "assertions": [
+        "Says the observability signal is present",
+        "Names the workflow file",
+        "Does not decide whether Sentry is mature"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Should we add Sentry so we catch production errors?",
+      "expected_output": "Stops and uses the sentry skill. Does not decide from the Actions files. Does not install Sentry.",
+      "assertions": [
+        "Uses the sentry skill",
+        "Does not decide from the Actions files",
+        "Does not install Sentry"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": ".github/workflows/nightly.yml is on a schedule. Should we move it to Inngest?",
+      "expected_output": "Names the schedule as a scalability signal. Uses the inngest skill for whether it should move. Does not recommend the move from this skill.",
+      "assertions": [
+        "Names the schedule as a scalability signal",
+        "Uses the inngest skill for whether it should move",
+        "Does not recommend the move from this skill"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "mcp.json names a github server. I cannot see anything calling it. Can we go deeper on github?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
       ],
       "files": []
     }

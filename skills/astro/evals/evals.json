@@ -1,0 +1,50 @@
+{
+  "skill_name": "astro",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This Astro site is a few pages. The copy is inside the .astro pages. There is no markdown. It is a proof of concept.",
+      "expected_output": "Says the site is on the pages step. Says that is enough. Does not recommend front matter or a content type.",
+      "assertions": [
+        "Says the site is on the pages step",
+        "Says that is enough",
+        "Does not recommend front matter",
+        "Does not recommend a content type"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We have many blog posts and a docs section. Each markdown file has front matter. I do not see a content collection or any other content type.",
+      "expected_output": "Says front matter is present. Says content types are the missing step. Does not create the content type.",
+      "assertions": [
+        "Says front matter is present",
+        "Says content types are the missing step",
+        "Does not create the content type"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The Astro content collection for posts defines the fields, and the posts use front matter.",
+      "expected_output": "Says content types and front matter are both in place. Says this part of the ladder is done. Does not add a CMS.",
+      "assertions": [
+        "Says content types are in place",
+        "Says front matter is in place",
+        "Says this part of the ladder is done",
+        "Does not add a CMS"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Is the marketing site Astro, or is it still inside the React app?",
+      "expected_output": "Uses the marketing-site skill. Does not score front matter or content types.",
+      "assertions": [
+        "Uses the marketing-site skill",
+        "Does not score front matter or content types"
+      ],
+      "files": []
+    }
+  ]
+}

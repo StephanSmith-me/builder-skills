@@ -1,0 +1,88 @@
+{
+  "skill_name": "fly",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a small app and I do not want to learn AWS. Where should it run?",
+      "expected_output": "Recommends Fly as the alternative to AWS. Names the free tier as the start. Says the configuration should live in a Dockerfile in the repo. Does not deploy. Does not put them on the hobby tier.",
+      "assertions": [
+        "Recommends Fly as the alternative to AWS",
+        "Names the free tier as the start",
+        "Says the configuration should live in a Dockerfile in the repo",
+        "Does not deploy",
+        "Does not put them on the hobby tier"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The app runs on Fly. I do not see a Dockerfile or fly.toml in the repo. The machines were created in the dashboard.",
+      "expected_output": "Says the setup is not in code. Says that is harder to support, document, and track with an AI. Does not write the Dockerfile.",
+      "assertions": [
+        "Says the setup is not in code",
+        "Says that is harder to support, document, and track with an AI",
+        "Does not write the Dockerfile"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The repo has a Dockerfile and fly.toml. I have not shown you the Fly dashboard.",
+      "expected_output": "Says the Fly configuration is in code and names those files. Says the dashboard part is unseen. Does not guess the dashboard is empty.",
+      "assertions": [
+        "Says the Fly configuration is in code",
+        "Names the Dockerfile and fly.toml",
+        "Says the dashboard part is unseen",
+        "Does not guess the dashboard is empty"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Is cloudflared in the Fly Dockerfile, and is the tunnel token in env?",
+      "expected_output": "Uses the cloudflare skill. Does not pick a Fly tier.",
+      "assertions": [
+        "Uses the cloudflare skill",
+        "Does not pick a Fly tier"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "We deploy to Fly. FLY_API_TOKEN is in .env. I am not logged into Infisical. The Dockerfile does not contain the token.",
+      "expected_output": "Names the deploy setting in .env. Says Infisical is unseen. Does not print the token. Does not guess the value is in Infisical.",
+      "assertions": [
+        "Names the deploy setting in .env",
+        "Says Infisical is unseen",
+        "Does not print the token",
+        "Does not guess the value is in Infisical"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "fly.toml attaches a Postgres database on Fly. I do not see any other database.",
+      "expected_output": "Says the app uses Postgres on Fly, a hosted database. Does not invent a size. Does not attach another database.",
+      "assertions": [
+        "Says the app uses Postgres on Fly",
+        "Says it is a hosted database",
+        "Does not invent a size",
+        "Does not attach another database"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "mcp.json names a fly server. I cannot see anything calling it. Can we go deeper on fly?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

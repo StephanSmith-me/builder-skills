@@ -5,7 +5,7 @@ Vendor: https://cursor.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. The maturity of a Cursor or Claude setup lives in the `cursor-setup` skill. This checklist stays empty.
 
 ## Checklist
 

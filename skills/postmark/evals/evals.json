@@ -1,0 +1,86 @@
+{
+  "skill_name": "postmark",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A background process has the Postmark template HTML written in the file. I do not see Supabase sending mail. How mature is this?",
+      "expected_output": "Says the template is hardcoded in the process. Says maturity is early. Does not rewrite the template.",
+      "assertions": [
+        "Says the template is hardcoded in the process",
+        "Says maturity is early",
+        "Does not rewrite the template"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Supabase sends the auth email. Postmark sends the product email, and the process only names a template that lives in Postmark. Summarize the email stack.",
+      "expected_output": "Says the stack is mixed. Names Supabase for auth mail and Postmark for product mail. Does not call the template hardcoded. Does not remove Supabase.",
+      "assertions": [
+        "Says the stack is mixed",
+        "Names Supabase for auth mail and Postmark for product mail",
+        "Does not call the template hardcoded",
+        "Does not remove Supabase"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Only Postmark sends. The process names a template alias from config. Supabase does not send mail.",
+      "expected_output": "Says maturity is one delivery method. Says the template is not hardcoded. Does not install anything.",
+      "assertions": [
+        "Says maturity is one delivery method",
+        "Says the template is not hardcoded",
+        "Does not install anything"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Are my Cloudflare domains missing DMARC?",
+      "expected_output": "Uses the email-delivery skill. Does not review Postmark templates.",
+      "assertions": [
+        "Uses the email-delivery skill",
+        "Does not review Postmark templates"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Postmark sends from this app. The server token is written in the send function, and POSTMARK_SERVER_TOKEN is also in .env. I am not logged into Infisical.",
+      "expected_output": "Says the send key is in the code and in .env. Says delivery is not mature while the credential is in the code. Says Infisical is unseen. Does not print the token. Does not guess the key is in Infisical.",
+      "assertions": [
+        "Says the send key is in the code and in .env",
+        "Says delivery is not mature while the credential is in the code",
+        "Says Infisical is unseen",
+        "Does not print the token",
+        "Does not guess the key is in Infisical"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "I can open the Infisical project. The Postmark send key is there. It is not in the code and not in .env. Templates are not hardcoded. Supabase does not send.",
+      "expected_output": "Says the send key is in Infisical. Says maturity is one delivery method. Does not print the key.",
+      "assertions": [
+        "Says the send key is in Infisical",
+        "Says maturity is one delivery method",
+        "Does not print the key"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "mcp.json names a postmark server. I cannot see anything calling it. Can we go deeper on postmark?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

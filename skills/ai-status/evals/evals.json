@@ -1,0 +1,62 @@
+{
+  "skill_name": "ai-status",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This is a proof of concept. OPENAI_API_KEY is in .env. I do not see any OpenAI call in the code. I am not logged into Infisical.",
+      "expected_output": "Names the OpenAI setting as a sign of integration. Says there is no utilization in the code. Says Infisical is unseen. Does not print the token. Does not recommend a vector store.",
+      "assertions": [
+        "Names the OpenAI setting as a sign of integration",
+        "Says there is no utilization in the code",
+        "Says Infisical is unseen",
+        "Does not print the token",
+        "Does not recommend a vector store"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The product searches a client's docs. The code embeds text and writes it with pgvector in Postgres. I do not see Pinecone.",
+      "expected_output": "Says embeddings are in the product. Names pgvector as the store. Does not recommend Pinecone.",
+      "assertions": [
+        "Says embeddings are in the product",
+        "Names pgvector as the store",
+        "Does not recommend Pinecone"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I see Pinecone and pgvector both storing vectors. OpenRouter is how the app calls models.",
+      "expected_output": "Names both stores as complexity. Says OpenRouter is the model path, not the vector store. Does not pick a winner or move the data.",
+      "assertions": [
+        "Names both stores as complexity",
+        "Says OpenRouter is the model path",
+        "Does not call OpenRouter the vector store",
+        "Does not pick a winner or move the data"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "GEMINI_API_KEY might be in Infisical. I am not logged in. .env has no Gemini setting.",
+      "expected_output": "Says Gemini in Infisical is unseen. Does not guess the key is missing. Does not print a value.",
+      "assertions": [
+        "Says Gemini in Infisical is unseen",
+        "Does not guess the key is missing",
+        "Does not print a value"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "How mature are the skills under .claude/skills?",
+      "expected_output": "Uses the cursor-setup skill. Does not score embeddings or vector stores.",
+      "assertions": [
+        "Uses the cursor-setup skill",
+        "Does not score embeddings or vector stores"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -43,7 +43,26 @@
   padding-left: 1.25rem;
 }
 
-.skill-body code {
+.skill-body blockquote {
+  margin: 0.25rem 0 1.25rem;
+  padding: 0.15rem 0 0.15rem 1rem;
+  border-left: 3px solid var(--color-neutral-300);
+  color: var(--color-neutral-600);
+  font-style: italic;
+}
+
+.skill-body blockquote p {
+  margin: 0 0 0.75rem;
+}
+
+.skill-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.dark .skill-body blockquote {
+  border-left-color: var(--color-neutral-600);
+  color: var(--color-neutral-300);
+}
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.9em;
 }

@@ -5,7 +5,7 @@ Vendor: https://postmarkapp.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. Product-email maturity lives in the `postmark` skill. This checklist stays empty.
 
 ## Checklist
 

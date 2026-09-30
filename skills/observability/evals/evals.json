@@ -1,0 +1,27 @@
+{
+  "skill_name": "observability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this app for /observability. Can I catch errors, and can I tell the running app is doing what we expected?",
+      "expected_output": "Follows the sentry skill and brings back its result. Does not re-walk the Sentry stages. Does not install Sentry.",
+      "assertions": [
+        "Follows the sentry skill",
+        "Brings back the sentry result",
+        "Does not re-walk the Sentry stages",
+        "Does not install Sentry"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Walk the Sentry stages: error checking, logging, sourcemaps, milestones, dashboards.",
+      "expected_output": "Uses the sentry skill directly. Does not treat this as a second review.",
+      "assertions": [
+        "Uses the sentry skill directly",
+        "Does not treat this as a second review"
+      ],
+      "files": []
+    }
+  ]
+}

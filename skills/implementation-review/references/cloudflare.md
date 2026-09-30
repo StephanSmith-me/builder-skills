@@ -5,7 +5,7 @@ Vendor: https://www.cloudflare.com
 
 ## Status
 
-The public page has a real write-up. The decision stub lives in the `cloudflare` skill. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. The three surfaces live in the `cloudflare` skill. This checklist stays empty.
 
 ## Checklist
 

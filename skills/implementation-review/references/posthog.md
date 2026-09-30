@@ -5,7 +5,7 @@ Vendor: https://posthog.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. The steps live in the `posthog` skill. This checklist stays empty.
 
 ## Checklist
 

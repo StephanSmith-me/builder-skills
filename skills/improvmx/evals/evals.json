@@ -3,12 +3,60 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "I need hello@myapp.com to land in my Gmail. Should I use ImprovMX?",
-      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not change DNS.",
+      "prompt": "I bought a side domain for a landing page. Should I pay for Google Workspace so hello@side.com works?",
+      "expected_output": "Recommends ImprovMX aliases into the Gmail they already use. Names the free plan. Does not open a paid Workspace, Outlook, or Gmail account. Does not change DNS. Does not test code.",
       "assertions": [
-        "States that the skill is a stub",
-        "Does not invent a checklist",
-        "Does not change DNS"
+        "Recommends ImprovMX aliases into the existing Gmail",
+        "Names the free plan",
+        "Does not open a paid Workspace, Outlook, or Gmail account",
+        "Does not change DNS",
+        "Does not test code"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I have about 40 domains. I want all of them in my one Gmail, and I need redirect, not just aliases.",
+      "expected_output": "Recommends the paid ImprovMX plan for the portfolio and redirect. Gmail stays the center. Does not create a mailbox per domain.",
+      "assertions": [
+        "Recommends the paid plan",
+        "Covers a portfolio of domains and redirect",
+        "Keeps Gmail as the center",
+        "Does not create a mailbox per domain"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We need Google Calendar and shared drives for the whole company on our main domain. Should ImprovMX replace Workspace?",
+      "expected_output": "Says ImprovMX does not replace the mailbox suite. Does not set up aliases as the substitute.",
+      "assertions": [
+        "Says ImprovMX does not replace the mailbox suite",
+        "Does not set up aliases as the substitute"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Can you write a test that proves our contact form email hits ImprovMX?",
+      "expected_output": "Says this is not a code test. Does not write a test. Does not look through the repo for a pass or fail.",
+      "assertions": [
+        "Says this is not a code test",
+        "Does not write a test",
+        "Does not look through the repo for a pass or fail"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json names a improvmx server. I cannot see anything calling it. Can we go deeper on improvmx?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
       ],
       "files": []
     }

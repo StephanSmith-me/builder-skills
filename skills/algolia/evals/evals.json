@@ -1,0 +1,64 @@
+{
+  "skill_name": "algolia",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This is a proof of concept. I do not see Algolia or any full text search. Customers do not search yet.",
+      "expected_output": "Says search is not set. Does not recommend Algolia. Does not add Supabase full text yet.",
+      "assertions": [
+        "Says search is not set",
+        "Does not recommend Algolia",
+        "Does not add Supabase full text yet"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Customers search the product. A Supabase migration runs full text search. They have not said it is failing them. I do not see Algolia.",
+      "expected_output": "Says full text in Supabase is the search. Says that is enough. Does not recommend Algolia.",
+      "assertions": [
+        "Says full text in Supabase is the search",
+        "Says that is enough",
+        "Does not recommend Algolia"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Algolia is in the app. .env has ALGOLIA_ADMIN_KEY and ALGOLIA_SEARCH_KEY. I am not logged into Infisical.",
+      "expected_output": "Names the admin key and the read token. Says Infisical is unseen. Does not print either value.",
+      "assertions": [
+        "Names the admin key",
+        "Names the read token",
+        "Says Infisical is unseen",
+        "Does not print either value"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "The browser client reads ALGOLIA_ADMIN_KEY from env and uses it to search.",
+      "expected_output": "Says the admin key is in the wrong place because client code reads it. Does not print the value. Does not move the key.",
+      "assertions": [
+        "Says the admin key is in the wrong place",
+        "Says client code reads it",
+        "Does not print the value",
+        "Does not move the key"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json names a algolia server. I cannot see anything calling it. Can we go deeper on algolia?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    }
+  ]
+}

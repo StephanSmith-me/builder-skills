@@ -3,12 +3,75 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Users are the only ones who tell us when the app breaks. Should we add Sentry?",
-      "expected_output": "Says the skill is a stub. Does not invent a checklist. Does not install Sentry.",
+      "prompt": "I just started this app in Lovable. It is not live. I have never used Sentry. Nothing in the code catches errors. What should I do?",
+      "expected_output": "Names the stage as uncaught errors and explains error checking in plain language, including why it is worth doing. Does not recommend milestones, dashboards, or Seer. Does not install Sentry.",
       "assertions": [
-        "States that the skill is a stub",
-        "Does not invent a checklist",
+        "Names uncaught errors as the stage",
+        "Explains error checking in plain language",
+        "Does not recommend milestones, dashboards, or Seer",
+        "Does not look for a code-driven dashboard",
         "Does not install Sentry"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The app is live. Errors are caught at one handler. We log extra context around those errors and sample them. Sourcemaps are sent. I cannot tell if login is working.",
+      "expected_output": "Says the next stage is a milestone, such as login, because the app is live and that is how you know the lights are on. Does not jump to Seer.",
+      "assertions": [
+        "Says the next stage is a milestone",
+        "Uses login as the example of the lights being on",
+        "Does not jump to Seer",
+        "Does not look for a code-driven dashboard"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Does our GitHub Action send the sourcemap to Sentry?",
+      "expected_output": "Uses the github skill for that look. Does not re-walk the other GitHub looks.",
+      "assertions": [
+        "Uses the github skill",
+        "Does not re-walk the other GitHub looks"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We catch errors, log with sampling, send sourcemaps, record a login milestone, and have a dashboard of those events. Are we mature? A non-technical co-founder wants to know why any of this matters.",
+      "expected_output": "Says the project is mature because both sides exist: errors can be addressed, and milestones show what is working. Tells that in a story a non-technical person can follow. Names Seer as the top of the score and does not turn it on. Events, logs, milestones, and sourcemaps are present, and no dashboard file is in the repo, so names a code-driven dashboard as a nice-to-have and does not treat it as a maturity gap.",
+      "assertions": [
+        "Says the project is mature because both sides exist",
+        "Tells the story for a non-technical person",
+        "Names Seer as the top of the score",
+        "Does not turn Seer on",
+        "Names a code-driven dashboard as a nice-to-have",
+        "Does not treat the missing file as a maturity gap"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mcp.json names a sentry server. I cannot see anything calling it. Can we go deeper on sentry?",
+      "expected_output": "Says the MCP setup is there. Says use is unseen. Does not say they can go deeper. Does not print a URL or a token. Does not add the server.",
+      "assertions": [
+        "Says the MCP setup is there",
+        "Says use is unseen",
+        "Does not say they can go deeper",
+        "Does not print a URL or a token",
+        "Does not add the server"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "mcp.json names a sentry server, and the project config shows that server is enabled and called. Can we go deeper?",
+      "expected_output": "Says the Sentry MCP is used. Says they can go deeper. Does not call it. Does not print a URL or a token.",
+      "assertions": [
+        "Says the Sentry MCP is used",
+        "Says they can go deeper",
+        "Does not call it",
+        "Does not print a URL or a token"
       ],
       "files": []
     }
