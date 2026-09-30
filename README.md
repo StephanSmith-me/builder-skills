@@ -1,12 +1,21 @@
+
+[![Builder skills](https://cdn.stephansmith.me/skills/og.png)](https://skills.stephansmith.me)
+
 # Builder Skills for AI Agents
 
-Methods for a coding agent to take a build into production. Works with Claude Code, Cursor, Codex, and any agent that supports the [Agent Skills spec](https://agentskills.io).
+I am a fractional CTO. I work across clients, teams and projects. I have built a suite of tools that I use daily to simplify, build and ship solutions. This is a collection of my AI agents that works in Claude Code, Cursor, Codex, and any agent that supports the [Agent Skills spec](https://agentskills.io). 
 
-Built by [Stephan Smith](https://stephansmith.me).
+I focus on building solution that use the smallest amount tech to keep technology stacks simple, scaleable and shippable.
+
+If you need help, try out my [Low Code MCP](https://members.stephansmith.me/start). It's 
+free with a subscription to my [newsletter](https://StephanSmith.me/subsribe).
 
 The methods are in `skills/`. `product-context` is still a stub. The public catalog is [skills.stephansmith.me](https://skills.stephansmith.me). Installing skills does not install the site.
 
 **Contributions welcome.** [Open a PR](#contributing) or [an issue](https://github.com/StephanSmith-me/builder-skills/issues).
+
+## Install in your AI tooling
+``` npx skills add StephanSmith-me/builder-skills ```
 
 ## Available skills
 
