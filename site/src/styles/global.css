@@ -63,6 +63,8 @@
   border-left-color: var(--color-neutral-600);
   color: var(--color-neutral-300);
 }
+
+.skill-body code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.9em;
 }
