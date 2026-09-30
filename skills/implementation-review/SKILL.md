@@ -31,4 +31,4 @@ My CTO stack review answers what the repo is made of. This skill scores one tool
 
 ## Related skills
 
-Read `product-context` first when that file exists. Do not split a vendor into its own skill until its checklist is long enough to stand alone.
+Read `product-context` first when that file exists. Infisical's adoption method is the `infisical` skill. This skill still does not score it until that checklist exists. Do not split another vendor out until its checklist can stand alone.

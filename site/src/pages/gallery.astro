@@ -1,10 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
+import { loadSkills } from "../lib/skills";
 
-const tools = ["Infisical", "Cloudflare", "Sentry", "ImprovMX", "GitHub"];
+const published = new Set(loadSkills().map((skill) => skill.slug));
+
+const groups = [
+  {
+    name: "Secrets",
+    skills: [
+      {
+        slug: "infisical",
+        line: "Decide when secrets should leave a hosted builder or a .env file.",
+      },
+      {
+        slug: "env-inventory",
+        line: "See which env names the code still uses, and which are old.",
+      },
+    ],
+  },
+];
+
+const soon = ["Cloudflare", "Sentry", "ImprovMX", "GitHub"];
 
 const description =
-  "Coming soon. Vendor-specific rules that go deep on Infisical, Cloudflare, Sentry, ImprovMX, and GitHub.";
+  "Vendor skills, one product at a time. Infisical and env inventory are up. Sentry is next.";
 ---
 
 <Base title="/gallery — Stephan Smith" description={description}>
@@ -17,24 +36,52 @@ const description =
         Skills
       </a>
     </p>
-    <p class="mt-8 inline-flex rounded-full border border-neutral-200 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-neutral-900 dark:border-neutral-700 dark:text-neutral-50">
-      Coming soon
-    </p>
-    <h1 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+    <h1 class="mt-8 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
       /gallery
     </h1>
     <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-400">
-      Vendor-specific rules that go deep on the tooling. Each one is for a single product, not the
-      whole app. Infisical, Cloudflare, Sentry, ImprovMX, and GitHub are first.
+      Vendor skills, one product at a time. Each one has its own page. The ones without a page are next.
     </p>
-    <ul class="mt-8 flex flex-wrap gap-2">
-      {
-        tools.map((tool) => (
-          <li class="rounded-full border border-neutral-200 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-700 dark:text-neutral-300">
-            {tool}
-          </li>
-        ))
-      }
-    </ul>
+
+    {
+      groups.map((group) => (
+        <section class="mt-10">
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+            {group.name}
+          </h2>
+          <ul class="mt-4 grid gap-3">
+            {group.skills.map((skill) => (
+              <li>
+                <a
+                  href={published.has(skill.slug) ? `/skills/${skill.slug}` : undefined}
+                  class="block rounded-lg border border-neutral-200 px-4 py-4 shadow-md shadow-neutral-900/10 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:shadow-black/40 dark:hover:border-neutral-600"
+                >
+                  <p class="font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                    {skill.slug}
+                  </p>
+                  <p class="mt-1 text-neutral-600 dark:text-neutral-400">{skill.line}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+        Next
+      </h2>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          soon.map((name) => (
+            <li class="rounded-full border border-neutral-200 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-700 dark:text-neutral-300">
+              {name}
+              <span class="ml-1 text-neutral-400 dark:text-neutral-500">Soon</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </div>
 </Base>

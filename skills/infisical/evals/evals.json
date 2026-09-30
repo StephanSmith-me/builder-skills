@@ -1,0 +1,50 @@
+{
+  "skill_name": "infisical",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building the whole app in Lovable. I haven't exported it and I'm not running it on my laptop. Do I need Infisical?",
+      "expected_output": "Tells them to stay in the builder. Lovable is holding the secrets, so .env is not a habit yet. Does not recommend the CLI, a machine identity, or an Infisical project.",
+      "assertions": [
+        "Tells them to stay in the builder",
+        "Does not recommend the Infisical CLI",
+        "Does not recommend a machine identity"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I exported my Bolt app and now it won't start locally. Supabase showed me a key one time. Cursor is about to read the project. What do I do with this .env file?",
+      "expected_output": "Names this as the moment to leave .env. Recommends Infisical CLI login and .infisical.json so the app loads keys at startup. Does not start a machine identity. Does not tell them to paste the key into chat.",
+      "assertions": [
+        "Treats the first local export as the time to leave .env",
+        "Recommends the CLI and .infisical.json",
+        "Does not recommend a machine identity",
+        "Does not tell them to paste the key into chat"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I cloned a repo and .env is committed with a Supabase service key and a Fly token in it. .gitignore does not mention .env.",
+      "expected_output": "Flags the committed .env as a security issue before any setup. Says tokens do not belong in the repo. Does not treat the committed file as the source of truth.",
+      "assertions": [
+        "Flags the committed .env as a security issue",
+        "Says tokens do not belong in the repo",
+        "Does not treat the committed file as the source of truth"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I already use the Infisical CLI for my own app. A second client just hired me, with their own org. I don't want a login on my laptop to pull their keys into my other project.",
+      "expected_output": "Recommends a machine identity scoped to that one organization and one project. The only local secret is that token. Does not tell them to reuse the personal CLI login across clients.",
+      "assertions": [
+        "Recommends a machine identity",
+        "Scopes it to one organization and one project",
+        "Does not reuse the personal CLI login across clients"
+      ],
+      "files": []
+    }
+  ]
+}

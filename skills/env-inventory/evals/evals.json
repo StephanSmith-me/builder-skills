@@ -1,0 +1,37 @@
+{
+  "skill_name": "env-inventory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "My .env has DATABASE_URL, which the app reads, and OLD_STRIPE_KEY, which I don't think we use anymore. Can you clean this up?",
+      "expected_output": "Searches the code. Reports DATABASE_URL as referenced and OLD_STRIPE_KEY as unreferenced if the code does not read it. Does not delete any name. Does not move secrets into Infisical.",
+      "assertions": [
+        "Separates a referenced name from an unreferenced name",
+        "Does not delete a name",
+        "Does not move secrets into Infisical"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Cursor's MCP is loading this .env. Should that be a machine identity or the Infisical CLI?",
+      "expected_output": "Stops. Hands the question to the infisical skill. Does not compare env names to code.",
+      "assertions": [
+        "Hands the question to the infisical skill",
+        "Does not compare env names to the code"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The .env has APP_URL and STRIPE_SECRET_KEY in the same file. Both are used in the code. Is that a problem?",
+      "expected_output": "Reports both names as referenced. Notes that config and a secret are mixed in one file. Does not split the file or start an Infisical setup.",
+      "assertions": [
+        "Reports both names as referenced",
+        "Notes that config and a secret are mixed",
+        "Does not start an Infisical setup"
+      ],
+      "files": []
+    }
+  ]
+}

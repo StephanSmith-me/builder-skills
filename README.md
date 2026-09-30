@@ -25,7 +25,7 @@ Markdown files that give an agent a specific way of working. Installed into a pr
 
 ## How skills work together
 
-`product-context` is the foundation. Other skills read it before they ask questions. Review has one skill. The other lanes are empty.
+`product-context` is the foundation. Other skills read it before they ask questions. Implementation has Infisical. Review has one skill. The other lanes are empty.
 
 ```
                     ┌─────────────────────┐
@@ -35,8 +35,8 @@ Markdown files that give an agent a specific way of working. Installed into a pr
                                │
      ┌────────────┬────────────┼────────────┬──────────────────────┐
      ▼            ▼            ▼            ▼                      ▼
-  Scope     Architecture  Implementation  Review                 Operations
-  (stub)       (stub)        (stub)    implementation-review       (stub)
+  Scope     Architecture   Implementation     Review                 Operations
+  (stub)       (stub)         infisical    implementation-review       (stub)
 ```
 
 ## Available skills
@@ -44,7 +44,9 @@ Markdown files that give an agent a specific way of working. Installed into a pr
 <!-- SKILLS:START -->
 | Skill | Description |
 |-------|-------------|
+| [env-inventory](skills/env-inventory/) | Compare env-file names to the code. Report what is still used, what is old, and where config sits next to a secret. |
 | [implementation-review](skills/implementation-review/) | Score how one Tools I Use vendor is wired in a project. Checklists are empty until written. |
+| [infisical](skills/infisical/) | Decide when secrets leave a hosted builder or a .env file and move into Infisical. |
 | [product-context](skills/product-context/) | Foundation stub. Capture what is being built, for whom, and what "in production" means, so later skills do not re-ask. |
 | [skill-template](skills/skill-template/) | Copy this folder when adding a skill. Not a user-facing method. |
 <!-- SKILLS:END -->
@@ -121,9 +123,10 @@ These skills are stubs. Asking for them today should produce a short plan and a 
 - Stub. No skills yet.
 
 ### Implementation
-- Stub. No skills yet.
+- `infisical` — when secrets leave a hosted builder or a `.env` file
 
 ### Review and ship
+- `env-inventory` — whether names in an env file still appear in the code.
 - `implementation-review` — one vendor at a time, against its playbook page. Checklists are empty.
 
 ### Operations

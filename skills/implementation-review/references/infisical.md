@@ -5,7 +5,7 @@ Vendor: https://infisical.com
 
 ## Status
 
-The public page has a real write-up. A future checklist is drawn only from the sections named below.
+The public page has a real write-up. Which path to use lives in the `infisical` skill. A future checklist is drawn only from the sections named below.
 
 ## Checklist
 
