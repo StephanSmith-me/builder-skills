@@ -2,7 +2,7 @@
 name: supabase
 description: When the user wants to know how this app uses Supabase. Use when they say Supabase, auth, functions, migrations, Auth0, or secrets not synced. For search, Algolia or full text, use algolia. For a hand-built password column, use security. For where a secret should live, use infisical. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.4
+  version: 0.1.6
 ---
 
 # Supabase
@@ -40,7 +40,7 @@ Look for this vendor in an `mcp.json` you opened, including `.cursor/mcp.json`. 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

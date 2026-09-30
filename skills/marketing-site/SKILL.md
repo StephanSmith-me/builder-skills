@@ -2,7 +2,7 @@
 name: marketing-site
 description: When the user wants the state of the marketing site. Use when they say Surge, surge.sh, Astro, Jekyll, static HTML, marketing site, or marketing pages inside the app. For Astro content types and front matter, use astro. For where the product app should be hosted, use hosting.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Marketing site
@@ -33,7 +33,7 @@ A separate Astro or Jekyll site: name the generator. Name Surge only if you see 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

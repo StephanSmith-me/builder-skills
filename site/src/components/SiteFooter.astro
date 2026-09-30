@@ -1,13 +1,18 @@
 ---
 import { LOGIN_URL, MAIN_SITE } from "../lib/brand";
 
+interface Props {
+  wide?: boolean;
+}
+
+const { wide = false } = Astro.props;
 const year = new Date().getFullYear();
 const linkClass =
   "text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-neutral-50";
 ---
 
 <footer class="w-full">
-  <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8">
+  <div class:list={["mx-auto w-full px-4 sm:px-6 md:px-8", wide ? "max-w-7xl" : "max-w-5xl"]}>
     <hr class="border-neutral-200 dark:border-neutral-800" />
     <div class="py-10">
       <div class="text-left flex flex-col-reverse gap-6 sm:grid sm:grid-cols-[minmax(10rem,20%)_minmax(0,1fr)_minmax(7.5rem,20%)] sm:items-start sm:gap-4">

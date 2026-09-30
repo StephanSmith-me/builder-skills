@@ -10,7 +10,7 @@ Agent Skills for taking a software build into production. Format follows the [Ag
 - **GitHub**: [StephanSmith-me/builder-skills](https://github.com/StephanSmith-me/builder-skills)
 - **License**: MIT
 
-`references/marketingskills/` is a local, gitignored clone of [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills). Use it to see folder shape. Do not copy those skill bodies into `skills/`.
+`references/` at the repo root is gitignored. It may hold a local clone of [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills). Use it to see folder shape. Do not copy those skill bodies into `skills/`.
 
 ## Repository structure
 
@@ -33,7 +33,7 @@ builder-skills/
 │   └── integrations/
 ├── site/                     # Catalog for skills.stephansmith.me. Not installed.
 ├── scripts/
-├── references/               # Local pattern clones, gitignored except this README
+├── references/               # Local pattern clones. Gitignored. Not part of the repo.
 ├── AGENTS.md
 ├── CONTRIBUTING.md
 ├── VERSIONS.md

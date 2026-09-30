@@ -2,7 +2,7 @@
 name: email-delivery
 description: When the user wants domains on Cloudflare checked for email delivery. Use when they say DMARC, email delivery, missing DNS record, or check my domains. For whether ImprovMX should forward the mail, use improvmx. For tunnels, Pages, or Workers, use cloudflare.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Email delivery
@@ -33,7 +33,7 @@ Do not add a record, and do not change ImprovMX, until the user says to.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

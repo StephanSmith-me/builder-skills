@@ -2,7 +2,7 @@
 name: env-inventory
 description: When the user wants to know whether an env file still matches the code. Use when they say bloated .env, unused env vars, old secrets in .env, which variables the code actually uses, or clean up the env file. For a sensitive name the code never uses, or a secret in the wrong place, use env-leak. For how those secrets should be read, use infisical.
 metadata:
-  version: 0.2.2
+  version: 0.2.4
 ---
 
 # Env inventory
@@ -32,7 +32,7 @@ Do not guess. A name you did not search for stays off both lists.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

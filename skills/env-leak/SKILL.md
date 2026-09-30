@@ -2,7 +2,7 @@
 name: env-leak
 description: When the user wants sensitive env settings that the code never uses, or that sit in the wrong place. Use when they say leak, unused secret, admin key in the client, or a sensitive var in the wrong place. For every unused name, use env-inventory. For the same value reused, use secret-reuse.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Env leak
@@ -35,7 +35,7 @@ Do not print the value. Do not delete the name.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

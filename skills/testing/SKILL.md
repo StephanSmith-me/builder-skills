@@ -2,7 +2,7 @@
 name: testing
 description: When the user wants to know where testing sits on the maturity and revenue ladder. Use when they say tests, unit tests, end to end, E2E, coverage, or a test library in package.json. For whether production errors are caught, use sentry.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Testing
@@ -47,7 +47,7 @@ If they did not say the business stage and `product-context` does not either, re
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

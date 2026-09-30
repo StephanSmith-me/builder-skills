@@ -2,7 +2,7 @@
 name: observability
 description: When the user wants the observability review. Use when they say observability, /observability, or how to know the app does what they set out to do. Follow sentry and bring back that result. For the Sentry ladder itself, use sentry.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Observability
@@ -25,7 +25,7 @@ A sourcemap Action and a Sentry MCP entry stay inside that skill. Do not open th
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

@@ -2,7 +2,7 @@
 name: stack-maturity
 description: When the user wants to see if maturity is lumpy across the stack. Use when they say lumpy, overbuilt in one area, where time went, or a blind alley. For the secrets review itself, use infisical. For migrations, use supabase.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Stack maturity
@@ -50,7 +50,7 @@ If they did not say the stage and `product-context` does not either, report the 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

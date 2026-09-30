@@ -2,7 +2,7 @@
 name: astro
 description: When the user wants to know how far an Astro site is with content types and front matter. Use when they say Astro content, content types, content collections, or front matter. For whether the marketing site is Astro at all, use marketing-site.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Astro
@@ -37,7 +37,7 @@ Do not add a CMS, a host, or another Astro feature. This skill stops at content 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

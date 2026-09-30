@@ -2,7 +2,7 @@
 name: security
 description: When the user wants a security scan of how people sign in and how passwords are stored. Use when they say security scan, username and password, clear text, encryption, or OAuth keys. For how the app uses Supabase, use supabase. For where a secret should live, use infisical.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Security
@@ -37,7 +37,7 @@ Then say the status in one line. A hand-built password store, especially in clea
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

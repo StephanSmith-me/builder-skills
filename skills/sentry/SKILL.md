@@ -2,7 +2,7 @@
 name: sentry
 description: "When the user wants the Sentry ladder for this project: error checking, logging, sourcemaps, milestones, and dashboards. Use when they say Sentry, uncaught errors, logging, milestones, dashboards, or Seer. For the observability review, use observability. For whether a GitHub Action sends the sourcemap, use github. Includes whether this vendor's MCP is set up and used."
 metadata:
-  version: 0.2.5
+  version: 0.2.7
 ---
 
 # Sentry
@@ -58,7 +58,7 @@ Look for this vendor in an `mcp.json` you opened, including `.cursor/mcp.json`. 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

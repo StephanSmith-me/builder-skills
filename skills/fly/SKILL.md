@@ -2,7 +2,7 @@
 name: fly
 description: When the user wants Fly instead of AWS, or wants the Fly setup reviewed in code. Use when they say Fly, Fly.io, Dockerfile, fly.toml, deploy token, or Fly Postgres. For cloudflared in that image, use cloudflare. For where a deploy secret should live, use infisical. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.3
+  version: 0.2.5
 ---
 
 # Fly
@@ -65,7 +65,7 @@ Look for this vendor in an `mcp.json` you opened, including `.cursor/mcp.json`. 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

@@ -2,7 +2,7 @@
 name: blindspots
 description: When the user wants to know what they are not doing, or should do, to get to revenue. Use when they say blindspots, what am I not using, easy wins, low effort high impact, link tracking, mail layouts, or what should I do to get to revenue. For how a tunnel, Pages, or Workers project is wired, use cloudflare. For whether Postmark or Resend is the sender, use that skill. For what the repo is made of, stop. This skill reads an inventory that already exists.
 metadata:
-  version: 0.1.4
+  version: 0.1.6
 ---
 
 # Blindspots
@@ -37,7 +37,7 @@ Name the inventory you read. Do not guess a product you did not see in it.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

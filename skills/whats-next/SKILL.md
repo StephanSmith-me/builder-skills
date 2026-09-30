@@ -2,7 +2,7 @@
 name: whats-next
 description: When the user wants the one thing to build next. Use when they say what's next, whats-next, /whats-next, or what should I build next. Read the assessments already in hand. Do not re-walk Sentry, Cloudflare, Render, or mail. For one of those reviews by name, use that skill.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # What's next
@@ -36,7 +36,7 @@ Do not build the task until the user says to.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

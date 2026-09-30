@@ -4,7 +4,7 @@ Tools for AI to drive a build into production. Skills for coding agents that nee
 
 Built by [Stephan Smith](https://stephansmith.me).
 
-This repository is a scaffold. Skill bodies are stubs until a method is written on purpose. Where it shows up for subscribers is [ROLLOUT.md](ROLLOUT.md).
+The methods are in `skills/`. `product-context` is still a stub. Where it shows up for subscribers is [ROLLOUT.md](ROLLOUT.md).
 
 The public catalog is [skills.stephansmith.me](https://skills.stephansmith.me), built from `skills/` by [`site/`](site/README.md). The install command does not include the site.
 
@@ -68,7 +68,7 @@ Markdown files that give an agent a specific way of working. Installed into a pr
 | [postmark](skills/postmark/) | See if product email is Postmark, where the send key lives, or mixed with Supabase. |
 | [product-context](skills/product-context/) | Foundation stub. Capture what is being built, for whom, and what "in production" means, so later skills do not re-ask. |
 | [render](skills/render/) | Review what Render runs, and how it ships: a preview or only the primary branch, and whether a GitHub Action deploys it. |
-| [report](skills/report/) | Hidden from the public site. When a skill writes a report, score each recommendation for effort and impact, then rank low effort and high impact first. |
+| [report](skills/report/) | Hidden from the public site. When a skill finishes, say what they now know and what they can skip, then name the rule and one next prompt or skill. When it names what to do, score effort and impact, then rank low effort and high impact first, and call that first line the small move with the high impact. |
 | [resend](skills/resend/) | See if product email is Resend, where the API key and templates live, and whether that signals a vibe coder. |
 | [scalability](skills/scalability/) | Follow hosting, Fly, and Inngest, and bring those results back. |
 | [secret-reuse](skills/secret-reuse/) | See when the same secret value is reused or leaking. Say nothing when it is not. |
@@ -131,7 +131,7 @@ npx skillkit install StephanSmith-me/builder-skills --list
 
 ## Usage
 
-These skills are stubs. Asking for them today should produce a short plan and a note that the method is not written yet.
+Ask for the work in plain words. The agent follows the matching skill. `product-context` is still a stub and will say so.
 
 ```
 "Write the product context for this build"

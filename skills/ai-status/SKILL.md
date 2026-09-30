@@ -2,7 +2,7 @@
 name: ai-status
 description: When the user wants the maturity of AI in the product. Use when they say pgvector, Pinecone, OpenRouter, OpenAI vectors, embeddings, Gemini, or a Claude backend. For the Cursor or Claude editor, use cursor-setup. For where a token should live, use infisical.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # AI status
@@ -67,7 +67,7 @@ If they did not say the stage and `product-context` does not either, report what
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

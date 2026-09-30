@@ -2,7 +2,7 @@
 name: hosting
 description: When the user needs a host matched to the state of the project. Use when they say hosting, host this HTML, GitHub Pages, Cloudflare Pages, or where should this site live. For the marketing site, Surge, Astro, or Jekyll, use marketing-site.
 metadata:
-  version: 0.1.3
+  version: 0.1.5
 ---
 
 # Hosting
@@ -31,7 +31,7 @@ If none match, say what you can see and ask which stage the project is in. Do no
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

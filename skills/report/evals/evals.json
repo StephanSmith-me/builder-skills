@@ -4,35 +4,54 @@
     {
       "id": 1,
       "prompt": "The observability review found three things to do: add a dashboard (high effort, medium impact), catch errors in the one place they already log (low effort, high impact), and add session replay (medium effort, low impact). Write the report.",
-      "expected_output": "Ranks catch-errors first, then session replay, then the dashboard. Each line has effort and impact. Does not start the work.",
+      "expected_output": "Ranks catch-errors first, then session replay, then the dashboard. Each line has effort and impact. Calls the first line the small move with the high impact, and says the rest stay in the list. Does not start the work. Says what they now know and what they can skip. Closes with the rule in their words and one next prompt or skill. Does not give the paid account link.",
       "assertions": [
         "Catch errors is first",
         "Session replay is second",
         "The dashboard is third",
         "Each line names effort and impact",
-        "Does not start the work"
+        "Calls the first line the small move with the high impact",
+        "Says the rest stay in the list",
+        "Does not start the work",
+        "Says what they now know",
+        "Says what they can skip",
+        "Names the rule in their words",
+        "Names one next prompt or skill",
+        "Does not give the paid account link",
+        "The close is short and concrete, with no hype and no slogan contrast"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Sentry is not in the repo. There is nothing to do yet. Write the report.",
-      "expected_output": "Says Sentry is absent. Does not invent a recommendation. Does not score effort or impact.",
+      "expected_output": "Says Sentry is absent. Does not invent a recommendation. Does not score effort or impact. Does not call a small move. Says what is absent and what they can skip until that changes. Closes with the rule in their words and one next prompt or skill.",
       "assertions": [
         "Says Sentry is absent",
         "Does not invent a recommendation",
-        "Does not score effort or impact"
+        "Does not score effort or impact",
+        "Does not call a small move",
+        "Says what is absent and what they can skip",
+        "Names the rule in their words",
+        "Names one next prompt or skill",
+        "The close is short and concrete, with no hype and no slogan contrast"
       ],
       "files": []
     },
     {
       "id": 3,
       "prompt": "I did not open the Sentry dashboard. Milestones are unseen. Should that be scored low effort?",
-      "expected_output": "Says milestones are unseen. Does not score unseen. Does not call it off.",
+      "expected_output": "Says milestones are unseen. Does not score unseen. Does not call it off. Does not call a small move. Says what they now know and what they can skip. Closes with the rule in their words and one next prompt or skill.",
       "assertions": [
         "Says milestones are unseen",
         "Does not score unseen",
-        "Does not call unseen off"
+        "Does not call unseen off",
+        "Does not call a small move",
+        "Says what they now know",
+        "Says what they can skip",
+        "Names the rule in their words",
+        "Names one next prompt or skill",
+        "The close is short and concrete, with no hype and no slogan contrast"
       ],
       "files": []
     }

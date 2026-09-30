@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Install from "../../components/Install.astro";
+import McpTransition from "../../components/McpTransition.astro";
 import { loadSkill, loadSkills } from "../../lib/skills";
 import { toolForSkill } from "../../lib/tools";
 
@@ -91,4 +92,5 @@ const displayName = tool?.name ?? skill.name;
       </>
     )
   }
+  <McpTransition />
 </Base>

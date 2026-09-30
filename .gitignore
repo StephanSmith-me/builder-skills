@@ -10,8 +10,8 @@ site/.astro/
 .claude/
 skills-lock.json
 
-# Local pattern clone of coreyhaines31/marketingskills — read only, never commit
-references/marketingskills/
+# Local pattern clones at the repo root. Skill references/ folders stay tracked.
+/references/
 
 # Secrets
 .env

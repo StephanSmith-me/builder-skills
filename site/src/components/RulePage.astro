@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import McpTransition from "./McpTransition.astro";
 import RepoCallout from "./RepoCallout.astro";
 import { formatRuleUpdated, publicRule } from "../lib/ruleMeta";
 
@@ -96,6 +97,7 @@ const updatedLabel = formatRuleUpdated(updated);
       {issues.map((issue) => <li class="pl-1">{issue}</li>)}
     </ol>
     <RepoCallout />
+    <McpTransition />
   </div>
 </Base>
 

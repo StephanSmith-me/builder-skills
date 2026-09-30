@@ -2,7 +2,7 @@
 name: scalability
 description: When the user wants the scalability review. Use when they say scalability, /scalability, more traffic, or more business. Follow hosting, fly, and inngest, and bring those results back. Do not choose a host here.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Scalability
@@ -27,7 +27,7 @@ If one of them says it does not apply, say that. Do not fill the gap yourself. D
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

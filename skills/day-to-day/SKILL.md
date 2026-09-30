@@ -2,7 +2,7 @@
 name: day-to-day
 description: When the user wants the day-to-day review of how code ships. Use when they say day-to-day, /day-to-day, CI/CD, staging, or how a deploy becomes visible. Follow cloudflare or render for the preview and the deploy Action. Do not deploy.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Day to day
@@ -30,7 +30,7 @@ Branch handling in the repo is part of that answer. Dashboard settings you did n
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

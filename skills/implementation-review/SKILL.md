@@ -2,7 +2,7 @@
 name: implementation-review
 description: When the user wants to know how a tool from Tools I Use is implemented in a project — Sentry, Supabase, Cloudflare, Postmark, and the rest of the list at stephansmith.me/tools-i-use. Use when they say "how is X set up," "review our Sentry," "is this wired right," "implementation review," or "score this tool in the repo." For what the repo is made of, use My CTO stack review. Stub. Checklists are not written yet.
 metadata:
-  version: 0.1.1
+  version: 0.1.3
 ---
 
 # Implementation review
@@ -29,7 +29,7 @@ My CTO stack review answers what the repo is made of. This skill scores one tool
 - **Score** — only from the checklist. If the checklist is empty, the score is "not scored."
 - **Fix first** — one item, only when a check failed.
 
-When Fix first is something to do, follow `report` for effort, impact, and rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When Fix first is something to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

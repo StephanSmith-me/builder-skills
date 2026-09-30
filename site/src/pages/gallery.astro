@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { MAIN_SITE } from "../lib/brand";
 import { listSkillTools } from "../lib/tools";
 import { loadSkills } from "../lib/skills";
 
@@ -74,14 +75,28 @@ const description = `${ruleCount} rules that drive AI-managed code and building.
 ---
 
 <Base title="Builder Skills for AI Agents — Stephan Smith" description={description} wide>
-  <h1 class="mt-8 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+  <p class="mt-8 max-w-2xl text-sm text-neutral-500 dark:text-neutral-400">
+    <a
+      href={`${MAIN_SITE}/vibe-coding-101/`}
+      class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
+    >
+      Vibe Coding 101
+    </a>
+  </p>
+  <h1 class="mt-3 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
     Builder Skills for AI Agents
   </h1>
   <p class="mt-3 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
     {ruleCount} rules that drive AI-managed code and building.
   </p>
   <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
-    Built and upgraded from live code reviews, client challenges, and teams scaling up their AI buildouts.
+    These are tools I use every day and write about. The stack is on
+    <a
+      href={`${MAIN_SITE}/tools-i-use`}
+      class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
+    >
+      Tools I Use
+    </a>.
   </p>
   <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
     From the work you can see, to the one task worth building.

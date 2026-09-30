@@ -2,7 +2,7 @@
 name: resend
 description: When the user wants to know if this app sends with Resend. Use when they say Resend, resend.com, a Resend API key, or a Resend template. For Postmark, use postmark. For domain forwarding, use improvmx. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.4
+  version: 0.1.6
 ---
 
 # Resend
@@ -50,7 +50,7 @@ Look for this vendor in an `mcp.json` you opened, including `.cursor/mcp.json`. 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

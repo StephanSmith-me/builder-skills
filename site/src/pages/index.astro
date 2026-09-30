@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import RepoCallout from "../components/RepoCallout.astro";
-import { HEADSHOT_URL, MAIN_SITE } from "../lib/brand";
+import { HEADSHOT_URL, MAIN_SITE, OG_IMAGE_URL } from "../lib/brand";
 import { formatDaysAgo, publicRule } from "../lib/ruleMeta";
 
 const description =
@@ -53,7 +53,7 @@ const skills = [
 ];
 ---
 
-<Base title="You are good enough — Stephan Smith" description={description}>
+<Base title="You are good enough — Stephan Smith" description={description} ogImage={OG_IMAGE_URL}>
   <div class="mx-auto max-w-3xl text-center">
   <p class="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">
     AI Builder Rules

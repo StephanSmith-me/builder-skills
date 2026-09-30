@@ -2,7 +2,7 @@
 name: cursor-setup
 description: When the user wants the maturity of a Cursor or Claude editor setup. Use when they say Cursor, .cursor, .claude, mcp.json, my own skills, or imported skills. For Claude as a backend model in the app, use ai-status. For whether one vendor's MCP is set up and used, use that vendor's skill.
 metadata:
-  version: 0.1.3
+  version: 0.1.5
 ---
 
 # Cursor setup
@@ -37,7 +37,7 @@ Do not create the folder, the file, or a skill until the user says to.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

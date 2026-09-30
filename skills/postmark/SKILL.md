@@ -2,7 +2,7 @@
 name: postmark
 description: When the user wants the maturity of product email in this app, including where the Postmark send key lives. Use when they say Postmark, email template, transactional email, send key, or Supabase and Postmark both send. For Resend, use resend. For domain forwarding, use improvmx. For DMARC on Cloudflare, use email-delivery. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.4
+  version: 0.2.6
 ---
 
 # Postmark
@@ -50,7 +50,7 @@ Look for this vendor in an `mcp.json` you opened, including `.cursor/mcp.json`. 
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

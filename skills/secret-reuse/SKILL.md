@@ -2,7 +2,7 @@
 name: secret-reuse
 description: When the user wants to know if the same secret value is reused across Infisical settings, environments, or folders, or is leaking outside Infisical. Use when they say duplicate keys, shared secret, same value in two environments, or a leaked key. For a sensitive name the code never uses, or a key in the wrong place, use env-leak. For how the account is laid out, use infisical.
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 ---
 
 # Secret reuse
@@ -31,7 +31,7 @@ Do not move the key, and do not rotate it, unless the user asks.
 
 ## Report
 
-When you write a report or name what to do, follow `report`. Score effort and impact, then rank. Do not start the work.
+When you finish, follow `report`. Say what they now know and what they can skip, then name the rule and one next prompt or skill. When you name what to do, also score effort and impact, then rank. Do not start the work.
 
 ## Related skills
 

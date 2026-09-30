@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Builder skills for AI agents — tools that drive a build into production",
-    "version": "0.24.0",
+    "version": "0.24.4",
     "repository": "https://github.com/StephanSmith-me/builder-skills"
   },
   "plugins": [
     {
       "name": "builder-skills",
-      "description": "Skills that help an AI agent take a software build from intent through production. Scaffold only — skill bodies are stubs.",
+      "description": "Skills that help an AI agent take a software build into production. Methods for hosting, secrets, email, observability, and what to do next.",
       "source": "./"
     }
   ]
