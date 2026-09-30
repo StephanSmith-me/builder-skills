@@ -1,4 +1,0 @@
-{
-  "_comment": "Partner registry stub. One object per partner, then a sync script fills the README Partners block and tools/REGISTRY.md. Empty until the first partner.",
-  "partners": []
-}

@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { MAIN_SITE } from "../lib/brand";
+import { MAIN_SITE, REPO_URL } from "../lib/brand";
 import { listSkillTools } from "../lib/tools";
 import { loadSkills } from "../lib/skills";
 
@@ -28,7 +28,7 @@ const outcomes = [
   {
     slug: "scalability",
     href: "/scalability",
-    question: "How do I know my app will work in the wild when customers start to use it?",
+    question: "How do I know my app support more customers?",
     vendors: ["cloudflare", "render", "fly"],
   },
   {
@@ -75,32 +75,70 @@ const description = `${ruleCount} rules that drive AI-managed code and building.
 ---
 
 <Base title="Builder Skills for AI Agents — Stephan Smith" description={description} wide>
-  <p class="mt-8 max-w-2xl text-sm text-neutral-500 dark:text-neutral-400">
-    <a
-      href={`${MAIN_SITE}/vibe-coding-101/`}
-      class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
-    >
-      Vibe Coding 101
-    </a>
-  </p>
-  <h1 class="mt-3 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
-    Builder Skills for AI Agents
-  </h1>
-  <p class="mt-3 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-    {ruleCount} rules that drive AI-managed code and building.
-  </p>
-  <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
-    These are tools I use every day and write about. The stack is on
-    <a
-      href={`${MAIN_SITE}/tools-i-use`}
-      class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
-    >
-      Tools I Use
-    </a>.
-  </p>
-  <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">
-    From the work you can see, to the one task worth building.
-  </p>
+  <section class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <div class="max-w-2xl">
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+        <a
+          href={`${MAIN_SITE}/vibe-coding-101/`}
+          class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
+        >
+          Vibe Coding 101
+        </a>
+      </p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+        Builder Skills for AI Agents
+      </h1>
+      <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-400">
+        {ruleCount} rules that drive AI-managed code and building.
+      </p>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        These are tools I use every day and write about. The stack is on
+        <a
+          href={`${MAIN_SITE}/tools-i-use`}
+          class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
+        >
+          Tools I Use
+        </a>.
+      </p>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        From the work you can see, to the one task worth building.
+      </p>
+    </div>
+    <div class="mr-4 flex shrink-0 flex-col items-center gap-2 sm:mr-8">
+      <div class="relative">
+      <a
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-describedby="repo-popover"
+        class="hero-cta peer inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/35"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+        View the Github Repo
+      </a>
+      <p
+        id="repo-popover"
+        role="tooltip"
+        class="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-64 -translate-x-1/2 rounded-lg border border-neutral-200 bg-white px-3 py-2 text-left text-sm text-neutral-700 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100 peer-focus-visible:opacity-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200"
+      >
+        This project is open source. Feel free to take, use, and if you feel motivated, sponsor and give me a PR.
+      </p>
+      </div>
+      <p class="text-center text-sm text-neutral-500 dark:text-neutral-400">
+        Clone it, fork it, make it better.
+        <a
+          href="https://github.com/sponsors/d1b1"
+          class="underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-50"
+        >
+          Sponsor
+        </a>.
+      </p>
+    </div>
+  </section>
 
   <div id="gallery-skills">
   <div class="relative mt-10" id="outcome-flow">
@@ -264,3 +302,35 @@ const description = `${ruleCount} rules that drive AI-managed code and building.
   </div>
   <Fragment set:html={`<style>.vendor-check{opacity:0}${checkSelectors}{opacity:1}${panelSelectors}{background-color:#f6fef9;color:#14532d}</style>`} />
 </Base>
+
+<style>
+  .hero-cta {
+    background-image: linear-gradient(
+      to bottom,
+      #34d399 0%,
+      #14b882 22%,
+      #059669 48%,
+      #047857 100%
+    );
+  }
+
+  @keyframes hero-cta-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.045);
+    }
+  }
+
+  .hero-cta:hover {
+    animation: hero-cta-pulse 0.9s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cta:hover {
+      animation: none;
+    }
+  }
+</style>

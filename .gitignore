@@ -10,9 +10,6 @@ site/.astro/
 .claude/
 skills-lock.json
 
-# Local pattern clones at the repo root. Skill references/ folders stay tracked.
-/references/
-
 # Secrets
 .env
 .env.*

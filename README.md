@@ -1,43 +1,12 @@
 # Builder Skills for AI Agents
 
-Tools for AI to drive a build into production. Skills for coding agents that need a method for scope, architecture, implementation, review, and ship — not another marketing playbook. Works with Claude Code, Cursor, Codex, and any agent that supports the [Agent Skills spec](https://agentskills.io).
+Methods for a coding agent to take a build into production. Works with Claude Code, Cursor, Codex, and any agent that supports the [Agent Skills spec](https://agentskills.io).
 
 Built by [Stephan Smith](https://stephansmith.me).
 
-The methods are in `skills/`. `product-context` is still a stub. Where it shows up for subscribers is [ROLLOUT.md](ROLLOUT.md).
-
-The public catalog is [skills.stephansmith.me](https://skills.stephansmith.me), built from `skills/` by [`site/`](site/README.md). The install command does not include the site.
+The methods are in `skills/`. `product-context` is still a stub. The public catalog is [skills.stephansmith.me](https://skills.stephansmith.me). Installing skills does not install the site.
 
 **Contributions welcome.** [Open a PR](#contributing) or [an issue](https://github.com/StephanSmith-me/builder-skills/issues).
-
-## Partners
-
-None yet. The slot is here so a later registry can fill it without reshaping the README.
-
-<!-- PARTNERS:START -->
-<!-- PARTNERS:END -->
-
-Rules for a future partner live in [tools/PARTNERS.md](tools/PARTNERS.md). The machine-readable list is [partners.json](partners.json).
-
-## What are skills?
-
-Markdown files that give an agent a specific way of working. Installed into a project, the agent can tell when a build task matches a skill and follow that method.
-
-## How skills work together
-
-`product-context` is the foundation. Other skills read it before they ask questions. Implementation has Infisical. Review has one skill. The other lanes are empty.
-
-```
-                    ┌─────────────────────┐
-                    │   product-context   │
-                    │  (read this first)  │
-                    └──────────┬──────────┘
-                               │
-     ┌────────────┬────────────┼────────────┬──────────────────────┐
-     ▼            ▼            ▼            ▼                      ▼
-  Scope     Architecture   Implementation     Review                 Operations
-  (stub)       (stub)         infisical    implementation-review       (stub)
-```
 
 ## Available skills
 
@@ -111,85 +80,9 @@ git clone https://github.com/StephanSmith-me/builder-skills.git
 cp -R builder-skills/skills/* .agents/skills/
 ```
 
-### Option 4: Git submodule
-
-```bash
-git submodule add https://github.com/StephanSmith-me/builder-skills.git .agents/builder-skills
-```
-
-### Option 5: Fork and customize
-
-Fork, change the skills, clone the fork into the project that should use them.
-
-### Option 6: SkillKit
-
-```bash
-npx skillkit install StephanSmith-me/builder-skills
-npx skillkit install StephanSmith-me/builder-skills --skill product-context
-npx skillkit install StephanSmith-me/builder-skills --list
-```
-
 ## Usage
 
 Ask for the work in plain words. The agent follows the matching skill. `product-context` is still a stub and will say so.
-
-```
-"Write the product context for this build"
-→ product-context
-
-"Add a new builder skill for code review"
-→ copy skill-template
-```
-
-## Skill categories
-
-### Foundation
-- `product-context` — shared context every other skill reads first
-
-### Scope
-- Stub. No skills yet.
-
-### Architecture
-- Stub. No skills yet.
-
-### Implementation
-- `infisical` — when secrets leave a `.env` file, and how an authenticated account is laid out, including shared variables and deploy flags
-- `cloudflare` — tunnels, Pages, and Workers, including a staging preview and the deploy Action
-- `fly` — an alternative to AWS; deploy values and a hosted database, reviewed from the repo
-- `blindspots` — which Cloudflare features are in use, and which can wait
-- `github` — signals for the other assessments: a sourcemap Action, a schedule, and which branches run
-- `cursor-setup` — a `.cursor` or `.claude` folder, `mcp.json`, and whether skills are theirs or imported
-- `hosting` — GitHub for an HTML site, Cloudflare Pages when the ecosystem will matter
-- `marketing-site` — Surge for a low-end marketing site, or Astro, Jekyll, or pages still inside the React app
-- `astro` — pages, then front matter, then content types
-- `improvmx` — off-brand domains alias into the Gmail that is already the center
-- `email-delivery` — DMARC and ImprovMX on domains whose DNS is on Cloudflare
-- `postmark` — product email, where the send key lives, or a mix with Supabase
-- `resend` — product email through Resend, the key, the templates, and the vibe-coder signal
-- `inngest` — signup that will not scale; timeouts, dedup, ids, and Sentry inside the job
-- `posthog` — public sessions, a proxy, then the step from anonymous to a known user
-- `security` — username and password, Supabase Auth or a hand-built password schema, then platform providers
-- `supabase` — auth, functions, secrets versus an Infisical sync, migrations, and provider count
-- `algolia` — Supabase full text, or Algolia when search is the high-end customer value
-- `secret-reuse` — the same secret value reused across Infisical, or leaking outside it
-- `sentry` — observability matched to the project, from uncaught errors through milestones
-- `testing` — test libraries, test files, unit tests, end to end, and coverage, matched to the business
-- `ai-status` — model providers, where vectors live, and how far embeddings go
-
-### Review and ship
-- `observability` — follows `sentry` and brings that result back
-- `scalability` — follows `hosting`, `fly`, and `inngest`
-- `day-to-day` — follows the Cloudflare preview and deploy check
-- `env-inventory` — whether names in an env file still appear in the code.
-- `env-leak` — a sensitive name the code never uses, or a secret in the wrong place.
-- `implementation-review` — one vendor at a time, against its playbook page. Checklists are empty.
-- `stack-maturity` — where maturity is lumpy across the stack, and where time went
-
-### Operations
-- Stub. No skills yet.
-
-### Repo maintenance
-- `skill-template` — folder to copy when adding a skill
 
 ## Contributing
 
