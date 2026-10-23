@@ -1,6 +1,6 @@
 # Catalog site
 
-Static catalog for [skills.stephansmith.me](https://skills.stephansmith.me). Astro reads `../skills` at build time and writes `dist/`.
+Static catalog for [skills.stephansmith.me](https://skills.stephansmith.me). Astro reads `../skills` at build time and writes `dist/`. The same build writes [`/skills.json`](https://skills.stephansmith.me/skills.json): name, description, version, and page URL. The Rules app reads that file. It does not copy the skill bodies.
 
 `npx skills add` installs `skills/` only. This folder is not part of that install. `skill-template` is omitted from the catalog.
 
