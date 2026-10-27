@@ -2,7 +2,8 @@
 name: posthog
 description: When the user wants to know how this project tracks people, from anonymous public traffic to a known user. Use when they say PostHog, analytics, session replay, Hotjar, conversion, or anonymous users. For which env names the code still uses, use env-inventory. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.5
+  version: 0.1.6
+  tags: day-to-day
 ---
 
 # PostHog

@@ -2,7 +2,8 @@
 name: infisical
 description: When the user is deciding whether secrets should leave a hosted builder or a .env file, or wants an authenticated Infisical account reviewed. Use when they say Infisical, .env, Bolt, Lovable, second client, projects, syncs, shared variables, or auto-deploy. For whether the same value is reused, use secret-reuse. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.3.7
+  version: 0.3.10
+  tags: security day-to-day
 ---
 
 # Infisical
@@ -81,4 +82,4 @@ When you finish, follow `report`. Say what they now know and what they can skip,
 - `secret-reuse` — whether the same value is reused or leaking
 - `stack-maturity` — when secrets are ahead of another part of the stack
 - `env-inventory` — whether names in an env file still appear in the code
-- `implementation-review` — score an Infisical wiring that already exists
+- `infisical-lator` — cleanup once an Infisical project already exists

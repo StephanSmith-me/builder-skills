@@ -2,7 +2,8 @@
 name: resend
 description: When the user wants to know if this app sends with Resend. Use when they say Resend, resend.com, a Resend API key, or a Resend template. For Postmark, use postmark. For domain forwarding, use improvmx. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.6
+  version: 0.1.7
+  tags: day-to-day
 ---
 
 # Resend

@@ -11,6 +11,7 @@
     "preview": "node scripts/with-skills-env.mjs astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "gray-matter": "^4.0.3",

@@ -1,18 +1,83 @@
 ---
 import RulePage from "../components/RulePage.astro";
+import { HEADSHOT_URL, MAIN_SITE, REPO_URL } from "../lib/brand";
 ---
 
 <RulePage
   slug="whats-next"
-  description="What should I build next, given the assessments and the state of the stack?"
-  prompt="Review this app for /whats-next. From the assessments already in hand, what is the one thing I should build next? Match the current state. Lowest tech. Smallest amount of code, least work, highest impact. Do not give me a backlog."
-  subtitle="What should I build next?"
-  lead="This review reads the assessments you already have, then names one task. It fits the current state, uses the lowest tech that does the job, and is the smallest amount of code for the least work and the highest impact."
-  issues={[
-    "A next task got picked before any assessment status was in hand.",
-    "Several gaps are in view, and they became a backlog.",
-    "The next task adds a product the stack does not have, when a feature they already run would do the job.",
-    "The next task is more tech, or more code, than this stage needs.",
-    "The work started before you said to.",
-  ]}
-/>
+  description="I hope you found value in these skills. They are evolving, so if you want to keep up to date, you need to subscribe. Paid subscribers are loved even more."
+  subtitle=""
+  lead=""
+>
+  <p class="mt-6 text-xl leading-relaxed text-neutral-900 dark:text-neutral-50">
+    I hope you found value in these skills. They are evolving, so if you want to keep up to date, you need to
+    <a href={`${MAIN_SITE}/subscribe`} class="font-medium underline underline-offset-4">subscribe</a>.
+    <a href="https://members.stephansmith.me/upgrade" class="font-medium underline underline-offset-4">Paid subscribers</a>
+    are loved even more.
+  </p>
+  <section class="mt-10 flex items-start gap-6 sm:gap-8" aria-label="About Stephan">
+    <img
+      src={HEADSHOT_URL}
+      alt="Stephan Smith"
+      width="160"
+      height="160"
+      class="h-32 w-32 shrink-0 rounded-xl object-cover ring-1 ring-neutral-200 sm:h-40 sm:w-40 dark:ring-neutral-700"
+    />
+    <div class="max-w-xl">
+      <p class="text-lg font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+        I'm Stephan
+      </p>
+      <p class="mt-0.5 text-lg text-neutral-500 dark:text-neutral-400">
+        Tech Transactions and fractional CTO
+      </p>
+      <p class="mt-2 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+        I work across teams and projects. I review what people build with AI, and I help them get it out the door.
+      </p>
+    </div>
+  </section>
+  <ul class="mt-10 divide-y divide-neutral-200 border-t border-neutral-200 text-lg leading-relaxed text-neutral-900 dark:divide-neutral-800 dark:border-neutral-800 dark:text-neutral-50">
+    <li class="py-4 pr-12 sm:pr-16">
+      You can
+      <a href={`${MAIN_SITE}/subscribe`} class="font-medium underline underline-offset-4">subscribe</a>
+      to my newsletter for my weekly updates.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      You can
+      <a href="https://members.stephansmith.me/upgrade" class="font-medium underline underline-offset-4">upgrade</a>
+      for access to my MCP. It gives the rules a little bit more power.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      You can go over to
+      <a href={REPO_URL} class="font-medium underline underline-offset-4">this repository</a>
+      and like it on
+      <a href={REPO_URL} class="inline-flex items-center gap-1.5 font-medium underline underline-offset-4">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+        GitHub
+      </a>.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      You can get
+      <a href={`${MAIN_SITE}/services/sponsor-review`} class="font-medium underline underline-offset-4">sponsorship information</a>.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      You can
+      <a href="https://book.stephansmith.me" class="font-medium underline underline-offset-4">book time with me</a>
+      and see whether or not a deeper engagement makes sense.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      You can
+      <a href="mailto:stephan@stephansmith.me?subject=A%20skill%20to%20build" class="font-medium underline underline-offset-4">suggest a skill</a>
+      that you want built out or matured.
+    </li>
+    <li class="py-4 pr-12 sm:pr-16">
+      <a href={REPO_URL} class="font-medium underline underline-offset-4">This repo</a>
+      and all the code are completely open source and public. Pull the repo and submit a
+      <a href={`${REPO_URL}/pulls`} class="font-medium underline underline-offset-4">pull request</a>
+      if you want to change or modify a skill. I 100% would love some help.
+    </li>
+  </ul>
+</RulePage>

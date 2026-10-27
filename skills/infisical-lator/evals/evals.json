@@ -1,0 +1,28 @@
+{
+  "skill_name": "infisical-lator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We already use Infisical. The same API key name is in two folders. Clean this project up.",
+      "expected_output": "Treats this as a cleanup of an existing Infisical project. Names both places, recommends one shared folder in a From / To / Action / Risk row, and does not print a value, push to Infisical, or run the Infisical CLI.",
+      "assertions": [
+        "Treats the account as already set up",
+        "Names both places without printing a value",
+        "Recommends one shared folder",
+        "Includes From, To, Action, and Risk",
+        "Does not push to Infisical or run the Infisical CLI"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Should we move off the .env in Lovable?",
+      "expected_output": "Uses infisical. Does not run the cleanup.",
+      "assertions": [
+        "Uses the infisical skill",
+        "Does not clean up an existing Infisical project"
+      ],
+      "files": []
+    }
+  ]
+}

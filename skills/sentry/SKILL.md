@@ -2,7 +2,8 @@
 name: sentry
 description: "When the user wants the Sentry ladder for this project: error checking, logging, sourcemaps, milestones, and dashboards. Use when they say Sentry, uncaught errors, logging, milestones, dashboards, or Seer. For the observability review, use observability. For whether a GitHub Action sends the sourcemap, use github. Includes whether this vendor's MCP is set up and used."
 metadata:
-  version: 0.2.7
+  version: 0.2.8
+  tags: observability
 ---
 
 # Sentry

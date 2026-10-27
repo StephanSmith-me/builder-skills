@@ -1,16 +1,23 @@
 ---
 interface Props {
   skill?: string;
+  /** Quiet line for a page that already has a prompt box. */
+  plain?: boolean;
 }
 
-const { skill } = Astro.props;
+const { skill, plain = false } = Astro.props;
 const command = skill
   ? `npx skills add StephanSmith-me/builder-skills --skill ${skill}`
   : "npx skills add StephanSmith-me/builder-skills";
 ---
 
 <div
-  class="install-command mt-8 flex flex-col gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 shadow-md shadow-neutral-900/10 sm:flex-row sm:items-center sm:justify-between dark:border-emerald-800 dark:bg-emerald-950 dark:shadow-black/40"
+  class:list={[
+    "install-command mt-8 flex flex-col gap-3 rounded-lg border px-4 py-3 sm:flex-row sm:items-center sm:justify-between",
+    plain
+      ? "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
+      : "border-emerald-200 bg-emerald-50 shadow-md shadow-neutral-900/10 dark:border-emerald-800 dark:bg-emerald-950 dark:shadow-black/40",
+  ]}
 >
   <code class="install-command__line overflow-x-auto font-mono font-bold text-neutral-900 dark:text-neutral-50">{command}</code>
   <button

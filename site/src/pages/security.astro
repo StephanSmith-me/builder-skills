@@ -4,20 +4,11 @@ import RulePage from "../components/RulePage.astro";
 
 <RulePage
   slug="security"
-  description="Security is a big topic. Start with public and private routes, and keys and tokens kept out of the code."
+  description="Security is one of these issues in which developers will argue long and late into the night, and so there are a lot of different ways to approach it. Matching security to where your business is now and getting comfortable so that you can go to bed at night knowing your application is safe is a set of prompts, not one single prompt."
   prompt="Review this app for /security. Are public routes public, and are private routes or features protected? Are keys and tokens out of the code? Find the issues, then give me a plan for what to handle first, second, and third."
-  subtitle="How do I know my app is secure and ready for active customers?"
-  lead="Security is a big topic. These are the simple things to check. This skill finds the issues and builds a plan for what to handle first, second, and third."
-  parts={[
-    {
-      name: "Public and private",
-      detail: "Are public routes public, and are private routes or features protected?",
-    },
-    {
-      name: "Keys and tokens",
-      detail: "Are you keeping keys and tokens out of the code?",
-    },
-  ]}
+  subtitle=""
+  lead="Security is one of these issues in which developers will argue long and late into the night, and so there are a lot of different ways to approach it. Matching security to where your business is now and getting comfortable so that you can go to bed at night knowing your application is safe is a set of prompts, not one single prompt."
+  posts={["friday-customs", "friday-shared-secrets", "friday-secure-mcps"]}
   issues={[
     "A route that should be public is locked, or a route that should be private is open.",
     "A feature only some people should use can be reached by anyone who knows the address.",

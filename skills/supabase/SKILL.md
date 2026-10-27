@@ -2,7 +2,8 @@
 name: supabase
 description: When the user wants to know how this app uses Supabase. Use when they say Supabase, auth, functions, migrations, Auth0, or secrets not synced. For search, Algolia or full text, use algolia. For a hand-built password column, use security. For where a secret should live, use infisical. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.6
+  version: 0.1.7
+  tags: security
 ---
 
 # Supabase

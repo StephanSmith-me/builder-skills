@@ -1,0 +1,37 @@
+{
+  "skill_name": "skill-score",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Score the astro skill in this repo. Don't change it.",
+      "expected_output": "Runs scripts/score-spec.mjs on skills/astro. Reports spec pass or fail from the script. Scores the eight checks with a file or a quoted line for each. Does not edit the skill.",
+      "assertions": [
+        "Uses the script result for the spec line",
+        "Scores eight checks or stops because the spec failed",
+        "Does not edit skills/astro/SKILL.md"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The folder is skills/widget and SKILL.md says name: Widget. Score it.",
+      "expected_output": "Spec fail. The name does not match the directory and is not lowercase. No eight-check score.",
+      "assertions": [
+        "Says the spec failed",
+        "Names the directory mismatch or the uppercase name",
+        "Does not present a checks score as a pass"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add a skill called deploy-check.",
+      "expected_output": "This is skill-template, not a score. Does not score a folder that does not exist yet.",
+      "assertions": [
+        "Points at skill-template",
+        "Does not invent a score for a missing folder"
+      ],
+      "files": []
+    }
+  ]
+}

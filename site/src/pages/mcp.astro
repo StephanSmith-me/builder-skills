@@ -1,6 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
+import Writings from "../components/Writings.astro";
+import { writingsBy } from "../lib/tools";
 import { START_URL } from "../lib/brand";
+
+const writings = writingsBy(["friday-one-mcp-prompt", "friday-secure-mcps"]);
 
 const description =
   "Vibe code with a CTO in the tools you already use. Move from rules and skills to an MCP when you want memory.";
@@ -104,6 +108,7 @@ const tools = [
   <p class="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
     This comes with a subscription.
   </p>
+  <Writings posts={writings} />
   <p class="mt-8">
     <a
       href={START_URL}

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+dialog {
+  position: fixed;
+  inset: 0;
+  height: fit-content;
+  margin: auto;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @source "../**/*.{astro,ts}";

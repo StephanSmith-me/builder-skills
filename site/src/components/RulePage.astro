@@ -1,8 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
-import McpTransition from "./McpTransition.astro";
-import RepoCallout from "./RepoCallout.astro";
+import Install from "./Install.astro";
+import { REPO_URL } from "../lib/brand";
 import { formatRuleUpdated, publicRule } from "../lib/ruleMeta";
+import Subskills from "./Subskills.astro";
+import Writings from "./Writings.astro";
+import { writingsBy } from "../lib/tools";
 
 interface Part {
   name: string;
@@ -15,49 +18,147 @@ interface Part {
 interface Props {
   slug: string;
   description: string;
-  prompt: string;
+  prompt?: string;
   subtitle: string;
   lead: string;
   parts?: Part[];
-  issues: string[];
+  issues?: string[];
+  /** Ids from the shared writings list. */
+  posts?: string[];
   version?: string;
   updated?: string;
 }
 
-const { slug, description, prompt, subtitle, lead, parts = [], issues } = Astro.props;
+const { slug, description, prompt = "", subtitle, lead, parts = [], issues = [], posts = [] } = Astro.props;
+const writings = writingsBy(posts);
 const stamp = publicRule(slug);
 const version = Astro.props.version ?? stamp.version;
 const updated = Astro.props.updated ?? stamp.updated;
 
 const updatedLabel = formatRuleUpdated(updated);
+const isLead = slug === "whats-next";
+const showInstall = !isLead;
+const hasIntro = Boolean(subtitle || lead);
+const steps = [
+  { n: 1, slug: "day-to-day" },
+  { n: 2, slug: "observability" },
+  { n: 3, slug: "security" },
+  { n: 4, slug: "scalability" },
+  { n: 5, slug: "blindspots" },
+  { n: 6, slug: "whats-next" },
+];
+const stepIndex = steps.findIndex((step) => step.slug === slug);
+const prevStep = stepIndex > 0 ? steps[stepIndex - 1] : undefined;
+const nextStep = stepIndex >= 0 && stepIndex < steps.length - 1 ? steps[stepIndex + 1] : undefined;
 ---
 
 <Base title={`/${slug} — Stephan Smith`} description={description}>
-  <div class="mx-auto max-w-2xl">
-    <div class="mt-8 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-4 shadow-md shadow-neutral-900/10 dark:border-emerald-800 dark:bg-emerald-950 dark:shadow-black/40">
-      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
-        Prompt
-      </p>
-      <p class="mt-3 font-mono text-sm font-bold leading-relaxed text-neutral-900 dark:text-neutral-50">
-        {prompt}
-      </p>
-      <button
-        type="button"
-        data-copy={prompt}
-        class="mt-4 rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-700 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-white"
-      >
-        Copy
-      </button>
+  <div class:list={[isLead && "mx-auto max-w-4xl"]}>
+    <nav aria-label="Top skills" class="-mt-6 mb-3 flex justify-end sm:-mt-8">
+      <div class="inline-flex items-center rounded-full border border-neutral-200 bg-neutral-50 py-0.5 dark:border-neutral-800 dark:bg-neutral-900">
+        {
+          prevStep ? (
+            <a
+              href={`/${prevStep.slug}`}
+              aria-label={`Previous, /${prevStep.slug}`}
+              class="inline-flex h-7 w-7 items-center justify-center rounded-full text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6" />
+              </svg>
+            </a>
+          ) : (
+            <span class="inline-flex h-7 w-7" aria-hidden="true" />
+          )
+        }
+        <p class="px-1 text-xs font-medium tabular-nums tracking-tight text-neutral-500 dark:text-neutral-400">
+          <span aria-current="step" class="font-semibold text-neutral-900 dark:text-neutral-50">
+            {stepIndex + 1}
+          </span>
+          <span class="mx-1">of</span>
+          <span>{steps.length}</span>
+        </p>
+        {
+          nextStep ? (
+            <a
+              href={`/${nextStep.slug}`}
+              aria-label={`Next, /${nextStep.slug}`}
+              class="inline-flex h-7 w-7 items-center justify-center rounded-full text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6" />
+              </svg>
+            </a>
+          ) : (
+            <span class="inline-flex h-7 w-7" aria-hidden="true" />
+          )
+        }
+      </div>
+    </nav>
+    <div class:list={["flex flex-col gap-6", hasIntro && "md:flex-row md:items-start md:gap-12"]}>
+      <div class:list={[hasIntro && "md:w-72 md:shrink-0"]}>
+        <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+          /{slug}
+        </h1>
+        {
+          !isLead && (
+            <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+              v{version} · Updated {updatedLabel}
+            </p>
+          )
+        }
+      </div>
+      {
+        hasIntro && (
+          <div class="min-w-0 max-w-3xl flex-1">
+            {subtitle && <p class="text-xl leading-relaxed text-neutral-900 dark:text-neutral-50">{subtitle}</p>}
+            {lead && <p class:list={["text-xl leading-relaxed text-neutral-900 dark:text-neutral-50", subtitle && "mt-3"]}>{lead}</p>}
+          </div>
+        )
+      }
     </div>
-
-    <h1 class="mt-10 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
-      /{slug}
-    </h1>
-    <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-      v{version} · Updated {updatedLabel}
-    </p>
-    <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-400">{subtitle}</p>
-    <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-400">{lead}</p>
+    {
+      prompt && (
+        <>
+    <h2 class="mt-8 text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+      Kickoff prompt
+    </h2>
+    <div class="mt-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-4 shadow-md shadow-neutral-900/10 dark:border-emerald-800 dark:bg-emerald-950 dark:shadow-black/40">
+      <div class="flex items-start justify-between gap-8">
+        <p class="min-w-0 pt-1 font-mono text-sm font-bold leading-relaxed text-neutral-900 dark:text-neutral-50">
+          {prompt}
+        </p>
+        <button
+          type="button"
+          data-prompt-copy={prompt}
+          aria-label="Copy"
+          aria-haspopup="dialog"
+          class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-neutral-900 text-white hover:bg-neutral-700 disabled:cursor-wait dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-white"
+        >
+          <span
+            data-spinner
+            class="hidden h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent"
+          ></span>
+          <svg data-check class="hidden h-3.5 w-3.5" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M2.5 8.2 L6.2 11.6 L13.5 3.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <svg data-icon class="h-3.5 w-3.5" viewBox="0 0 16 16" aria-hidden="true">
+            <rect x="5.5" y="5.5" width="8" height="8" rx="1.25" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+            <path d="M10.5 5.5 V3.25 A1.25 1.25 0 0 0 9.25 2 H3.25 A1.25 1.25 0 0 0 2 3.25 V9.25 A1.25 1.25 0 0 0 3.25 10.5 H5.5" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+        </>
+      )
+    }
+    <slot />
     {
       parts.length > 0 && (
         <ol class="mt-6 space-y-4">
@@ -72,8 +173,8 @@ const updatedLabel = formatRuleUpdated(updated);
                     {part.detail}{" "}
                     <a
                       href={part.linkHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={part.linkHref.startsWith("http") ? "_blank" : undefined}
+                      rel={part.linkHref.startsWith("http") ? "noopener noreferrer" : undefined}
                       class="font-medium text-neutral-900 underline underline-offset-4 dark:text-neutral-50"
                     >
                       {part.linkLabel}
@@ -90,28 +191,104 @@ const updatedLabel = formatRuleUpdated(updated);
       )
     }
 
-    <h2 class="mt-10 text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-      Five things this rule looks for
-    </h2>
-    <ol class="mt-4 list-decimal space-y-3 pl-5 text-lg text-neutral-600 dark:text-neutral-400">
-      {issues.map((issue) => <li class="pl-1">{issue}</li>)}
-    </ol>
-    <RepoCallout />
-    <McpTransition />
+    <Subskills parent={slug} />
+    <Writings posts={writings} />
+
+    {
+      issues.length > 0 && (
+        <>
+          <h2 class="mt-10 text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+            Five things this rule looks for
+          </h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-5 text-lg text-neutral-600 dark:text-neutral-400">
+            {issues.map((issue) => <li class="pl-1">{issue}</li>)}
+          </ol>
+        </>
+      )
+    }
+    {
+      showInstall && (
+        <div class="mt-10 grid items-start gap-8 md:grid-cols-2">
+          <section aria-label="Install the skills">
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Copy this into your CLI to install the skills.
+            </p>
+            <div class="[&_.install-command]:mt-3">
+              <Install />
+            </div>
+            <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
+              Or go to
+              <a
+                href={REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium text-neutral-900 underline underline-offset-4 dark:text-neutral-50"
+              >
+                the repo
+              </a>
+              to get more instructions.
+            </p>
+          </section>
+          <section aria-label="Track over time">
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+              Track over time
+            </h2>
+            <p class="mt-3 rounded-lg border border-neutral-200 px-4 py-4 text-lg leading-relaxed text-neutral-900 dark:border-neutral-800 dark:text-neutral-50">
+              Hey, you want to go farther than a skill? Add memory with
+              <a href="/mcp" class="font-medium underline underline-offset-4">my MCP</a>.
+            </p>
+          </section>
+        </div>
+      )
+    }
   </div>
+  <dialog
+    id="prompt-install-dialog"
+    class="w-[calc(100%-2rem)] max-w-md rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 shadow-xl dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50"
+  >
+    <div class="flex items-start justify-between gap-4">
+      <h2 class="text-xl font-semibold tracking-tight">Install the skill</h2>
+      <button
+        type="button"
+        id="prompt-install-close"
+        class="text-sm text-neutral-500 underline-offset-4 hover:underline dark:text-neutral-400"
+      >
+        Close
+      </button>
+    </div>
+    <p class="mt-3 text-neutral-600 dark:text-neutral-400">
+      You will need to install the skill below in order to make this prompt work in your AI tooling.
+    </p>
+  </dialog>
 </Base>
 
 <script>
-  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((button) => {
-    if (button.closest(".install-command")) return;
+  const dialog = document.getElementById("prompt-install-dialog");
+  document.getElementById("prompt-install-close")?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-prompt-copy]").forEach((button) => {
+    const icon = button.querySelector("[data-icon]");
+    const spinner = button.querySelector("[data-spinner]");
+    const check = button.querySelector("[data-check]");
     button.addEventListener("click", async () => {
-      const value = button.dataset.copy ?? "";
-      await navigator.clipboard.writeText(value);
-      const previous = button.textContent;
-      button.textContent = "Copied";
+      if (button.disabled || !icon || !spinner || !check) return;
+      button.disabled = true;
+      icon.classList.add("hidden");
+      check.classList.add("hidden");
+      spinner.classList.remove("hidden");
+      await navigator.clipboard.writeText(button.dataset.promptCopy ?? "");
+      await new Promise((resolve) => window.setTimeout(resolve, 400));
+      spinner.classList.add("hidden");
+      check.classList.remove("hidden");
+      dialog?.showModal();
       window.setTimeout(() => {
-        button.textContent = previous;
-      }, 1400);
+        check.classList.add("hidden");
+        icon.classList.remove("hidden");
+        button.disabled = false;
+      }, 1600);
     });
   });
 </script>

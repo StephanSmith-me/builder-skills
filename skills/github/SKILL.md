@@ -2,7 +2,8 @@
 name: github
 description: When the user wants GitHub signals for the other assessments. Use when they say GitHub, Actions, .github, workspace, branch setup, or sourcemap. A sourcemap step feeds observability. A schedule feeds scalability. A Cloudflare deploy or preview branch is cloudflare. A Render deploy or preview is render. For whether Sentry should catch errors, use sentry. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.3.5
+  version: 0.3.6
+  tags: day-to-day
 ---
 
 # GitHub

@@ -2,7 +2,8 @@
 name: cloudflare
 description: When the user wants the Cloudflare setup reviewed for tunnels, Pages, and Workers, including preview branches and the deploy Action. Use when they say Cloudflare, tunnel, cloudflared, Pages, Workers, tunnel token, staging preview, or a Cloudflare deploy. For a Sentry sourcemap Action, use github. For where a secret should live, use infisical. For DMARC or email delivery on a domain, use email-delivery. For Fly as the host, use fly. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.9
+  version: 0.2.10
+  tags: observability scalability
 ---
 
 # Cloudflare

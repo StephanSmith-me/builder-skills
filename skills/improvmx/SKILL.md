@@ -2,7 +2,8 @@
 name: improvmx
 description: When the user wants email on an off-brand domain without a paid Google Workspace, Outlook, or Gmail account. Use when they say ImprovMX, email alias, MX records, forward to Gmail, or domain email. For a missing DMARC record on Cloudflare, use email-delivery. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.5
+  version: 0.2.6
+  tags: day-to-day
 ---
 
 # ImprovMX

@@ -2,7 +2,8 @@
 name: postmark
 description: When the user wants the maturity of product email in this app, including where the Postmark send key lives. Use when they say Postmark, email template, transactional email, send key, or Supabase and Postmark both send. For Resend, use resend. For domain forwarding, use improvmx. For DMARC on Cloudflare, use email-delivery. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.6
+  version: 0.2.7
+  tags: day-to-day
 ---
 
 # Postmark

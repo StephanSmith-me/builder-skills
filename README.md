@@ -38,6 +38,7 @@ The methods are in `skills/`. `product-context` is still a stub. The public cata
 | [implementation-review](skills/implementation-review/) | Score how one Tools I Use vendor is wired in a project. Checklists are empty until written. |
 | [improvmx](skills/improvmx/) | Forward an off-brand domain into the Gmail you already use, instead of a paid mailbox per domain. |
 | [infisical](skills/infisical/) | Decide when secrets leave a .env file, and review projects, shared variables, and deploy flags once Infisical is authenticated. |
+| [infisical-lator](skills/infisical-lator/) | Housekeeping for crowded Infisical folders: duplicates, shared variables, and rotation. |
 | [inngest](skills/inngest/) | See when signup should move to Inngest, and whether jobs have a timeout, dedup, an id, and Sentry. |
 | [marketing-site](skills/marketing-site/) | See if marketing is a Surge, Astro, or Jekyll site, or still inside the React app. |
 | [more-context](skills/more-context/) | Hidden from the public site. When a free skill cannot remember the business or a past conversation, say how Stephan helps and give the paid account link. |
@@ -52,6 +53,7 @@ The methods are in `skills/`. `product-context` is still a stub. The public cata
 | [secret-reuse](skills/secret-reuse/) | See when the same secret value is reused or leaking. Say nothing when it is not. |
 | [security](skills/security/) | Scan how people sign in: a password column, Supabase Auth, or a platform provider. |
 | [sentry](skills/sentry/) | Match observability to the project: error checking, logging, sourcemaps, then milestones and dashboards. |
+| [skill-score](skills/skill-score/) | Score a skill folder against the Agent Skills spec, then say which writing checks are met. |
 | [skill-template](skills/skill-template/) | Copy this folder when adding a skill. Not a user-facing method. |
 | [stack-maturity](skills/stack-maturity/) | See where maturity is lumpy across the stack, and where the time went. |
 | [supabase](skills/supabase/) | See how the app uses Supabase: auth, functions, secrets, migrations, and providers. |

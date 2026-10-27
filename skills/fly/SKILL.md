@@ -2,7 +2,8 @@
 name: fly
 description: When the user wants Fly instead of AWS, or wants the Fly setup reviewed in code. Use when they say Fly, Fly.io, Dockerfile, fly.toml, deploy token, or Fly Postgres. For cloudflared in that image, use cloudflare. For where a deploy secret should live, use infisical. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.2.5
+  version: 0.2.6
+  tags: observability scalability
 ---
 
 # Fly

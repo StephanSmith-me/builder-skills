@@ -2,7 +2,8 @@
 name: render
 description: When the user wants the Render setup reviewed, including how it ships. Use when they say Render, render.com, render.yaml, a Render preview, or a Render deploy. The CI/CD check is the same shape as Cloudflare Pages and Workers. For Cloudflare, use cloudflare. For a Sentry sourcemap Action, use github. For where a secret should live, use infisical. Includes whether this vendor's MCP is set up and used.
 metadata:
-  version: 0.1.3
+  version: 0.1.4
+  tags: observability scalability
 ---
 
 # Render

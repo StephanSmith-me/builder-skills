@@ -1,0 +1,83 @@
+---
+import Base from "../layouts/Base.astro";
+
+// Astro emits this as dist/404.html, which Cloudflare Pages serves with a real 404
+// status for unmatched paths.
+
+const variants = [
+  {
+    avif: "/dexter-qa-lead-1.avif",
+    jpg: "/dexter-qa-lead-1.jpg",
+    alt: "Dexter, a tabby cat in a rainbow bandana, sprawled upside down and fast asleep on a leather chair.",
+    caption: "Pictured: peak review throughput.",
+  },
+  {
+    avif: "/dexter-qa-lead-2.avif",
+    jpg: "/dexter-qa-lead-2.jpg",
+    alt: "Dexter lying upside down along a sunny deck railing, one eye open.",
+    caption: "Pictured: reviewing your URL, sideways.",
+  },
+  {
+    avif: "/dexter-qa-lead-3.avif",
+    jpg: "/dexter-qa-lead-3.jpg",
+    alt: "Dexter wedged head-first under a deck railing, both front paws poking through the slats.",
+    caption: "Pictured: reproducing the issue.",
+  },
+];
+---
+
+<Base
+  title="404 — Page not found — Stephan Smith"
+  description="This page is missing. Dexter, our QA and Editorial Lead, is on it."
+  robots="noindex,follow"
+  showSubscribe={false}
+>
+  <section>
+    <div class="max-w-2xl">
+      <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-neutral-50">
+        This page didn't pass review.
+      </h1>
+      <p class="mt-4 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+        Meet <strong class="font-medium text-neutral-800 dark:text-neutral-200">Dexter</strong>, our QA and Editorial
+        Lead. He has been with the company since he could fit in a shoe. His process is simple:
+        if a page isn't ready, he lies on it until it isn't a page anymore.
+      </p>
+      <p class="mt-3 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+        He offers no changelog and takes no meetings. We have asked. Repeatedly.
+      </p>
+    </div>
+
+    <figure class="mt-8 w-full">
+      <picture>
+        <source data-dexter-avif srcset={variants[0].avif} type="image/avif" />
+        <img
+          data-dexter-img
+          src={variants[0].jpg}
+          alt={variants[0].alt}
+          width="720"
+          height="960"
+          class="w-full rounded-2xl object-cover shadow-lg ring-1 ring-neutral-200 dark:ring-neutral-700"
+          decoding="async"
+        />
+      </picture>
+      <figcaption class="mt-3 text-center text-xs leading-relaxed text-neutral-500">
+        Dexter · QA &amp; Editorial Lead<br />
+        <span data-dexter-caption class="text-neutral-600 dark:text-neutral-300">{variants[0].caption}</span>
+      </figcaption>
+    </figure>
+  </section>
+  <script is:inline set:html={`
+      (function () {
+        var variants = ${JSON.stringify(variants)};
+        var pick = variants[Math.floor(Math.random() * variants.length)];
+        var img = document.querySelector('[data-dexter-img]');
+        var avif = document.querySelector('[data-dexter-avif]');
+        var caption = document.querySelector('[data-dexter-caption]');
+        if (!img || !avif || !caption) return;
+        avif.setAttribute('srcset', pick.avif);
+        img.setAttribute('src', pick.jpg);
+        img.setAttribute('alt', pick.alt);
+        caption.textContent = pick.caption;
+      })();
+    `} />
+</Base>

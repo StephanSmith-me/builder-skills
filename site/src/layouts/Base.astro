@@ -6,15 +6,18 @@ import PostHog from "../components/PostHog.astro";
 import GoogleTagManager from "../components/GoogleTagManager.astro";
 import GoogleTagManagerNoScript from "../components/GoogleTagManagerNoScript.astro";
 import SubscribePanel from "../components/SubscribePanel.astro";
+import { OG_IMAGE_URL } from "../lib/brand";
 
 interface Props {
   title: string;
   description: string;
   wide?: boolean;
   ogImage?: string;
+  robots?: string;
+  showSubscribe?: boolean;
 }
 
-const { title, description, wide = false, ogImage } = Astro.props;
+const { title, description, wide = false, ogImage = OG_IMAGE_URL, robots, showSubscribe = true } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -25,6 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonical} />
     {
       ogImage && (
@@ -66,7 +70,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <main class="pt-10 pb-12 sm:pt-12">
         <slot />
       </main>
-      <SubscribePanel />
+      {showSubscribe && <SubscribePanel />}
     </div>
     <SiteFooter wide={wide} />
     <PostHog />
