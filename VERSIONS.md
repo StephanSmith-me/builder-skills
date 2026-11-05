@@ -2,7 +2,7 @@
 
 Current versions. Agents compare this file to the `metadata.version` in a local `SKILL.md`.
 
-Repo release: **0.26.1** (Infisical-ator follows the Engine cleanup skill).
+Repo release: **0.26.2** (Infisical-ator eval 1 has a two-folder fixture).
 
 | Skill | Version | Last updated |
 |-------|---------|--------------|
@@ -28,7 +28,7 @@ Repo release: **0.26.1** (Infisical-ator follows the Engine cleanup skill).
 | implementation-review | 0.1.3 | 2026-09-30 |
 | improvmx | 0.2.6 | 2026-10-27 |
 | infisical | 0.3.10 | 2026-10-27 |
-| infisical-lator | 0.3.1 | 2026-10-27 |
+| infisical-lator | 0.3.2 | 2026-11-04 |
 | inngest | 0.3.5 | 2026-09-30 |
 | marketing-site | 0.1.4 | 2026-09-30 |
 | more-context | 0.1.3 | 2026-09-30 |

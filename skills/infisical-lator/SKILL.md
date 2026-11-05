@@ -2,7 +2,7 @@
 name: infisical-lator
 description: Scores secret management in an Infisical project and in dotfiles. Finds duplicate variables across folders and packages, recommends one shared labeled folder, tracks last modified times, and applies rotation rules. Use when they say Infisical-ator, clean up Infisical, crowded folders, or rotation. For a secret in the wrong file, use env-leak. For the same value reused, use secret-reuse. For whether secrets should leave a .env, use infisical. Do not print values or push to Infisical.
 metadata:
-  version: 0.3.1
+  version: 0.3.2
   tags: infisical security
   status: active
   maturity: new
