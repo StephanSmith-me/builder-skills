@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Builder skills for AI agents — tools that drive a build into production",
-    "version": "0.26.1",
+    "version": "0.26.2",
     "repository": "https://github.com/StephanSmith-me/builder-skills"
   },
   "plugins": [
